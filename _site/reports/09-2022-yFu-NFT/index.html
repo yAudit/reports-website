@@ -1,0 +1,1305 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  
+
+  
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.6/dist/mermaid.min.js"></script>
+  
+
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <script defer data-domain="reports.yAudit.dev" src="https://plausible.io/js/script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>09-2022-yFu-NFT | yAudit Reports</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="09-2022-yFu-NFT" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="yFu NFT yAcademy Report" />
+<meta property="og:description" content="yFu NFT yAcademy Report" />
+<link rel="canonical" href="http://localhost:4000/reports/09-2022-yFu-NFT/" />
+<meta property="og:url" content="http://localhost:4000/reports/09-2022-yFu-NFT/" />
+<meta property="og:site_name" content="yAudit Reports" />
+<meta property="og:image" content="http://localhost:4000/assets/images/logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/logo.png" />
+<meta property="twitter:title" content="09-2022-yFu-NFT" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"yFu NFT yAcademy Report","headline":"09-2022-yFu-NFT","image":"http://localhost:4000/assets/images/logo.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/yaudit-logo.jpg"}},"url":"http://localhost:4000/reports/09-2022-yFu-NFT/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+    <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="/" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      
+      
+        <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">yAudit Reports</a></li><li class="nav-list-item"><a href="/reports/03-2022-Ohm/" class="nav-list-link">03-2022-Ohm</a></li><li class="nav-list-item"><a href="/reports/04-2022-Ohm-Bond/" class="nav-list-link">04-2022-Ohm-Bond</a></li><li class="nav-list-item"><a href="/reports/04-2022-veYFI/" class="nav-list-link">04-2022-veYFI</a></li><li class="nav-list-item"><a href="/reports/05-2022-OpenMEVRouter/" class="nav-list-link">05-2022-OpenMEV</a></li><li class="nav-list-item"><a href="/reports/08-2022-Bunni/" class="nav-list-link">08-2022-Bunni</a></li><li class="nav-list-item"><a href="/reports/08-2022-Timeless-Yield-Daddy/" class="nav-list-link">08-2022-Timeless-Yield-Daddy</a></li><li class="nav-list-item active"><a href="/reports/09-2022-yFu-NFT/" class="nav-list-link active">09-2022-yFu-NFT</a></li><li class="nav-list-item"><a href="/reports/10-2022-NounsDAO-Token-Buyer/" class="nav-list-link">10-2022-NounsDAO-Token-Buyer</a></li><li class="nav-list-item"><a href="/reports/12-2022-Gro-Protocol/" class="nav-list-link">12-2022-Gro-Protocol</a></li><li class="nav-list-item external">
+      <a href="https://yaudit.dev/" class="nav-list-link external">
+        yAudit Website
+        <svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>
+      </a>
+    </li></ul>
+      
+      
+    </nav>
+
+    
+    
+      <footer class="site-footer">
+        <!-- This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll. -->
+      </footer>
+    
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+
+        
+
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search yAudit Reports" aria-label="Search yAudit Reports" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+      
+      <div id="main-content" class="main-content" role="main">
+        
+          <h1 class="no_toc" id="yacademy-yfu-nft-review">
+        
+        
+          <a href="#yacademy-yfu-nft-review" class="anchor-heading" aria-labelledby="yacademy-yfu-nft-review"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> yAcademy yFu NFT review
+        
+        
+      </h1>
+    
+
+<p><strong>Review Resources:</strong>
+None beyond the code repositories</p>
+
+<p><strong>Residents:</strong></p>
+<ul>
+  <li>blockdev</li>
+  <li>NibblerExpress</li>
+</ul>
+      <h2 class="no_toc" id="table-of-contents">
+        
+        
+          <a href="#table-of-contents" class="anchor-heading" aria-labelledby="table-of-contents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Table of Contents
+        
+        
+      </h2>
+    
+
+<ol id="markdown-toc">
+  <li><a href="#review-summary" id="markdown-toc-review-summary">Review Summary</a></li>
+  <li><a href="#scope" id="markdown-toc-scope">Scope</a></li>
+  <li><a href="#findings-explanation" id="markdown-toc-findings-explanation">Findings Explanation</a></li>
+  <li><a href="#medium-findings" id="markdown-toc-medium-findings">Medium Findings</a>    <ol>
+      <li><a href="#1-medium---no-function-to-freeze-transfers-after-unfreezing-them-blockdev" id="markdown-toc-1-medium---no-function-to-freeze-transfers-after-unfreezing-them-blockdev">1. Medium - No function to freeze transfers after unfreezing them (blockdev)</a>        <ol>
+          <li><a href="#technical-details" id="markdown-toc-technical-details">Technical Details</a></li>
+          <li><a href="#impact" id="markdown-toc-impact">Impact</a></li>
+          <li><a href="#recommendation" id="markdown-toc-recommendation">Recommendation</a></li>
+          <li><a href="#developer-response" id="markdown-toc-developer-response">Developer response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#low-findings" id="markdown-toc-low-findings">Low Findings</a>    <ol>
+      <li><a href="#1-low---fix-supportsinterface-blockdev" id="markdown-toc-1-low---fix-supportsinterface-blockdev">1. Low - Fix <code class="language-plaintext highlighter-rouge">supportsInterface()</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-1" id="markdown-toc-technical-details-1">Technical Details</a></li>
+          <li><a href="#impact-1" id="markdown-toc-impact-1">Impact</a></li>
+          <li><a href="#recommendation-1" id="markdown-toc-recommendation-1">Recommendation</a></li>
+          <li><a href="#developer-response-1" id="markdown-toc-developer-response-1">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#2-low---nft-minting-might-be-unfair-if-demand-is-high-blockdev" id="markdown-toc-2-low---nft-minting-might-be-unfair-if-demand-is-high-blockdev">2. Low - NFT minting might be unfair if demand is high (blockdev)</a>        <ol>
+          <li><a href="#technical-details-2" id="markdown-toc-technical-details-2">Technical Details</a></li>
+          <li><a href="#impact-2" id="markdown-toc-impact-2">Impact</a></li>
+          <li><a href="#recommendation-2" id="markdown-toc-recommendation-2">Recommendation</a></li>
+          <li><a href="#developer-response-2" id="markdown-toc-developer-response-2">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#3-low---add-sweep-functions-for-ether-and-erc20-tokens-blockdev" id="markdown-toc-3-low---add-sweep-functions-for-ether-and-erc20-tokens-blockdev">3. Low - Add sweep functions for Ether and ERC20 tokens (blockdev)</a>        <ol>
+          <li><a href="#technical-details-3" id="markdown-toc-technical-details-3">Technical Details</a></li>
+          <li><a href="#impact-3" id="markdown-toc-impact-3">Impact</a></li>
+          <li><a href="#recommendation-3" id="markdown-toc-recommendation-3">Recommendation</a></li>
+          <li><a href="#developer-response-3" id="markdown-toc-developer-response-3">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#4-low---use-call-to-transfer-ether-blockdev" id="markdown-toc-4-low---use-call-to-transfer-ether-blockdev">4. Low - Use <code class="language-plaintext highlighter-rouge">call</code> to transfer Ether (blockdev)</a>        <ol>
+          <li><a href="#technical-details-4" id="markdown-toc-technical-details-4">Technical Details</a></li>
+          <li><a href="#impact-4" id="markdown-toc-impact-4">Impact</a></li>
+          <li><a href="#recommendation-4" id="markdown-toc-recommendation-4">Recommendation</a></li>
+          <li><a href="#developer-response-4" id="markdown-toc-developer-response-4">Developer response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#gas-savings-findings" id="markdown-toc-gas-savings-findings">Gas Savings Findings</a>    <ol>
+      <li><a href="#1-gas---use-constant-and-internal-variables-blockdev" id="markdown-toc-1-gas---use-constant-and-internal-variables-blockdev">1. Gas - Use <code class="language-plaintext highlighter-rouge">constant</code> and <code class="language-plaintext highlighter-rouge">internal</code> variables (blockdev)</a>        <ol>
+          <li><a href="#technical-details-5" id="markdown-toc-technical-details-5">Technical Details</a></li>
+          <li><a href="#impact-5" id="markdown-toc-impact-5">Impact</a></li>
+          <li><a href="#recommendation-5" id="markdown-toc-recommendation-5">Recommendation</a></li>
+          <li><a href="#developer-response-5" id="markdown-toc-developer-response-5">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#2-gas---mark-public-functions-as-external-blockdev" id="markdown-toc-2-gas---mark-public-functions-as-external-blockdev">2. Gas - Mark public functions as <code class="language-plaintext highlighter-rouge">external</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-6" id="markdown-toc-technical-details-6">Technical Details</a></li>
+          <li><a href="#impact-6" id="markdown-toc-impact-6">Impact</a></li>
+          <li><a href="#recommendation-6" id="markdown-toc-recommendation-6">Recommendation</a></li>
+          <li><a href="#developer-response-6" id="markdown-toc-developer-response-6">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#3-gas---use-openzeppelins-ownable-instead-of-accesscontrol-blockdev" id="markdown-toc-3-gas---use-openzeppelins-ownable-instead-of-accesscontrol-blockdev">3. Gas - Use OpenZeppelin’s <code class="language-plaintext highlighter-rouge">Ownable</code> instead of <code class="language-plaintext highlighter-rouge">AccessControl</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-7" id="markdown-toc-technical-details-7">Technical Details</a></li>
+          <li><a href="#impact-7" id="markdown-toc-impact-7">Impact</a></li>
+          <li><a href="#recommendation-7" id="markdown-toc-recommendation-7">Recommendation</a></li>
+          <li><a href="#developer-response-7" id="markdown-toc-developer-response-7">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#4-gas---dont-transfer-mint-fee-to-depositaddress-on-each-mint-blockdev" id="markdown-toc-4-gas---dont-transfer-mint-fee-to-depositaddress-on-each-mint-blockdev">4. Gas - Don’t transfer mint fee to <code class="language-plaintext highlighter-rouge">depositAddress</code> on each mint (blockdev)</a>        <ol>
+          <li><a href="#technical-details-8" id="markdown-toc-technical-details-8">Technical Details</a></li>
+          <li><a href="#impact-8" id="markdown-toc-impact-8">Impact</a></li>
+          <li><a href="#recommendation-8" id="markdown-toc-recommendation-8">Recommendation</a></li>
+          <li><a href="#developer-response-8" id="markdown-toc-developer-response-8">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#5-gas---use-uint256-for-_tokenidcounter-blockdev" id="markdown-toc-5-gas---use-uint256-for-_tokenidcounter-blockdev">5. Gas - Use <code class="language-plaintext highlighter-rouge">uint256</code> for <code class="language-plaintext highlighter-rouge">_tokenIdCounter</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-9" id="markdown-toc-technical-details-9">Technical Details</a></li>
+          <li><a href="#impact-9" id="markdown-toc-impact-9">Impact</a></li>
+          <li><a href="#recommendation-9" id="markdown-toc-recommendation-9">Recommendation</a></li>
+          <li><a href="#developer-response-9" id="markdown-toc-developer-response-9">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#6-gas---explore-solmates-erc721-and-erc1155-implementation-blockdev" id="markdown-toc-6-gas---explore-solmates-erc721-and-erc1155-implementation-blockdev">6. Gas - Explore solmate’s ERC721 and ERC1155 implementation (blockdev)</a>        <ol>
+          <li><a href="#technical-details-10" id="markdown-toc-technical-details-10">Technical Details</a></li>
+          <li><a href="#impact-10" id="markdown-toc-impact-10">Impact</a></li>
+          <li><a href="#recommendation-10" id="markdown-toc-recommendation-10">Recommendation</a></li>
+          <li><a href="#developer-response-10" id="markdown-toc-developer-response-10">Developer response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#informational-findings" id="markdown-toc-informational-findings">Informational Findings</a>    <ol>
+      <li><a href="#1-informational---make-sure-to-add--at-the-end-of-ipfs-base-uri-blockdev" id="markdown-toc-1-informational---make-sure-to-add--at-the-end-of-ipfs-base-uri-blockdev">1. Informational - Make sure to add <code class="language-plaintext highlighter-rouge">/</code> at the end of IPFS base URI (blockdev)</a>        <ol>
+          <li><a href="#technical-details-11" id="markdown-toc-technical-details-11">Technical Details</a></li>
+          <li><a href="#impact-11" id="markdown-toc-impact-11">Impact</a></li>
+          <li><a href="#recommendation-11" id="markdown-toc-recommendation-11">Recommendation</a></li>
+          <li><a href="#developer-response-11" id="markdown-toc-developer-response-11">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#2-informational---_beforetokentransfer-should-be-marked-as-view-blockdev" id="markdown-toc-2-informational---_beforetokentransfer-should-be-marked-as-view-blockdev">2. Informational - <code class="language-plaintext highlighter-rouge">_beforeTokenTransfer()</code> should be marked as <code class="language-plaintext highlighter-rouge">view</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-12" id="markdown-toc-technical-details-12">Technical Details</a></li>
+          <li><a href="#impact-12" id="markdown-toc-impact-12">Impact</a></li>
+          <li><a href="#recommendation-12" id="markdown-toc-recommendation-12">Recommendation</a></li>
+          <li><a href="#developer-response-12" id="markdown-toc-developer-response-12">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#3-informational---add-unit-tests-to-gain-confidence-blockdev" id="markdown-toc-3-informational---add-unit-tests-to-gain-confidence-blockdev">3. Informational - Add unit tests to gain confidence (blockdev)</a>        <ol>
+          <li><a href="#technical-details-13" id="markdown-toc-technical-details-13">Technical Details</a></li>
+          <li><a href="#impact-13" id="markdown-toc-impact-13">Impact</a></li>
+          <li><a href="#recommendation-13" id="markdown-toc-recommendation-13">Recommendation</a></li>
+          <li><a href="#developer-response-13" id="markdown-toc-developer-response-13">Developer response</a></li>
+        </ol>
+      </li>
+      <li><a href="#4-informational---follow-solidity-style-guide-nibblerexpress" id="markdown-toc-4-informational---follow-solidity-style-guide-nibblerexpress">4. Informational - Follow Solidity style guide (NibblerExpress)</a>        <ol>
+          <li><a href="#technical-details-14" id="markdown-toc-technical-details-14">Technical Details</a></li>
+          <li><a href="#impact-14" id="markdown-toc-impact-14">Impact</a></li>
+          <li><a href="#recommendation-14" id="markdown-toc-recommendation-14">Recommendation</a></li>
+          <li><a href="#developer-response-14" id="markdown-toc-developer-response-14">Developer response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#final-remarks" id="markdown-toc-final-remarks">Final remarks</a>    <ol>
+      <li><a href="#blockdev" id="markdown-toc-blockdev">blockdev</a></li>
+      <li><a href="#nibblerexpress" id="markdown-toc-nibblerexpress">NibblerExpress</a></li>
+    </ol>
+  </li>
+  <li><a href="#about-yacademy" id="markdown-toc-about-yacademy">About yAcademy</a></li>
+</ol>
+      <h2 id="review-summary">
+        
+        
+          <a href="#review-summary" class="anchor-heading" aria-labelledby="review-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Review Summary
+        
+        
+      </h2>
+    
+
+<p><strong>yFu NFT</strong></p>
+
+<p>yFu is an ERC721 NFT collection where each token represents the same metadata. Minters will be able to claim a physical comic book.</p>
+
+<p>The main branch of the yfu-contracts <a href="https://github.com/MarcoWorms/yfu-contracts">Repo</a> was reviewed over 6 days. The contract was reviewed from September 1 to September 6, 2022. The code was reviewed by 2 residents for a total of 17 hours (blockdev 13 hours, NibblerExpress 4 hours). The review was limited to <a href="https://github.com/MarcoWorms/yfu-contracts/tree/edacf43d777a93711530b81a829099bb885f498e">one specific commit</a>.</p>
+      <h2 id="scope">
+        
+        
+          <a href="#scope" class="anchor-heading" aria-labelledby="scope"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Scope
+        
+        
+      </h2>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts">Code Repo</a>,
+<a href="https://github.com/MarcoWorms/yfu-contracts/tree/edacf43d777a93711530b81a829099bb885f498e">Commit</a></p>
+
+<p>The commit reviewed was edacf43d777a93711530b81a829099bb885f498e. The review covered the entire repository at this specific commit but focused on the only contract in the repository.</p>
+
+<p>After the findings were presented to the yFu team, fixes were made and included in several PRs.</p>
+
+<p>The review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.</p>
+
+<p>yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third party users that the code has been audited nor that the code is free from defects. By deploying or using the code, yFu and users of the contracts agree to use the code at their own risk.</p>
+      <h2 id="findings-explanation">
+        
+        
+          <a href="#findings-explanation" class="anchor-heading" aria-labelledby="findings-explanation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Findings Explanation
+        
+        
+      </h2>
+    
+
+<p>Findings are broken down into sections by their respective impact:</p>
+<ul>
+  <li>Critical, High, Medium, Low impact
+    <ul>
+      <li>These are findings that range from attacks that may cause loss of funds, impact control/ownership of the contracts, or cause any unintended consequences/actions that are outside the scope of the requirements</li>
+    </ul>
+  </li>
+  <li>Gas savings
+    <ul>
+      <li>Findings that can improve the gas efficiency of the contracts</li>
+    </ul>
+  </li>
+  <li>Informational
+    <ul>
+      <li>Findings including recommendations and best practices</li>
+    </ul>
+  </li>
+</ul><hr />
+      <h2 id="medium-findings">
+        
+        
+          <a href="#medium-findings" class="anchor-heading" aria-labelledby="medium-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Medium Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-medium---no-function-to-freeze-transfers-after-unfreezing-them-blockdev">
+        
+        
+          <a href="#1-medium---no-function-to-freeze-transfers-after-unfreezing-them-blockdev" class="anchor-heading" aria-labelledby="1-medium---no-function-to-freeze-transfers-after-unfreezing-them-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Medium - No function to freeze transfers after unfreezing them (blockdev)
+        
+        
+      </h3>
+    
+
+<p>NFT transfers are paused when <code class="language-plaintext highlighter-rouge">transfers_frozen = true</code>. Such is the case on contract deployment. Addresses with <code class="language-plaintext highlighter-rouge">DEFAULT_ADMIN_ROLE</code> can turn it off through <code class="language-plaintext highlighter-rouge">unfreeze_transfers()</code> function. However, once this is called, there is no way to set <code class="language-plaintext highlighter-rouge">transfers_frozen</code> to true again. So the transfers cannot be frozen again.</p>
+      <h4 id="technical-details">
+        
+        
+          <a href="#technical-details" class="anchor-heading" aria-labelledby="technical-details"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L16">YFUtechne.sol#L16</a>, <a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L33-L35">YFUtechne.sol#L33-L35</a></p>
+      <h4 id="impact">
+        
+        
+          <a href="#impact" class="anchor-heading" aria-labelledby="impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Medium. Once transfers are allowed, they cannot be turned off.</p>
+      <h4 id="recommendation">
+        
+        
+          <a href="#recommendation" class="anchor-heading" aria-labelledby="recommendation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Replace <code class="language-plaintext highlighter-rouge">unfreeze_transfers()</code> with:</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">set_transfers_frozen</span><span class="p">(</span><span class="kt">bool</span> <span class="n">b</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyRole</span><span class="p">(</span><span class="n">DEFAULT_ADMIN_ROLE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">transfers_frozen</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h4 id="developer-response">
+        
+        
+          <a href="#developer-response" class="anchor-heading" aria-labelledby="developer-response"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>This specification is intended by the product requirements. We wanted the contract to explicitly not allow transfers to be frozen again once unfrozen, so secondary market price action can flow freely without people thinking we can freeze again.</p>
+      <h2 id="low-findings">
+        
+        
+          <a href="#low-findings" class="anchor-heading" aria-labelledby="low-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Low Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-low---fix-supportsinterface-blockdev">
+        
+        
+          <a href="#1-low---fix-supportsinterface-blockdev" class="anchor-heading" aria-labelledby="1-low---fix-supportsinterface-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Low - Fix <code class="language-plaintext highlighter-rouge">supportsInterface()</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L65-L72"><code class="language-plaintext highlighter-rouge">YFUtechne.supportsInterface()</code></a> function overrides <code class="language-plaintext highlighter-rouge">ERC721.supportsInterface()</code> and <code class="language-plaintext highlighter-rouge">AccessControl.supportsInterface()</code>:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">supportsInterface</span><span class="p">(</span><span class="kt">bytes4</span> <span class="n">interfaceId</span><span class="p">)</span>
+    <span class="k">public</span>
+    <span class="k">view</span>
+    <span class="k">override</span><span class="p">(</span><span class="n">ERC721</span><span class="p">,</span> <span class="n">AccessControl</span><span class="p">)</span>
+    <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">supportsInterface</span><span class="p">(</span><span class="n">interfaceId</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Due to how solidity inherits contracts, calling <code class="language-plaintext highlighter-rouge">super.supportsInterface(interfaceId)</code> will call <code class="language-plaintext highlighter-rouge">AccessControl.supportsInterace()</code>. So for <code class="language-plaintext highlighter-rouge">type(IERC721).interfaceId</code>, this function will return <code class="language-plaintext highlighter-rouge">false</code>.</p>
+      <h4 id="technical-details-1">
+        
+        
+          <a href="#technical-details-1" class="anchor-heading" aria-labelledby="technical-details-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L65-L72">YFUtechne.sol#L65-L72</a></p>
+      <h4 id="impact-1">
+        
+        
+          <a href="#impact-1" class="anchor-heading" aria-labelledby="impact-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. Even though this NFT contract implements ERC721 interface, <code class="language-plaintext highlighter-rouge">supportsInterface()</code> called on ERC721’s <code class="language-plaintext highlighter-rouge">interfaceId</code> will return <code class="language-plaintext highlighter-rouge">false</code>.</p>
+      <h4 id="recommendation-1">
+        
+        
+          <a href="#recommendation-1" class="anchor-heading" aria-labelledby="recommendation-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Apply this diff:</p>
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">function supportsInterface(bytes4 interfaceId)
+</span>    public
+    view
+    override(ERC721, AccessControl)
+    returns (bool)
+<span class="err">{</span>
+-    return super.supportsInterface(interfaceId);
+<span class="gi">+    return ERC721.supportsInterface(interfaceId)
++        || AccessControl.supportsInterface(interfaceId);
+</span><span class="err">}</span>
+</code></pre></div></div>
+      <h4 id="developer-response-1">
+        
+        
+          <a href="#developer-response-1" class="anchor-heading" aria-labelledby="developer-response-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="2-low---nft-minting-might-be-unfair-if-demand-is-high-blockdev">
+        
+        
+          <a href="#2-low---nft-minting-might-be-unfair-if-demand-is-high-blockdev" class="anchor-heading" aria-labelledby="2-low---nft-minting-might-be-unfair-if-demand-is-high-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Low - NFT minting might be unfair if demand is high (blockdev)
+        
+        
+      </h3>
+    
+
+<p>The NFT mint function has no restrictions on address who can mint, and the number of tokens minted per address. If the demand of this collection is high, someone can mint all tokens to themselves in the worst case.</p>
+      <h4 id="technical-details-2">
+        
+        
+          <a href="#technical-details-2" class="anchor-heading" aria-labelledby="technical-details-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L41-L50">YFUtechne.sol#L41-L50</a></p>
+      <h4 id="impact-2">
+        
+        
+          <a href="#impact-2" class="anchor-heading" aria-labelledby="impact-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. The NFT team confirmed that this should not be an issue in practice. If it happens, they’ll re-deploy the contract, perhaps after addressing this issue.</p>
+      <h4 id="recommendation-2">
+        
+        
+          <a href="#recommendation-2" class="anchor-heading" aria-labelledby="recommendation-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider adding an address allowlist for minting. This is achieved through hashing all the addresses in a merkle tree, and storing the merkle root in the contract. Then add a max limit on total mints per address in the allowlist.</p>
+      <h4 id="developer-response-2">
+        
+        
+          <a href="#developer-response-2" class="anchor-heading" aria-labelledby="developer-response-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged. We are fine with this issue.</p>
+      <h3 id="3-low---add-sweep-functions-for-ether-and-erc20-tokens-blockdev">
+        
+        
+          <a href="#3-low---add-sweep-functions-for-ether-and-erc20-tokens-blockdev" class="anchor-heading" aria-labelledby="3-low---add-sweep-functions-for-ether-and-erc20-tokens-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Low - Add sweep functions for Ether and ERC20 tokens (blockdev)
+        
+        
+      </h3>
+    
+
+<p>In case, any Ether or ERC20 end up in this NFT contract’s balance, (due to user error or incorrect royalty settings on marketplaces), there’s no way to recover those funds.</p>
+      <h4 id="technical-details-3">
+        
+        
+          <a href="#technical-details-3" class="anchor-heading" aria-labelledby="technical-details-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol">YFUtechne.sol</a></p>
+      <h4 id="impact-3">
+        
+        
+          <a href="#impact-3" class="anchor-heading" aria-labelledby="impact-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. Funds sent to this contract accidentally will be lost.</p>
+      <h4 id="recommendation-3">
+        
+        
+          <a href="#recommendation-3" class="anchor-heading" aria-labelledby="recommendation-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Add functions <code class="language-plaintext highlighter-rouge">sweepEther()</code> and <code class="language-plaintext highlighter-rouge">sweepERC20()</code> which can only be called by addresses with special privileges (<code class="language-plaintext highlighter-rouge">DEFAULT_ADMIN_ROLE</code>). Call these functions to transfer any stuck funds out of the contract.</p>
+      <h4 id="developer-response-3">
+        
+        
+          <a href="#developer-response-3" class="anchor-heading" aria-labelledby="developer-response-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="4-low---use-call-to-transfer-ether-blockdev">
+        
+        
+          <a href="#4-low---use-call-to-transfer-ether-blockdev" class="anchor-heading" aria-labelledby="4-low---use-call-to-transfer-ether-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Low - Use <code class="language-plaintext highlighter-rouge">call</code> to transfer Ether (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">transfer()</code> uses a fixed gas stipend to the Ether receiver. This has a benfit that it doesn’t forward enough gas to allow the receiver to do any malicious action. However, <code class="language-plaintext highlighter-rouge">transfer()</code> can break in case the gas cost of Ether transfer is changed in future, or if the recipient wants to perform some non-malicious action.</p>
+      <h4 id="technical-details-4">
+        
+        
+          <a href="#technical-details-4" class="anchor-heading" aria-labelledby="technical-details-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L45">YFUtechne.sol#L45</a>: The mint fee is transferred to <code class="language-plaintext highlighter-rouge">depositAddress</code> as follows:</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">depositAddress</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="n">PRICE</span><span class="p">);</span>
+</code></pre></div></div>
+      <h4 id="impact-4">
+        
+        
+          <a href="#impact-4" class="anchor-heading" aria-labelledby="impact-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. If <code class="language-plaintext highlighter-rouge">depositAddress</code> is a contract which consumes more gas than the allocated gas stipend, mints will fail.</p>
+
+<p>The risk is limited as this address can be changed if that happens.</p>
+      <h4 id="recommendation-4">
+        
+        
+          <a href="#recommendation-4" class="anchor-heading" aria-labelledby="recommendation-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>The team should estimate on how long the minting period might go on. It’s unlikely that the gas cost of Ether transfer is changed in the short term. If the team sets the <code class="language-plaintext highlighter-rouge">depositAddress</code> such that it’s able to receive Ether in the gas stipend from <code class="language-plaintext highlighter-rouge">transfer()</code>, it’s fine to keep it as is.</p>
+
+<p>Otherwise, transfer Ether as follows:</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,</span> <span class="p">)</span> <span class="o">=</span> <span class="n">depositAddress</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span><span class="n">value</span><span class="o">:</span> <span class="n">PRICE</span><span class="p">}(</span><span class="s">""</span><span class="p">);</span>
+<span class="nb">require</span> <span class="p">(</span><span class="n">success</span><span class="p">,</span> <span class="s">"ETH transfer failed"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This would let <code class="language-plaintext highlighter-rouge">depositAddress</code> to reenter the contract. However, there is no risk through reentrancy, and this address is controlled by the admin.</p>
+      <h4 id="developer-response-4">
+        
+        
+          <a href="#developer-response-4" class="anchor-heading" aria-labelledby="developer-response-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h2 id="gas-savings-findings">
+        
+        
+          <a href="#gas-savings-findings" class="anchor-heading" aria-labelledby="gas-savings-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Gas Savings Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-gas---use-constant-and-internal-variables-blockdev">
+        
+        
+          <a href="#1-gas---use-constant-and-internal-variables-blockdev" class="anchor-heading" aria-labelledby="1-gas---use-constant-and-internal-variables-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Gas - Use <code class="language-plaintext highlighter-rouge">constant</code> and <code class="language-plaintext highlighter-rouge">internal</code> variables (blockdev)
+        
+        
+      </h3>
+    
+
+<p>For constant variables for which values are known at compile time, mark them as <code class="language-plaintext highlighter-rouge">constant</code> to save gas. Further, they can be marked <code class="language-plaintext highlighter-rouge">internal</code> since getter functions are created for <code class="language-plaintext highlighter-rouge">public</code> variables increasing the contract size.</p>
+      <h4 id="technical-details-5">
+        
+        
+          <a href="#technical-details-5" class="anchor-heading" aria-labelledby="technical-details-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L13-L14">YFUtechne.sol#L13-L14</a></p>
+      <h4 id="impact-5">
+        
+        
+          <a href="#impact-5" class="anchor-heading" aria-labelledby="impact-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-5">
+        
+        
+          <a href="#recommendation-5" class="anchor-heading" aria-labelledby="recommendation-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Replace the declarations of <code class="language-plaintext highlighter-rouge">MAX_SUPPLY</code> and <code class="language-plaintext highlighter-rouge">PRICE</code> with:</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint256</span> <span class="k">internal</span> <span class="k">constant</span> <span class="n">MAX_SUPPLY</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">uint256</span> <span class="k">internal</span> <span class="k">constant</span> <span class="n">PRICE</span> <span class="o">=</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">;</span>
+</code></pre></div></div>
+      <h4 id="developer-response-5">
+        
+        
+          <a href="#developer-response-5" class="anchor-heading" aria-labelledby="developer-response-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="2-gas---mark-public-functions-as-external-blockdev">
+        
+        
+          <a href="#2-gas---mark-public-functions-as-external-blockdev" class="anchor-heading" aria-labelledby="2-gas---mark-public-functions-as-external-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Gas - Mark public functions as <code class="language-plaintext highlighter-rouge">external</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>For public functions which are not accessed from the contract itself, marking them as <code class="language-plaintext highlighter-rouge">external</code> saves gas when they are called.</p>
+      <h4 id="technical-details-6">
+        
+        
+          <a href="#technical-details-6" class="anchor-heading" aria-labelledby="technical-details-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L25-L50">YFUtechne.sol#L25-L50</a></p>
+      <h4 id="impact-6">
+        
+        
+          <a href="#impact-6" class="anchor-heading" aria-labelledby="impact-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-6">
+        
+        
+          <a href="#recommendation-6" class="anchor-heading" aria-labelledby="recommendation-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>For the functions highlighted above, mark them as <code class="language-plaintext highlighter-rouge">external</code> instead of <code class="language-plaintext highlighter-rouge">public</code>.</p>
+      <h4 id="developer-response-6">
+        
+        
+          <a href="#developer-response-6" class="anchor-heading" aria-labelledby="developer-response-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="3-gas---use-openzeppelins-ownable-instead-of-accesscontrol-blockdev">
+        
+        
+          <a href="#3-gas---use-openzeppelins-ownable-instead-of-accesscontrol-blockdev" class="anchor-heading" aria-labelledby="3-gas---use-openzeppelins-ownable-instead-of-accesscontrol-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Gas - Use OpenZeppelin’s <code class="language-plaintext highlighter-rouge">Ownable</code> instead of <code class="language-plaintext highlighter-rouge">AccessControl</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>If there is only one role and it is only held by one address, using <code class="language-plaintext highlighter-rouge">Ownable</code> based access is gas-efficient than role based access control since instead of storing a nested map, a single storage variable is used.</p>
+      <h4 id="technical-details-7">
+        
+        
+          <a href="#technical-details-7" class="anchor-heading" aria-labelledby="technical-details-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L5">YFUtechne.sol#L5</a></p>
+      <h4 id="impact-7">
+        
+        
+          <a href="#impact-7" class="anchor-heading" aria-labelledby="impact-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-7">
+        
+        
+          <a href="#recommendation-7" class="anchor-heading" aria-labelledby="recommendation-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<ul>
+  <li>Inherit from OpenZeppelin’s <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol"><code class="language-plaintext highlighter-rouge">Ownable</code></a> contract instead of <code class="language-plaintext highlighter-rouge">AccessControl</code>.</li>
+  <li>Instead of <code class="language-plaintext highlighter-rouge">onlyRole(DEFAULT_ADMIN_ROLE)</code>, use <code class="language-plaintext highlighter-rouge">onlyOwnable</code>.</li>
+</ul>
+      <h4 id="developer-response-7">
+        
+        
+          <a href="#developer-response-7" class="anchor-heading" aria-labelledby="developer-response-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="4-gas---dont-transfer-mint-fee-to-depositaddress-on-each-mint-blockdev">
+        
+        
+          <a href="#4-gas---dont-transfer-mint-fee-to-depositaddress-on-each-mint-blockdev" class="anchor-heading" aria-labelledby="4-gas---dont-transfer-mint-fee-to-depositaddress-on-each-mint-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Gas - Don’t transfer mint fee to <code class="language-plaintext highlighter-rouge">depositAddress</code> on each mint (blockdev)
+        
+        
+      </h3>
+    
+
+<p>On each mint, 1 ether is transferred twice, first from minter to NFT contract, and then from the contract to <code class="language-plaintext highlighter-rouge">depositAddress</code>. This increases the gas cost of minting.</p>
+
+<p>Instead, the NFT contract can hold this ether which can be sweeped at once from an address with <code class="language-plaintext highlighter-rouge">DEFAULT_ADMIN_ROLE</code>.</p>
+      <h4 id="technical-details-8">
+        
+        
+          <a href="#technical-details-8" class="anchor-heading" aria-labelledby="technical-details-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L45">YFUtechne.sol#L45</a></p>
+      <h4 id="impact-8">
+        
+        
+          <a href="#impact-8" class="anchor-heading" aria-labelledby="impact-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-8">
+        
+        
+          <a href="#recommendation-8" class="anchor-heading" aria-labelledby="recommendation-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<ul>
+  <li>Remove all functionality related to <code class="language-plaintext highlighter-rouge">depositAddress</code> in <code class="language-plaintext highlighter-rouge">safeMint()</code> function (declaration, setter function, ether transfer).</li>
+  <li>Add a function <code class="language-plaintext highlighter-rouge">sweepEther()</code>:
+    <div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">sweepEther</span><span class="p">(</span><span class="kt">address</span> <span class="k">payable</span> <span class="n">_addr</span><span class="p">)</span> <span class="k">external</span> <span class="n">onlyRole</span><span class="p">(</span><span class="n">DEFAULT_ADMIN_ROLE</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,</span> <span class="p">)</span> <span class="o">=</span> <span class="n">_addr</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span><span class="n">value</span><span class="o">:</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">}(</span><span class="s">""</span><span class="p">);</span>
+  <span class="nb">require</span><span class="p">(</span><span class="n">success</span><span class="p">,</span> <span class="s">"!sweep"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+      <h4 id="developer-response-8">
+        
+        
+          <a href="#developer-response-8" class="anchor-heading" aria-labelledby="developer-response-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="5-gas---use-uint256-for-_tokenidcounter-blockdev">
+        
+        
+          <a href="#5-gas---use-uint256-for-_tokenidcounter-blockdev" class="anchor-heading" aria-labelledby="5-gas---use-uint256-for-_tokenidcounter-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Gas - Use <code class="language-plaintext highlighter-rouge">uint256</code> for <code class="language-plaintext highlighter-rouge">_tokenIdCounter</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>Using <code class="language-plaintext highlighter-rouge">uint256</code> instead of OpenZeppelin’s <code class="language-plaintext highlighter-rouge">Counter</code> can save gas due to less overhead of incrementing <code class="language-plaintext highlighter-rouge">_tokenCounter</code>.</p>
+      <h4 id="technical-details-9">
+        
+        
+          <a href="#technical-details-9" class="anchor-heading" aria-labelledby="technical-details-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L11">YFUtechne.sol#L11</a>, <a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L47-L49">YFUtechne.sol#L47-L49</a></p>
+      <h4 id="impact-9">
+        
+        
+          <a href="#impact-9" class="anchor-heading" aria-labelledby="impact-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-9">
+        
+        
+          <a href="#recommendation-9" class="anchor-heading" aria-labelledby="recommendation-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Declare <code class="language-plaintext highlighter-rouge">_tokenIdCounter</code> as <code class="language-plaintext highlighter-rouge">uint256</code>, and apply this diff:</p>
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">- uint256 tokenId = _tokenIdCounter.current();
+- _tokenIdCounter.increment();
+- _safeMint(to, tokenId);
+</span><span class="gi">+ _safeMint(to, tokenId++);
+</span></code></pre></div></div>
+      <h4 id="developer-response-9">
+        
+        
+          <a href="#developer-response-9" class="anchor-heading" aria-labelledby="developer-response-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="6-gas---explore-solmates-erc721-and-erc1155-implementation-blockdev">
+        
+        
+          <a href="#6-gas---explore-solmates-erc721-and-erc1155-implementation-blockdev" class="anchor-heading" aria-labelledby="6-gas---explore-solmates-erc721-and-erc1155-implementation-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. Gas - Explore solmate’s ERC721 and ERC1155 implementation (blockdev)
+        
+        
+      </h3>
+    
+
+<p>There are different ERC721 implementations like from OpenZeppelin, solmate, ERC721A. ERC721A gives gas benefits on batch minting, but are expensive on transfers. solmate’s ERC721 generally gives more gas savings than that of OpenZeppelin in every way.</p>
+
+<p>Since each token has the same image metadata, also consider exploring using ERC1155.</p>
+      <h4 id="technical-details-10">
+        
+        
+          <a href="#technical-details-10" class="anchor-heading" aria-labelledby="technical-details-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p>solmate’s <a href="https://github.com/transmissions11/solmate/blob/main/src/tokens/ERC721.sol">ERC721.sol</a>,
+solmate’s <a href="https://github.com/transmissions11/solmate/blob/main/src/tokens/ERC1155.sol">ERC1155.sol</a></p>
+      <h4 id="impact-10">
+        
+        
+          <a href="#impact-10" class="anchor-heading" aria-labelledby="impact-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-10">
+        
+        
+          <a href="#recommendation-10" class="anchor-heading" aria-labelledby="recommendation-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<ul>
+  <li>Replace the use of OpenZeppelin’s ERC721 implementation with solmate’s ERC721 implementation. This is certain to give gas saving.</li>
+  <li>Consider exploring ERC1155 and compare the gas costs between the two implementations.</li>
+</ul>
+      <h4 id="developer-response-10">
+        
+        
+          <a href="#developer-response-10" class="anchor-heading" aria-labelledby="developer-response-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Won’t fix.</p>
+      <h2 id="informational-findings">
+        
+        
+          <a href="#informational-findings" class="anchor-heading" aria-labelledby="informational-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Informational Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-informational---make-sure-to-add--at-the-end-of-ipfs-base-uri-blockdev">
+        
+        
+          <a href="#1-informational---make-sure-to-add--at-the-end-of-ipfs-base-uri-blockdev" class="anchor-heading" aria-labelledby="1-informational---make-sure-to-add--at-the-end-of-ipfs-base-uri-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Informational - Make sure to add <code class="language-plaintext highlighter-rouge">/</code> at the end of IPFS base URI (blockdev)
+        
+        
+      </h3>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">tokenURI()</code> function appends token ID to the IPFS base URI, hence it’s important to note that the URI should have <code class="language-plaintext highlighter-rouge">/</code> at the end of it to have a well-formed <code class="language-plaintext highlighter-rouge">tokenURI</code>.</p>
+      <h4 id="technical-details-11">
+        
+        
+          <a href="#technical-details-11" class="anchor-heading" aria-labelledby="technical-details-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p>OpenZeppelin’s <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/66ec91bc450ff997ca7f7291491f7a1e49107767/contracts/token/ERC721/ERC721.sol#L97">ERC721.sol#L97</a></p>
+      <h4 id="impact-11">
+        
+        
+          <a href="#impact-11" class="anchor-heading" aria-labelledby="impact-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational.</p>
+      <h4 id="recommendation-11">
+        
+        
+          <a href="#recommendation-11" class="anchor-heading" aria-labelledby="recommendation-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Make sure to add <code class="language-plaintext highlighter-rouge">/</code> at the end of IPFS base URI.</p>
+      <h4 id="developer-response-11">
+        
+        
+          <a href="#developer-response-11" class="anchor-heading" aria-labelledby="developer-response-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged</p>
+      <h3 id="2-informational---_beforetokentransfer-should-be-marked-as-view-blockdev">
+        
+        
+          <a href="#2-informational---_beforetokentransfer-should-be-marked-as-view-blockdev" class="anchor-heading" aria-labelledby="2-informational---_beforetokentransfer-should-be-marked-as-view-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Informational - <code class="language-plaintext highlighter-rouge">_beforeTokenTransfer()</code> should be marked as <code class="language-plaintext highlighter-rouge">view</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>Functions which only read storage space should be marked as <code class="language-plaintext highlighter-rouge">view</code>. Solidity compiler also warns about this at compile time.</p>
+      <h4 id="technical-details-12">
+        
+        
+          <a href="#technical-details-12" class="anchor-heading" aria-labelledby="technical-details-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol#L52">YFUtechne.sol#L52</a></p>
+      <h4 id="impact-12">
+        
+        
+          <a href="#impact-12" class="anchor-heading" aria-labelledby="impact-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational.</p>
+      <h4 id="recommendation-12">
+        
+        
+          <a href="#recommendation-12" class="anchor-heading" aria-labelledby="recommendation-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Mark <code class="language-plaintext highlighter-rouge">_beforeTokenTransfer()</code> as <code class="language-plaintext highlighter-rouge">view</code>.</p>
+      <h4 id="developer-response-12">
+        
+        
+          <a href="#developer-response-12" class="anchor-heading" aria-labelledby="developer-response-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Fixed in <a href="https://github.com/MarcoWorms/yfu-contracts/pull/8">PR#8</a></p>
+      <h3 id="3-informational---add-unit-tests-to-gain-confidence-blockdev">
+        
+        
+          <a href="#3-informational---add-unit-tests-to-gain-confidence-blockdev" class="anchor-heading" aria-labelledby="3-informational---add-unit-tests-to-gain-confidence-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Informational - Add unit tests to gain confidence (blockdev)
+        
+        
+      </h3>
+    
+
+<p>Unit tests helps to catch bugs early on and future-proofs a contract from bugs that are introduced later.</p>
+      <h4 id="technical-details-13">
+        
+        
+          <a href="#technical-details-13" class="anchor-heading" aria-labelledby="technical-details-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol">YFUtechne.sol</a></p>
+      <h4 id="impact-13">
+        
+        
+          <a href="#impact-13" class="anchor-heading" aria-labelledby="impact-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational.</p>
+      <h4 id="recommendation-13">
+        
+        
+          <a href="#recommendation-13" class="anchor-heading" aria-labelledby="recommendation-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Use any popular development environment for unit testing and local fork testing. Some things to test for would be:</p>
+<ul>
+  <li>The maximum number of tokens does not exceed <code class="language-plaintext highlighter-rouge">MAX_LIMIT</code>.</li>
+  <li>Only token owners and approved addresses can transfer NFT.</li>
+  <li>Fee is charged on mint.</li>
+  <li><code class="language-plaintext highlighter-rouge">tokenURI()</code> works correctly.</li>
+  <li><code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">symbol</code> is correct.</li>
+  <li>Access controlled function can only be called by approved addresses.</li>
+</ul>
+
+<p>We have separately provided a publicly available, MIT licensed NFT repository as a reference for unit tests.</p>
+
+<p>After unit testing, test the project on a test network before mainnet deployment.</p>
+      <h4 id="developer-response-13">
+        
+        
+          <a href="#developer-response-13" class="anchor-heading" aria-labelledby="developer-response-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged</p>
+      <h3 id="4-informational---follow-solidity-style-guide-nibblerexpress">
+        
+        
+          <a href="#4-informational---follow-solidity-style-guide-nibblerexpress" class="anchor-heading" aria-labelledby="4-informational---follow-solidity-style-guide-nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Informational - Follow Solidity style guide (NibblerExpress)
+        
+        
+      </h3>
+    
+
+<p>Some function and variable names do not follow the naming conventions of the Solidity style guide (e.g., <code class="language-plaintext highlighter-rouge">set_deposit_address()</code> rather than <code class="language-plaintext highlighter-rouge">setDepositAddress()</code>). The naming conventions of the style guide are available here: https://docs.soliditylang.org/en/v0.8.14/style-guide.html#naming-conventions</p>
+      <h4 id="technical-details-14">
+        
+        
+          <a href="#technical-details-14" class="anchor-heading" aria-labelledby="technical-details-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/MarcoWorms/yfu-contracts/blob/edacf43d777a93711530b81a829099bb885f498e/YFUtechne.sol">YFUtechne.sol</a></p>
+      <h4 id="impact-14">
+        
+        
+          <a href="#impact-14" class="anchor-heading" aria-labelledby="impact-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational.</p>
+      <h4 id="recommendation-14">
+        
+        
+          <a href="#recommendation-14" class="anchor-heading" aria-labelledby="recommendation-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Change variable and function names to mixedCase for readability.</p>
+      <h4 id="developer-response-14">
+        
+        
+          <a href="#developer-response-14" class="anchor-heading" aria-labelledby="developer-response-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged</p>
+      <h2 id="final-remarks">
+        
+        
+          <a href="#final-remarks" class="anchor-heading" aria-labelledby="final-remarks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Final remarks
+        
+        
+      </h2>
+    
+      <h3 id="blockdev">
+        
+        
+          <a href="#blockdev" class="anchor-heading" aria-labelledby="blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> blockdev
+        
+        
+      </h3>
+    
+
+<p>The contract is pretty short and avoids complexity. No major risks were found.</p>
+      <h3 id="nibblerexpress">
+        
+        
+          <a href="#nibblerexpress" class="anchor-heading" aria-labelledby="nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> NibblerExpress
+        
+        
+      </h3>
+    
+
+<p>There is some minor clean-up to be done, but the code otherwise relies on highly used standards that are likely to be secure.</p>
+      <h2 id="about-yacademy">
+        
+        
+          <a href="#about-yacademy" class="anchor-heading" aria-labelledby="about-yacademy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> About yAcademy
+        
+        
+      </h2>
+    
+
+<p><a href="https://yacademy.dev/">yAcademy</a> is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes <a href="https://yacademy.dev/fellowship-program/">a fellowship program</a>, a residents program, and <a href="https://yacademy.dev/guest-auditor-program/">a guest auditor program</a>. In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.</p>
+
+        
+
+        
+
+        
+        
+          <hr>
+          <footer>
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+
+            
+
+            
+              <div class="d-flex mt-2">
+                
+                
+              </div>
+            
+          </footer>
+        
+
+      </div>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+  <link rel="image_src" href="https://yaudit.dev/assets/images/logo.png" />
+</body>
+
+  <script>
+    var config = {}
+;
+    mermaid.initialize(config);
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  </script>
+
+</html>
+

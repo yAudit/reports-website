@@ -1,0 +1,1639 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  
+
+  
+    <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.6/dist/mermaid.min.js"></script>
+  
+
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+  <script defer data-domain="reports.yAudit.dev" src="https://plausible.io/js/script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>10-2022-NounsDAO-Token-Buyer | yAudit Reports</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="10-2022-NounsDAO-Token-Buyer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="NounsDAO Token Buyer yAcademy Report" />
+<meta property="og:description" content="NounsDAO Token Buyer yAcademy Report" />
+<link rel="canonical" href="http://localhost:4000/reports/10-2022-NounsDAO-Token-Buyer/" />
+<meta property="og:url" content="http://localhost:4000/reports/10-2022-NounsDAO-Token-Buyer/" />
+<meta property="og:site_name" content="yAudit Reports" />
+<meta property="og:image" content="http://localhost:4000/assets/images/logo.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/assets/images/logo.png" />
+<meta property="twitter:title" content="10-2022-NounsDAO-Token-Buyer" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"NounsDAO Token Buyer yAcademy Report","headline":"10-2022-NounsDAO-Token-Buyer","image":"http://localhost:4000/assets/images/logo.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/yaudit-logo.jpg"}},"url":"http://localhost:4000/reports/10-2022-NounsDAO-Token-Buyer/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewBox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewBox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewBox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewBox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+    <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="/" class="site-title lh-tight">
+  <div class="site-logo"></div>
+
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      
+      
+        <ul class="nav-list"><li class="nav-list-item"><a href="/" class="nav-list-link">yAudit Reports</a></li><li class="nav-list-item"><a href="/reports/03-2022-Ohm/" class="nav-list-link">03-2022-Ohm</a></li><li class="nav-list-item"><a href="/reports/04-2022-Ohm-Bond/" class="nav-list-link">04-2022-Ohm-Bond</a></li><li class="nav-list-item"><a href="/reports/04-2022-veYFI/" class="nav-list-link">04-2022-veYFI</a></li><li class="nav-list-item"><a href="/reports/05-2022-OpenMEVRouter/" class="nav-list-link">05-2022-OpenMEV</a></li><li class="nav-list-item"><a href="/reports/08-2022-Bunni/" class="nav-list-link">08-2022-Bunni</a></li><li class="nav-list-item"><a href="/reports/08-2022-Timeless-Yield-Daddy/" class="nav-list-link">08-2022-Timeless-Yield-Daddy</a></li><li class="nav-list-item"><a href="/reports/09-2022-yFu-NFT/" class="nav-list-link">09-2022-yFu-NFT</a></li><li class="nav-list-item active"><a href="/reports/10-2022-NounsDAO-Token-Buyer/" class="nav-list-link active">10-2022-NounsDAO-Token-Buyer</a></li><li class="nav-list-item"><a href="/reports/12-2022-Gro-Protocol/" class="nav-list-link">12-2022-Gro-Protocol</a></li><li class="nav-list-item external">
+      <a href="https://yaudit.dev/" class="nav-list-link external">
+        yAudit Website
+        <svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>
+      </a>
+    </li></ul>
+      
+      
+    </nav>
+
+    
+    
+      <footer class="site-footer">
+        <!-- This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll. -->
+      </footer>
+    
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+
+        
+
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search yAudit Reports" aria-label="Search yAudit Reports" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        
+      
+      <div id="main-content" class="main-content" role="main">
+        
+          <h1 class="no_toc" id="yacademy-nounsdao-token-buyer-review">
+        
+        
+          <a href="#yacademy-nounsdao-token-buyer-review" class="anchor-heading" aria-labelledby="yacademy-nounsdao-token-buyer-review"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> yAcademy NounsDAO Token Buyer review
+        
+        
+      </h1>
+    
+
+<p><strong>Review Resources:</strong>
+<a href="https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657">Code Repo</a>,
+<a href="https://github.com/nounsDAO/nouns-tech/tree/main/payment-in-stablecoins#readme">Spec</a></p>
+
+<p><strong>Residents:</strong></p>
+<ul>
+  <li>NibblerExpress</li>
+  <li>blockdev</li>
+</ul>
+      <h2 class="no_toc" id="table-of-contents">
+        
+        
+          <a href="#table-of-contents" class="anchor-heading" aria-labelledby="table-of-contents"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Table of Contents
+        
+        
+      </h2>
+    
+
+<ol id="markdown-toc">
+  <li><a href="#review-summary" id="markdown-toc-review-summary">Review Summary</a></li>
+  <li><a href="#scope" id="markdown-toc-scope">Scope</a></li>
+  <li><a href="#code-evaluation-matrix" id="markdown-toc-code-evaluation-matrix">Code Evaluation Matrix</a></li>
+  <li><a href="#findings-explanation" id="markdown-toc-findings-explanation">Findings Explanation</a></li>
+  <li><a href="#high-findings" id="markdown-toc-high-findings">High Findings</a>    <ol>
+      <li><a href="#1-high---price-range-should-be-within-chainlinks-range-blockdev-nibblerexpress" id="markdown-toc-1-high---price-range-should-be-within-chainlinks-range-blockdev-nibblerexpress">1. High - Price range should be within Chainlink’s range (blockdev, NibblerExpress)</a>        <ol>
+          <li><a href="#technical-details" id="markdown-toc-technical-details">Technical Details</a></li>
+          <li><a href="#impact" id="markdown-toc-impact">Impact</a></li>
+          <li><a href="#recommendation" id="markdown-toc-recommendation">Recommendation</a></li>
+          <li><a href="#developer-response" id="markdown-toc-developer-response">Developer Response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#medium-findings" id="markdown-toc-medium-findings">Medium Findings</a>    <ol>
+      <li><a href="#1-medium---eth-buyer-pays-the-gas-cost-of-debt-payments-blockdev" id="markdown-toc-1-medium---eth-buyer-pays-the-gas-cost-of-debt-payments-blockdev">1. Medium - ETH buyer pays the gas cost of debt payments (blockdev)</a>        <ol>
+          <li><a href="#technical-details-1" id="markdown-toc-technical-details-1">Technical Details</a></li>
+          <li><a href="#impact-1" id="markdown-toc-impact-1">Impact</a></li>
+          <li><a href="#recommendation-1" id="markdown-toc-recommendation-1">Recommendation</a></li>
+          <li><a href="#developer-response-1" id="markdown-toc-developer-response-1">Developer Response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#low-findings" id="markdown-toc-low-findings">Low Findings</a>    <ol>
+      <li><a href="#1-low---can-require-the-basis-point-values-to-be-less-than-10_000-blockdev" id="markdown-toc-1-low---can-require-the-basis-point-values-to-be-less-than-10_000-blockdev">1. Low - Can require the basis point values to be less than <code class="language-plaintext highlighter-rouge">10_000</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-2" id="markdown-toc-technical-details-2">Technical Details</a></li>
+          <li><a href="#impact-2" id="markdown-toc-impact-2">Impact</a></li>
+          <li><a href="#recommendation-2" id="markdown-toc-recommendation-2">Recommendation</a></li>
+          <li><a href="#developer-response-2" id="markdown-toc-developer-response-2">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#2-low---use-a-two-step-ownership-transfer-pattern-blockdev" id="markdown-toc-2-low---use-a-two-step-ownership-transfer-pattern-blockdev">2. Low - Use a two-step Ownership transfer pattern (blockdev)</a>        <ol>
+          <li><a href="#technical-details-3" id="markdown-toc-technical-details-3">Technical Details</a></li>
+          <li><a href="#impact-3" id="markdown-toc-impact-3">Impact</a></li>
+          <li><a href="#recommendation-3" id="markdown-toc-recommendation-3">Recommendation</a></li>
+          <li><a href="#developer-response-3" id="markdown-toc-developer-response-3">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#3-low---existing-debts-should-be-prioritized-in-sendorregisterdebt-blockdev" id="markdown-toc-3-low---existing-debts-should-be-prioritized-in-sendorregisterdebt-blockdev">3. Low - Existing debts should be prioritized in <code class="language-plaintext highlighter-rouge">sendOrRegisterDebt()</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-4" id="markdown-toc-technical-details-4">Technical Details</a></li>
+          <li><a href="#impact-4" id="markdown-toc-impact-4">Impact</a></li>
+          <li><a href="#recommendation-4" id="markdown-toc-recommendation-4">Recommendation</a></li>
+          <li><a href="#developer-response-4" id="markdown-toc-developer-response-4">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#4-low---risk-of-usdc-depeg-blockdev" id="markdown-toc-4-low---risk-of-usdc-depeg-blockdev">4. Low - Risk of USDC depeg (blockdev)</a>        <ol>
+          <li><a href="#technical-details-5" id="markdown-toc-technical-details-5">Technical Details</a></li>
+          <li><a href="#impact-5" id="markdown-toc-impact-5">Impact</a></li>
+          <li><a href="#recommendation-5" id="markdown-toc-recommendation-5">Recommendation</a></li>
+          <li><a href="#developer-response-5" id="markdown-toc-developer-response-5">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#5-low---fee-on-transfer-token-not-supported-blockdev" id="markdown-toc-5-low---fee-on-transfer-token-not-supported-blockdev">5. Low - Fee-on-transfer token not supported (blockdev)</a>        <ol>
+          <li><a href="#technical-details-6" id="markdown-toc-technical-details-6">Technical Details</a></li>
+          <li><a href="#impact-6" id="markdown-toc-impact-6">Impact</a></li>
+          <li><a href="#recommendation-6" id="markdown-toc-recommendation-6">Recommendation</a></li>
+          <li><a href="#developer-response-6" id="markdown-toc-developer-response-6">Developer Response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#gas-savings-findings" id="markdown-toc-gas-savings-findings">Gas Savings Findings</a>    <ol>
+      <li><a href="#1-gas---replace-owner-with-msgsender-in-withdrawpaymenttoken-blockdev" id="markdown-toc-1-gas---replace-owner-with-msgsender-in-withdrawpaymenttoken-blockdev">1. Gas - Replace <code class="language-plaintext highlighter-rouge">owner()</code> with <code class="language-plaintext highlighter-rouge">msg.sender</code> in <code class="language-plaintext highlighter-rouge">withdrawPaymentToken()</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-7" id="markdown-toc-technical-details-7">Technical Details</a></li>
+          <li><a href="#impact-7" id="markdown-toc-impact-7">Impact</a></li>
+          <li><a href="#recommendation-7" id="markdown-toc-recommendation-7">Recommendation</a></li>
+          <li><a href="#developer-response-7" id="markdown-toc-developer-response-7">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#2-gas---cache-totaldebt-in-paybackdebt-blockdev" id="markdown-toc-2-gas---cache-totaldebt-in-paybackdebt-blockdev">2. Gas - Cache <code class="language-plaintext highlighter-rouge">totalDebt</code> in <code class="language-plaintext highlighter-rouge">payBackDebt()</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-8" id="markdown-toc-technical-details-8">Technical Details</a></li>
+          <li><a href="#impact-8" id="markdown-toc-impact-8">Impact</a></li>
+          <li><a href="#recommendation-8" id="markdown-toc-recommendation-8">Recommendation</a></li>
+          <li><a href="#developer-response-8" id="markdown-toc-developer-response-8">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#3-gas---use-_debtamount-instead-of-debtamount-blockdev" id="markdown-toc-3-gas---use-_debtamount-instead-of-debtamount-blockdev">3. Gas - Use <code class="language-plaintext highlighter-rouge">_debtAmount</code> instead of <code class="language-plaintext highlighter-rouge">debt.amount</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-9" id="markdown-toc-technical-details-9">Technical Details</a></li>
+          <li><a href="#impact-9" id="markdown-toc-impact-9">Impact</a></li>
+          <li><a href="#recommendation-9" id="markdown-toc-recommendation-9">Recommendation</a></li>
+          <li><a href="#developer-response-9" id="markdown-toc-developer-response-9">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#4-gas---debtqueueempty-can-just-check-for-equality-blockdev" id="markdown-toc-4-gas---debtqueueempty-can-just-check-for-equality-blockdev">4. Gas - <code class="language-plaintext highlighter-rouge">DebtQueue.empty()</code> can just check for equality (blockdev)</a>        <ol>
+          <li><a href="#technical-details-10" id="markdown-toc-technical-details-10">Technical Details</a></li>
+          <li><a href="#impact-10" id="markdown-toc-impact-10">Impact</a></li>
+          <li><a href="#recommendation-10" id="markdown-toc-recommendation-10">Recommendation</a></li>
+          <li><a href="#developer-response-10" id="markdown-toc-developer-response-10">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#5-gas---precompute-decimal-factor-to-save-gas-and-avoid-magic-numbers-nibblerexpress" id="markdown-toc-5-gas---precompute-decimal-factor-to-save-gas-and-avoid-magic-numbers-nibblerexpress">5. Gas - Precompute decimal factor to save gas and avoid magic numbers (NibblerExpress)</a>        <ol>
+          <li><a href="#technical-details-11" id="markdown-toc-technical-details-11">Technical Details</a></li>
+          <li><a href="#impact-11" id="markdown-toc-impact-11">Impact</a></li>
+          <li><a href="#recommendation-11" id="markdown-toc-recommendation-11">Recommendation</a></li>
+          <li><a href="#developer-response-11" id="markdown-toc-developer-response-11">Developer Response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#informational-findings" id="markdown-toc-informational-findings">Informational Findings</a>    <ol>
+      <li><a href="#1-informational---tokenbuyer-may-not-use-the-entire-received-amount-to-pay-the-debt-blockdev" id="markdown-toc-1-informational---tokenbuyer-may-not-use-the-entire-received-amount-to-pay-the-debt-blockdev">1. Informational - <code class="language-plaintext highlighter-rouge">TokenBuyer</code> may not use the entire received amount to pay the debt (blockdev)</a>        <ol>
+          <li><a href="#technical-details-12" id="markdown-toc-technical-details-12">Technical Details</a></li>
+          <li><a href="#impact-12" id="markdown-toc-impact-12">Impact</a></li>
+          <li><a href="#recommendation-12" id="markdown-toc-recommendation-12">Recommendation</a></li>
+          <li><a href="#developer-response-12" id="markdown-toc-developer-response-12">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#2-informational---tokenbuyers-constructor-can-fetch-paymenttoken-from-payer-blockdev" id="markdown-toc-2-informational---tokenbuyers-constructor-can-fetch-paymenttoken-from-payer-blockdev">2. Informational - <code class="language-plaintext highlighter-rouge">TokenBuyer</code>’s constructor can fetch <code class="language-plaintext highlighter-rouge">paymentToken</code> from <code class="language-plaintext highlighter-rouge">payer</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-13" id="markdown-toc-technical-details-13">Technical Details</a></li>
+          <li><a href="#impact-13" id="markdown-toc-impact-13">Impact</a></li>
+          <li><a href="#recommendation-13" id="markdown-toc-recommendation-13">Recommendation</a></li>
+          <li><a href="#developer-response-13" id="markdown-toc-developer-response-13">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#3-informational---debtdeques-_begin-and-_end-can-be-uint128-blockdev" id="markdown-toc-3-informational---debtdeques-_begin-and-_end-can-be-uint128-blockdev">3. Informational - <code class="language-plaintext highlighter-rouge">DebtDeque</code>’s <code class="language-plaintext highlighter-rouge">_begin</code> and <code class="language-plaintext highlighter-rouge">_end</code> can be <code class="language-plaintext highlighter-rouge">uint128</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-14" id="markdown-toc-technical-details-14">Technical Details</a></li>
+          <li><a href="#impact-14" id="markdown-toc-impact-14">Impact</a></li>
+          <li><a href="#recommendation-14" id="markdown-toc-recommendation-14">Recommendation</a></li>
+          <li><a href="#developer-response-14" id="markdown-toc-developer-response-14">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#4-informational---review-tokens-before-supporting-them-via-tokenbuyer-blockdev" id="markdown-toc-4-informational---review-tokens-before-supporting-them-via-tokenbuyer-blockdev">4. Informational - Review tokens before supporting them via <code class="language-plaintext highlighter-rouge">TokenBuyer</code> (blockdev)</a>        <ol>
+          <li><a href="#technical-details-15" id="markdown-toc-technical-details-15">Technical Details</a></li>
+          <li><a href="#impact-15" id="markdown-toc-impact-15">Impact</a></li>
+          <li><a href="#recommendation-15" id="markdown-toc-recommendation-15">Recommendation</a></li>
+          <li><a href="#developer-response-15" id="markdown-toc-developer-response-15">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#5-informational---onlyadmin-is-not-used-nibblerexpress" id="markdown-toc-5-informational---onlyadmin-is-not-used-nibblerexpress">5. Informational - <code class="language-plaintext highlighter-rouge">onlyAdmin()</code> is not used (NibblerExpress)</a>        <ol>
+          <li><a href="#technical-details-16" id="markdown-toc-technical-details-16">Technical Details</a></li>
+          <li><a href="#impact-16" id="markdown-toc-impact-16">Impact</a></li>
+          <li><a href="#recommendation-16" id="markdown-toc-recommendation-16">Recommendation</a></li>
+          <li><a href="#developer-response-16" id="markdown-toc-developer-response-16">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#6-informational---consider-solidity-0816-or-higher-nibblerexpress" id="markdown-toc-6-informational---consider-solidity-0816-or-higher-nibblerexpress">6. Informational - Consider solidity 0.8.16 or higher (NibblerExpress)</a>        <ol>
+          <li><a href="#technical-details-17" id="markdown-toc-technical-details-17">Technical Details</a></li>
+          <li><a href="#impact-17" id="markdown-toc-impact-17">Impact</a></li>
+          <li><a href="#recommendation-17" id="markdown-toc-recommendation-17">Recommendation</a></li>
+          <li><a href="#developer-response-17" id="markdown-toc-developer-response-17">Developer Response</a></li>
+        </ol>
+      </li>
+      <li><a href="#7-informational---consider-adding-events-for-creating-and-paying-back-the-debt-if-the-debt-is-paid-back-on-creation-invader-tak" id="markdown-toc-7-informational---consider-adding-events-for-creating-and-paying-back-the-debt-if-the-debt-is-paid-back-on-creation-invader-tak">7. Informational - Consider adding events for creating and paying back the debt if the debt is paid back on creation (invader-tak)</a>        <ol>
+          <li><a href="#technical-details-18" id="markdown-toc-technical-details-18">Technical Details</a></li>
+          <li><a href="#impact-18" id="markdown-toc-impact-18">Impact</a></li>
+          <li><a href="#recommendation-18" id="markdown-toc-recommendation-18">Recommendation</a></li>
+          <li><a href="#developer-response-18" id="markdown-toc-developer-response-18">Developer Response</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#final-remarks" id="markdown-toc-final-remarks">Final remarks</a>    <ol>
+      <li><a href="#blockdev" id="markdown-toc-blockdev">blockdev</a></li>
+      <li><a href="#nibblerexpress" id="markdown-toc-nibblerexpress">NibblerExpress</a></li>
+    </ol>
+  </li>
+  <li><a href="#about-yacademy" id="markdown-toc-about-yacademy">About yAcademy</a></li>
+</ol>
+      <h2 id="review-summary">
+        
+        
+          <a href="#review-summary" class="anchor-heading" aria-labelledby="review-summary"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Review Summary
+        
+        
+      </h2>
+    
+
+<p><strong>NounsDAO Token Buyer</strong></p>
+
+<p>TokenBuyer’s purpose is to allow the NounsDAO to pay the proposals with ERC20 tokens. Since trading a large portion of ETH incurs slippage and is susceptible to sandwich attacks, this protocol uses Chainlink oracle to fetch ETH prices and allow anyone to sell their tokens against ETH.</p>
+
+<p>The contracts of Token Buyer <a href="https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657">Repo</a> were reviewed over 7 days, 1 day of which was used to create an initial overview of the contract. The code review was performed between October 11, 2022 and October 18, 2022. The code was reviewed by 2 residents for a total of 32 review hours (NibblerExpress 8 hours, blockdev 24 hours). The review was limited to the latest commit at the start of the review. This was commit <code class="language-plaintext highlighter-rouge">23d64ac7093f504ad4731bc4cf8d41b2c2943657</code> for the <code class="language-plaintext highlighter-rouge">token-buyer</code> repo.</p>
+      <h2 id="scope">
+        
+        
+          <a href="#scope" class="anchor-heading" aria-labelledby="scope"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Scope
+        
+        
+      </h2>
+    
+
+<p>The scope of the review consisted of the following contracts at the specific commit:</p>
+
+<ul>
+  <li>TokenBuyer.sol</li>
+  <li>PriceFeed.sol</li>
+  <li>Payer.sol</li>
+</ul>
+
+<p>After the findings were presented to the NounsDAO team, fixes were made and included in several PRs.</p>
+
+<p>This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.</p>
+
+<p>yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, NounsDAO and users of the contracts agree to use the code at their own risk.</p>
+      <h2 id="code-evaluation-matrix">
+        
+        
+          <a href="#code-evaluation-matrix" class="anchor-heading" aria-labelledby="code-evaluation-matrix"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Code Evaluation Matrix
+        
+        
+      </h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Mark</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Access Control</td>
+      <td>Good</td>
+      <td>Privileged functionality is restricted to the owner and admin.</td>
+    </tr>
+    <tr>
+      <td>Mathematics</td>
+      <td>Good</td>
+      <td>Decimal adjustment is done to convert between Oracle price and wad decimal.</td>
+    </tr>
+    <tr>
+      <td>Complexity</td>
+      <td>Good</td>
+      <td>Responsibilities are separated which reduces complexity.</td>
+    </tr>
+    <tr>
+      <td>Libraries</td>
+      <td>Good</td>
+      <td>Queue library from Open Zeppelin is modified to fit the need, others are imported.</td>
+    </tr>
+    <tr>
+      <td>Decentralization</td>
+      <td>Good</td>
+      <td>Core protocol functions are permissionless.</td>
+    </tr>
+    <tr>
+      <td>Code stability</td>
+      <td>Good</td>
+      <td>Changes were reviewed at a specific commit hash and the scope was not expanded after the review was started. The code reviewed had all features implemented.</td>
+    </tr>
+    <tr>
+      <td>Documentation</td>
+      <td>Good</td>
+      <td>Descriptive NatSpec comments are found in the interface contracts. The comments accurately describe the function. The spec contains helpful information about the intended use and purpose.</td>
+    </tr>
+    <tr>
+      <td>Monitoring</td>
+      <td>Average</td>
+      <td>Events are used.</td>
+    </tr>
+    <tr>
+      <td>Testing and verification</td>
+      <td>Good</td>
+      <td>Forge tests have high coverage and a deploy script is used.</td>
+    </tr>
+  </tbody>
+</table></div>
+      <h2 id="findings-explanation">
+        
+        
+          <a href="#findings-explanation" class="anchor-heading" aria-labelledby="findings-explanation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Findings Explanation
+        
+        
+      </h2>
+    
+
+<p>Findings are broken down into sections by their respective impact:</p>
+<ul>
+  <li>Critical, High, Medium, Low impact
+    <ul>
+      <li>These are findings that range from attacks that may cause loss of funds, impact control/ownership of the contracts, or cause any unintended consequences/actions that are outside the scope of the requirements</li>
+    </ul>
+  </li>
+  <li>Gas savings
+    <ul>
+      <li>Findings that can improve the gas efficiency of the contracts</li>
+    </ul>
+  </li>
+  <li>Informational
+    <ul>
+      <li>Findings including recommendations and best practices</li>
+    </ul>
+  </li>
+</ul><hr />
+      <h2 id="high-findings">
+        
+        
+          <a href="#high-findings" class="anchor-heading" aria-labelledby="high-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> High Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-high---price-range-should-be-within-chainlinks-range-blockdev-nibblerexpress">
+        
+        
+          <a href="#1-high---price-range-should-be-within-chainlinks-range-blockdev-nibblerexpress" class="anchor-heading" aria-labelledby="1-high---price-range-should-be-within-chainlinks-range-blockdev-nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. High - Price range should be within Chainlink’s range (blockdev, NibblerExpress)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">PriceFeed</code> is already deployed at <a href="https://etherscan.io/address/0x4050Cd1eDDB589fe26B62F8859968cC9a415cE7F#readContract"><code class="language-plaintext highlighter-rouge">0x4050Cd1eDDB589fe26B62F8859968cC9a415cE7F</code></a> according to the <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/script/DeployTokenBuyer.s.sol#L14">deploy script</a>. <code class="language-plaintext highlighter-rouge">priceLowerBound</code> is set to $100 * 10^{18}$, and <code class="language-plaintext highlighter-rouge">priceUpperBound</code> is set to $100,000 * 10^{18}$ which translate to $100 and $100K respectively.</p>
+
+<p>This is the Chainlink oracle <code class="language-plaintext highlighter-rouge">PriceFeed</code> is using: <a href="https://etherscan.io/address/0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419#readContract"><code class="language-plaintext highlighter-rouge">0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419</code></a> which uses this aggregator: <a href="https://etherscan.io/address/0x37bC7498f4FF12C19678ee8fE19d713b87F6a9e6#readContract"><code class="language-plaintext highlighter-rouge">0x37bC7498f4FF12C19678ee8fE19d713b87F6a9e6</code></a>. <code class="language-plaintext highlighter-rouge">minAnswer</code> and <code class="language-plaintext highlighter-rouge">maxAnswer</code> values from this aggregator are: $1 * {10^8}$ and $10,000 * {10 ^ 8}$ which translate to $1 and $10K. Chainlink will never report prices outside this range.</p>
+
+<p>Hence, the upper bound of $100K set in <code class="language-plaintext highlighter-rouge">PriceFeed</code> is not useful as the <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/PriceFeed.sol#L93">check</a> <code class="language-plaintext highlighter-rouge">priceWad &gt; priceUpperBound</code> is always <code class="language-plaintext highlighter-rouge">false</code>:</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">priceWAD</span> <span class="o">&lt;</span> <span class="n">priceLowerBound</span> <span class="o">||</span> <span class="n">priceWAD</span> <span class="o">&gt;</span> <span class="n">priceUpperBound</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">revert</span> <span class="n">InvalidPrice</span><span class="p">(</span><span class="n">priceWAD</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+      <h4 id="technical-details">
+        
+        
+          <a href="#technical-details" class="anchor-heading" aria-labelledby="technical-details"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/PriceFeed.sol#L93">PriceFeed.sol#L93</a></p>
+      <h4 id="impact">
+        
+        
+          <a href="#impact" class="anchor-heading" aria-labelledby="impact"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>High. If the market price moves above the upper bound specified by Chainlink, <code class="language-plaintext highlighter-rouge">TokenBuyer</code> will allow trades in the loss for Nouns DAO until the staleness check kicks in. <code class="language-plaintext highlighter-rouge">staleAfter</code> is set to 1 hour currently.</p>
+      <h4 id="recommendation">
+        
+        
+          <a href="#recommendation" class="anchor-heading" aria-labelledby="recommendation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Set <code class="language-plaintext highlighter-rouge">priceUpperBound</code> to a value &lt; $10,000 * 10^{18}$. Chainlink reports a new price in two scenarios:</p>
+<ol>
+  <li>The price moves beyond a certain deviation threshold.</li>
+  <li>The price has not been reported within a certain amount of time (aka heartbeat).</li>
+</ol>
+
+<p>Suppose you set your upper bound to $9K, and the market price movement is say from point $8K to $11K.</p>
+
+<p>There are 2 scenarios:</p>
+<ol>
+  <li>the price directly jumped from $8K to $11K, then the upper bound won’t be useful and only the staleness check will protect from trading. In this case, <code class="language-plaintext highlighter-rouge">priceUpperBound</code> is useless in both cases (in the current code and the recommendation).</li>
+  <li>the price moves from $8K -&gt; $9.5K -&gt; $11K, in this case, <code class="language-plaintext highlighter-rouge">priceUpperBound</code> will prevent <code class="language-plaintext highlighter-rouge">TokenBuyer</code> from making any trades. However, the current code will let it trade at $9.5K until the staleness check comes in. And this is a more likely scenario as Chainlink reports a price quickly when it moves above a certain deviation.</li>
+</ol>
+      <h4 id="developer-response">
+        
+        
+          <a href="#developer-response" class="anchor-heading" aria-labelledby="developer-response"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Our current path forward will be to set the cap at $8K, and in the future upgrade the price feed to check the diff between Chainlink and Univ3 TWAP and revert in case of a big difference.</p>
+      <h2 id="medium-findings">
+        
+        
+          <a href="#medium-findings" class="anchor-heading" aria-labelledby="medium-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Medium Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-medium---eth-buyer-pays-the-gas-cost-of-debt-payments-blockdev">
+        
+        
+          <a href="#1-medium---eth-buyer-pays-the-gas-cost-of-debt-payments-blockdev" class="anchor-heading" aria-labelledby="1-medium---eth-buyer-pays-the-gas-cost-of-debt-payments-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Medium - ETH buyer pays the gas cost of debt payments (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">buyETH()</code> function calls <code class="language-plaintext highlighter-rouge">payBackDebt()</code> which iterates over the queue and pays the debt of the first few elements. Iterating over the queue is a gas-intensive operation. If the queue is long relative to the buy amount, it may discourage the buyers as the extra gas costs may overshadow the discount.</p>
+      <h4 id="technical-details-1">
+        
+        
+          <a href="#technical-details-1" class="anchor-heading" aria-labelledby="technical-details-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L195">TokenBuyer.sol#L195</a>, <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L235">TokenBuyer.sol#L235</a></p>
+      <h4 id="impact-1">
+        
+        
+          <a href="#impact-1" class="anchor-heading" aria-labelledby="impact-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Medium. The extra gas costs may disincentivize trading through <code class="language-plaintext highlighter-rouge">TokenBuyer</code>.</p>
+      <h4 id="recommendation-1">
+        
+        
+          <a href="#recommendation-1" class="anchor-heading" aria-labelledby="recommendation-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider removing the debt payment in <code class="language-plaintext highlighter-rouge">buyETH()</code> functions. Anyone can call <code class="language-plaintext highlighter-rouge">payBackDebt()</code> separately for debt payments.</p>
+
+<p>Note: With this change, you can also consider calling <code class="language-plaintext highlighter-rouge">payBackDebt()</code> at the beginning of <code class="language-plaintext highlighter-rouge">sendOrRegisterDebt()</code> since the debt in the queue should be paid first.</p>
+      <h4 id="developer-response-1">
+        
+        
+          <a href="#developer-response-1" class="anchor-heading" aria-labelledby="developer-response-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>We are aware of this issue and prefer to use it as is in order to ensure better UX by not needing anyone to manually call <code class="language-plaintext highlighter-rouge">payBackDebt()</code>.</p>
+
+<p>We expect the queue to remain short at all times.
+In case the queue becomes longer, we can adjust the discount parameter to increase incentives for trading.</p>
+      <h2 id="low-findings">
+        
+        
+          <a href="#low-findings" class="anchor-heading" aria-labelledby="low-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Low Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-low---can-require-the-basis-point-values-to-be-less-than-10_000-blockdev">
+        
+        
+          <a href="#1-low---can-require-the-basis-point-values-to-be-less-than-10_000-blockdev" class="anchor-heading" aria-labelledby="1-low---can-require-the-basis-point-values-to-be-less-than-10_000-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Low - Can require the basis point values to be less than <code class="language-plaintext highlighter-rouge">10_000</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">TokenBuyer</code> takes several constructor arguments which are denominated in basis points. Constructor can require them to be &lt; <code class="language-plaintext highlighter-rouge">10_000</code> to be safe.</p>
+      <h4 id="technical-details-2">
+        
+        
+          <a href="#technical-details-2" class="anchor-heading" aria-labelledby="technical-details-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L146-L148">TokenBuyer.sol#L146-L148</a></p>
+      <h4 id="impact-2">
+        
+        
+          <a href="#impact-2" class="anchor-heading" aria-labelledby="impact-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. <code class="language-plaintext highlighter-rouge">price()</code> will return incorrect values in this case, however since the likelihood of this happening is low, the overall impact is limited.</p>
+      <h4 id="recommendation-2">
+        
+        
+          <a href="#recommendation-2" class="anchor-heading" aria-labelledby="recommendation-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider either:</p>
+<ul>
+  <li>Adding <code class="language-plaintext highlighter-rouge">require</code> checks in <code class="language-plaintext highlighter-rouge">TokenBuyer</code> constructor to assert that all the basis point values are &lt; <code class="language-plaintext highlighter-rouge">10_000</code>.</li>
+  <li>Adding these <code class="language-plaintext highlighter-rouge">require</code> checks in forge script.</li>
+</ul>
+      <h4 id="developer-response-2">
+        
+        
+          <a href="#developer-response-2" class="anchor-heading" aria-labelledby="developer-response-2"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/5e252d62ca786cfac220c384d34cfd13eac27cb5">5e252d6</a>.</p>
+      <h3 id="2-low---use-a-two-step-ownership-transfer-pattern-blockdev">
+        
+        
+          <a href="#2-low---use-a-two-step-ownership-transfer-pattern-blockdev" class="anchor-heading" aria-labelledby="2-low---use-a-two-step-ownership-transfer-pattern-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Low - Use a two-step Ownership transfer pattern (blockdev)
+        
+        
+      </h3>
+    
+
+<p>If a wrong address is passed to the function <code class="language-plaintext highlighter-rouge">transferOwnership()</code>, privileged functionality is permanently lost.</p>
+      <h4 id="technical-details-3">
+        
+        
+          <a href="#technical-details-3" class="anchor-heading" aria-labelledby="technical-details-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol">TokenBuyer.sol</a>, <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol">Payer.sol</a></p>
+      <h4 id="impact-3">
+        
+        
+          <a href="#impact-3" class="anchor-heading" aria-labelledby="impact-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low.</p>
+      <h4 id="recommendation-3">
+        
+        
+          <a href="#recommendation-3" class="anchor-heading" aria-labelledby="recommendation-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider implementing a two-step ownership transfer where the proposed new owner has to explicitly accept the role. OpenZeppelin now provides this functionality via <a href="https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.8/contracts/access/Ownable2Step.sol"><code class="language-plaintext highlighter-rouge">Ownable2Step.sol</code></a></p>
+      <h4 id="developer-response-3">
+        
+        
+          <a href="#developer-response-3" class="anchor-heading" aria-labelledby="developer-response-3"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>We intend for the owner of the contracts to be the nouns timelock, so any ownership transfer will go through a proposal process with ample time to check for errors.
+In addition, when we transfer the ownership to the DAO the first time, we don’t want to go through a proposal process in order to accept the ownership.</p>
+      <h3 id="3-low---existing-debts-should-be-prioritized-in-sendorregisterdebt-blockdev">
+        
+        
+          <a href="#3-low---existing-debts-should-be-prioritized-in-sendorregisterdebt-blockdev" class="anchor-heading" aria-labelledby="3-low---existing-debts-should-be-prioritized-in-sendorregisterdebt-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Low - Existing debts should be prioritized in <code class="language-plaintext highlighter-rouge">sendOrRegisterDebt()</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">sendOrRegisterDebt(account, amount)</code> uses current token balance to pay <code class="language-plaintext highlighter-rouge">account</code>. In the current design, any new balance bought through <code class="language-plaintext highlighter-rouge">TokenBuyer</code> pays the existing debt. So if <code class="language-plaintext highlighter-rouge">Payer</code> has a balance, it means that all the existing debt was cleared, or the payment token was directly transferred to it. In the second case, the token balance is used to pay <code class="language-plaintext highlighter-rouge">account</code> bypassing the existing debt in the queue.</p>
+      <h4 id="technical-details-4">
+        
+        
+          <a href="#technical-details-4" class="anchor-heading" aria-labelledby="technical-details-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol#L100">Payer.sol#L100</a></p>
+      <h4 id="impact-4">
+        
+        
+          <a href="#impact-4" class="anchor-heading" aria-labelledby="impact-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. Since the existing debt takes priority over the new debt, it should be paid first. It may also be seen as impartiality towards a party.</p>
+      <h4 id="recommendation-4">
+        
+        
+          <a href="#recommendation-4" class="anchor-heading" aria-labelledby="recommendation-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p><code class="language-plaintext highlighter-rouge">sendOrRegisterDebt()</code> can first call <code class="language-plaintext highlighter-rouge">payBackDebt()</code> and then proceed to pay the current account with the remaining amount.</p>
+      <h4 id="developer-response-4">
+        
+        
+          <a href="#developer-response-4" class="anchor-heading" aria-labelledby="developer-response-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>We don’t plan to send funds to the <code class="language-plaintext highlighter-rouge">Payer</code> not through the <code class="language-plaintext highlighter-rouge">TokenBuyer</code>. In case it does happen, we can manually trigger <code class="language-plaintext highlighter-rouge">payBackDebt()</code>.</p>
+      <h3 id="4-low---risk-of-usdc-depeg-blockdev">
+        
+        
+          <a href="#4-low---risk-of-usdc-depeg-blockdev" class="anchor-heading" aria-labelledby="4-low---risk-of-usdc-depeg-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Low - Risk of USDC depeg (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">PriceFeed</code> uses Chainlink oracle of ETH/USD for payment token USDC. This assumes that USDC is always pegged to $1. In the case that the USDC price moves below $1, <code class="language-plaintext highlighter-rouge">TokenBuyer</code> will make trades at a loss.</p>
+      <h4 id="technical-details-5">
+        
+        
+          <a href="#technical-details-5" class="anchor-heading" aria-labelledby="technical-details-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/script/DeployTokenBuyer.s.sol#L14">DeployTokenBuyer.s.sol</a></p>
+      <h4 id="impact-5">
+        
+        
+          <a href="#impact-5" class="anchor-heading" aria-labelledby="impact-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. USDC depegging can be considered an unlikely event. However, in case that happens, all the ETH locked in <code class="language-plaintext highlighter-rouge">TokenBuyer</code> will be making trades at a loss.</p>
+      <h4 id="recommendation-5">
+        
+        
+          <a href="#recommendation-5" class="anchor-heading" aria-labelledby="recommendation-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider using Chainlink’s <a href="https://data.chain.link/ethereum/mainnet/stablecoins/usdc-eth">USDC/ETH oracle</a>. Another option is to monitor USDC price off-chain and pause the contract in case it depegs. However, the risk is that the pause transaction can be frontrun by trade transactions.</p>
+      <h4 id="developer-response-5">
+        
+        
+          <a href="#developer-response-5" class="anchor-heading" aria-labelledby="developer-response-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+<p>Acknowledged, won’t fix.</p>
+
+<p>We prefer to use the ETH/USD oracle because of the significantly shorter heartbeat (1 hr vs 24 hrs).
+We are aware of the depeg risk and consider it very low for USDC.</p>
+      <h3 id="5-low---fee-on-transfer-token-not-supported-blockdev">
+        
+        
+          <a href="#5-low---fee-on-transfer-token-not-supported-blockdev" class="anchor-heading" aria-labelledby="5-low---fee-on-transfer-token-not-supported-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Low - Fee-on-transfer token not supported (blockdev)
+        
+        
+      </h3>
+    
+
+<p>The payment token is assumed to send the full amount to the receiver on a transfer. However, if a token like <a href="https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7#code">USDT</a> turns on a fee in the future, it can break accounting logic.</p>
+      <h4 id="technical-details-6">
+        
+        
+          <a href="#technical-details-6" class="anchor-heading" aria-labelledby="technical-details-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol">TokenBuyer.sol</a></p>
+      <h4 id="impact-6">
+        
+        
+          <a href="#impact-6" class="anchor-heading" aria-labelledby="impact-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Low. The payment token is defined by the deployer. The deployer can ensure the payment token does not and cannot take a fee on transfer (like USDT). The current code is fine for such an ERC20. However, if a fee-on-transfer ERC20 is used as the payment token, the code should be updated to handle the fee.</p>
+      <h4 id="recommendation-6">
+        
+        
+          <a href="#recommendation-6" class="anchor-heading" aria-labelledby="recommendation-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider one of the following two approaches:</p>
+<ul>
+  <li>Either ensure off-chain before deploying that the payment token is not a fee-on-transfer token.</li>
+  <li>Update the contract logic to calculate the tokens transferred by checking the token balance before and after a transfer.</li>
+</ul>
+      <h4 id="developer-response-6">
+        
+        
+          <a href="#developer-response-6" class="anchor-heading" aria-labelledby="developer-response-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>We don’t plan to use any tokens with fee-on-transfer in the near future. If we do, we will revise the logic.</p>
+      <h2 id="gas-savings-findings">
+        
+        
+          <a href="#gas-savings-findings" class="anchor-heading" aria-labelledby="gas-savings-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Gas Savings Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-gas---replace-owner-with-msgsender-in-withdrawpaymenttoken-blockdev">
+        
+        
+          <a href="#1-gas---replace-owner-with-msgsender-in-withdrawpaymenttoken-blockdev" class="anchor-heading" aria-labelledby="1-gas---replace-owner-with-msgsender-in-withdrawpaymenttoken-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Gas - Replace <code class="language-plaintext highlighter-rouge">owner()</code> with <code class="language-plaintext highlighter-rouge">msg.sender</code> in <code class="language-plaintext highlighter-rouge">withdrawPaymentToken()</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>In <code class="language-plaintext highlighter-rouge">onlyOwner</code> functions, <code class="language-plaintext highlighter-rouge">owner()</code> is always equal to <code class="language-plaintext highlighter-rouge">msg.sender</code>, otherwise it reverts. In these cases, using <code class="language-plaintext highlighter-rouge">msg.sender</code> instead of <code class="language-plaintext highlighter-rouge">owner()</code> saves gas since it prevents expensive storage read.</p>
+      <h4 id="technical-details-7">
+        
+        
+          <a href="#technical-details-7" class="anchor-heading" aria-labelledby="technical-details-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol#L123">Payer.sol#L123</a></p>
+      <h4 id="impact-7">
+        
+        
+          <a href="#impact-7" class="anchor-heading" aria-labelledby="impact-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-7">
+        
+        
+          <a href="#recommendation-7" class="anchor-heading" aria-labelledby="recommendation-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Replace <code class="language-plaintext highlighter-rouge">owner()</code> with <code class="language-plaintext highlighter-rouge">msg.sender</code>:</p>
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">function withdrawPaymentToken() external onlyOwner {
+</span><span class="gd">-   address to = owner();
+</span><span class="gi">+   address to = msg.sender;
+</span></code></pre></div></div>
+      <h4 id="developer-response-7">
+        
+        
+          <a href="#developer-response-7" class="anchor-heading" aria-labelledby="developer-response-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/906a3d38e22b4593dd260a3b56fdddf37acb0e68">906a3d3</a>.</p>
+      <h3 id="2-gas---cache-totaldebt-in-paybackdebt-blockdev">
+        
+        
+          <a href="#2-gas---cache-totaldebt-in-paybackdebt-blockdev" class="anchor-heading" aria-labelledby="2-gas---cache-totaldebt-in-paybackdebt-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Gas - Cache <code class="language-plaintext highlighter-rouge">totalDebt</code> in <code class="language-plaintext highlighter-rouge">payBackDebt()</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>In each iteration of the loop in <code class="language-plaintext highlighter-rouge">payBackDebt()</code>, the storage variable <code class="language-plaintext highlighter-rouge">totalDebt</code> is updated. Updating it only once at the end is a cheaper alternative since it updates storage only once.</p>
+      <h4 id="technical-details-8">
+        
+        
+          <a href="#technical-details-8" class="anchor-heading" aria-labelledby="technical-details-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol#L158">Payer.sol#L158</a>, <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol#L173">Payer.sol#L173</a></p>
+      <h4 id="impact-8">
+        
+        
+          <a href="#impact-8" class="anchor-heading" aria-labelledby="impact-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-8">
+        
+        
+          <a href="#recommendation-8" class="anchor-heading" aria-labelledby="recommendation-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider doing the following:</p>
+<ol>
+  <li>Cache <code class="language-plaintext highlighter-rouge">totalDebt</code> at the beginning.</li>
+  <li>Accumulate total debt paid in a separate variable.</li>
+  <li><code class="language-plaintext highlighter-rouge">break</code> instead of returning in the <code class="language-plaintext highlighter-rouge">if</code> condition.</li>
+  <li>Update <code class="language-plaintext highlighter-rouge">totalDebt</code> at the end.</li>
+</ol>
+      <h4 id="developer-response-8">
+        
+        
+          <a href="#developer-response-8" class="anchor-heading" aria-labelledby="developer-response-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/a4c601e72c826c10a6b5f7dd6ea93b7588c2b81c">a4c601e</a>.</p>
+      <h3 id="3-gas---use-_debtamount-instead-of-debtamount-blockdev">
+        
+        
+          <a href="#3-gas---use-_debtamount-instead-of-debtamount-blockdev" class="anchor-heading" aria-labelledby="3-gas---use-_debtamount-instead-of-debtamount-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Gas - Use <code class="language-plaintext highlighter-rouge">_debtAmount</code> instead of <code class="language-plaintext highlighter-rouge">debt.amount</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>Avoiding storage reads saves gas. Here, <code class="language-plaintext highlighter-rouge">debt.amount</code> can be replaced with <code class="language-plaintext highlighter-rouge">_debtAmount</code>.</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint96</span> <span class="n">_debtAmount</span> <span class="o">=</span> <span class="n">debt</span><span class="p">.</span><span class="n">amount</span><span class="p">;</span>
+<span class="kt">address</span> <span class="n">_debtAccount</span> <span class="o">=</span> <span class="n">debt</span><span class="p">.</span><span class="n">account</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">amount</span> <span class="o">&lt;</span> <span class="n">_debtAmount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Not enough to cover entire debt, pay what you can and leave
+</span>    <span class="c1">// cast is safe because `amount` &lt; `_debtAmount` (uint96)
+</span>    <span class="kt">uint96</span> <span class="n">remainingDebt</span> <span class="o">=</span> <span class="n">debt</span><span class="p">.</span><span class="n">amount</span> <span class="o">-</span> <span class="kt">uint96</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+</code></pre></div></div>
+      <h4 id="technical-details-9">
+        
+        
+          <a href="#technical-details-9" class="anchor-heading" aria-labelledby="technical-details-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol#L146-L152">Payer.sol#L146-L152</a></p>
+      <h4 id="impact-9">
+        
+        
+          <a href="#impact-9" class="anchor-heading" aria-labelledby="impact-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-9">
+        
+        
+          <a href="#recommendation-9" class="anchor-heading" aria-labelledby="recommendation-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Apply this diff:</p>
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">-uint96 remainingDebt = debt.amount - uint96(amount);
+</span><span class="gi">+uint96 remainingDebt = _debtAmount - uint96(amount);
+</span></code></pre></div></div>
+      <h4 id="developer-response-9">
+        
+        
+          <a href="#developer-response-9" class="anchor-heading" aria-labelledby="developer-response-9"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/14343d99350bc05687197349a670e6da960f4246">14343d9</a>.</p>
+      <h3 id="4-gas---debtqueueempty-can-just-check-for-equality-blockdev">
+        
+        
+          <a href="#4-gas---debtqueueempty-can-just-check-for-equality-blockdev" class="anchor-heading" aria-labelledby="4-gas---debtqueueempty-can-just-check-for-equality-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Gas - <code class="language-plaintext highlighter-rouge">DebtQueue.empty()</code> can just check for equality (blockdev)
+        
+        
+      </h3>
+    
+
+<p>Unless <code class="language-plaintext highlighter-rouge">_end</code> overflows, <code class="language-plaintext highlighter-rouge">_begin &lt;= _end</code> is an invariant. <code class="language-plaintext highlighter-rouge">DebtQueue</code> also mentions this in a comment:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// The interface preserves the invariant that begin &lt;= end
+</code></pre></div></div>
+<p>Hence,</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">empty</span><span class="p">(</span><span class="n">DebtDeque</span> <span class="k">storage</span> <span class="n">deque</span><span class="p">)</span> <span class="k">internal</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">deque</span><span class="p">.</span><span class="n">_end</span> <span class="o">&lt;=</span> <span class="n">deque</span><span class="p">.</span><span class="n">_begin</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>can be gas optimized by just checking <code class="language-plaintext highlighter-rouge">_end == _begin</code>.</p>
+      <h4 id="technical-details-10">
+        
+        
+          <a href="#technical-details-10" class="anchor-heading" aria-labelledby="technical-details-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/libs/DebtQueue.sol#L112">DebtQueue.sol#L112</a></p>
+      <h4 id="impact-10">
+        
+        
+          <a href="#impact-10" class="anchor-heading" aria-labelledby="impact-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-10">
+        
+        
+          <a href="#recommendation-10" class="anchor-heading" aria-labelledby="recommendation-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Apply this diff:</p>
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">function empty(DebtDeque storage deque) internal view returns (bool) {
+</span><span class="gd">-   return deque._end &lt;= deque._begin;
+</span><span class="gi">+   return deque._end == deque._begin;
+</span><span class="err">}</span>
+</code></pre></div></div>
+      <h4 id="developer-response-10">
+        
+        
+          <a href="#developer-response-10" class="anchor-heading" aria-labelledby="developer-response-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>To our understanding, the gas optimization here is very minor. We prefer to make less changes to the OZ Queue lib for such small gas gain.</p>
+      <h3 id="5-gas---precompute-decimal-factor-to-save-gas-and-avoid-magic-numbers-nibblerexpress">
+        
+        
+          <a href="#5-gas---precompute-decimal-factor-to-save-gas-and-avoid-magic-numbers-nibblerexpress" class="anchor-heading" aria-labelledby="5-gas---precompute-decimal-factor-to-save-gas-and-avoid-magic-numbers-nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Gas - Precompute decimal factor to save gas and avoid magic numbers (NibblerExpress)
+        
+        
+      </h3>
+    
+
+<p>The function <code class="language-plaintext highlighter-rouge">ethAmountPerTokenAmount()</code> calculates <code class="language-plaintext highlighter-rouge">((tokenAmount * 1e36) / price()) / paymentTokenDecimalsDigits</code>. The function could save gas and avoid using the magic number 1e36 by having the constructor precompute a decimal factor equal to Eth decimals * price decimals / payment token decimals (i.e., 1e36/paymentTokenDecimalsDigits). The factor could also be used in <code class="language-plaintext highlighter-rouge">tokenAmountPerEthAmount()</code>. This should be fine for USDC which only has 6 decimals. However, for payment tokens with high decimals, this can lead to precision loss.</p>
+      <h4 id="technical-details-11">
+        
+        
+          <a href="#technical-details-11" class="anchor-heading" aria-labelledby="technical-details-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L292">TokenBuyer.sol#L292</a>, <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L323">TokenBuyer.sol#L323</a></p>
+      <h4 id="impact-11">
+        
+        
+          <a href="#impact-11" class="anchor-heading" aria-labelledby="impact-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Gas savings.</p>
+      <h4 id="recommendation-11">
+        
+        
+          <a href="#recommendation-11" class="anchor-heading" aria-labelledby="recommendation-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Depending on the future plan, if only USDC is being used as a payment token, precompute the decimal factor as discussed above.</p>
+      <h4 id="developer-response-11">
+        
+        
+          <a href="#developer-response-11" class="anchor-heading" aria-labelledby="developer-response-11"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>We prefer to keep the implementation agnostic to the number of decimals used in the token and not make any assumptions.</p>
+      <h2 id="informational-findings">
+        
+        
+          <a href="#informational-findings" class="anchor-heading" aria-labelledby="informational-findings"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Informational Findings
+        
+        
+      </h2>
+    
+      <h3 id="1-informational---tokenbuyer-may-not-use-the-entire-received-amount-to-pay-the-debt-blockdev">
+        
+        
+          <a href="#1-informational---tokenbuyer-may-not-use-the-entire-received-amount-to-pay-the-debt-blockdev" class="anchor-heading" aria-labelledby="1-informational---tokenbuyer-may-not-use-the-entire-received-amount-to-pay-the-debt-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Informational - <code class="language-plaintext highlighter-rouge">TokenBuyer</code> may not use the entire received amount to pay the debt (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">buyETH(tokenAmount, to, data)</code> transfers <code class="language-plaintext highlighter-rouge">tokensReceived</code> amount of payment token to <code class="language-plaintext highlighter-rouge">payer</code>, but only uses <code class="language-plaintext highlighter-rouge">amount</code> to pay debt. If <code class="language-plaintext highlighter-rouge">tokensReceived &gt; amount</code>, more debt can be paid if <code class="language-plaintext highlighter-rouge">tokenReceived</code> is used. Additionally, the event emitted is incorrect:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">_payer</span><span class="p">.</span><span class="n">payBackDebt</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+<span class="k">emit</span> <span class="n">SoldETH</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">ethAmount</span><span class="p">,</span> <span class="n">amount</span><span class="p">);</span>
+</code></pre></div></div>
+      <h4 id="technical-details-12">
+        
+        
+          <a href="#technical-details-12" class="anchor-heading" aria-labelledby="technical-details-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L235-L237">TokenBuyer.sol#L235-L237</a></p>
+      <h4 id="impact-12">
+        
+        
+          <a href="#impact-12" class="anchor-heading" aria-labelledby="impact-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational. Anyone can call <code class="language-plaintext highlighter-rouge">payBackDebt()</code>, so even if a lower amount is used it just takes one more transaction to pay debt using the remaining received tokens. In reality, the extra tokens received will likely be dust.</p>
+      <h4 id="recommendation-12">
+        
+        
+          <a href="#recommendation-12" class="anchor-heading" aria-labelledby="recommendation-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Apply this diff to line 235:</p>
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gd">-_payer.payBackDebt(amount);
+</span><span class="gi">+_payer.payBackDebt(tokensReceived);
+</span><span class="gd">-emit SoldETH(to, ethAmount, amount);
+</span><span class="gi">+emit SoldETH(to, ethAmount, tokenReceived);
+</span></code></pre></div></div>
+      <h4 id="developer-response-12">
+        
+        
+          <a href="#developer-response-12" class="anchor-heading" aria-labelledby="developer-response-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/96a3fb04138afb79cef2f4aa908fc2365e2603a7">96a3fb0</a>.</p>
+      <h3 id="2-informational---tokenbuyers-constructor-can-fetch-paymenttoken-from-payer-blockdev">
+        
+        
+          <a href="#2-informational---tokenbuyers-constructor-can-fetch-paymenttoken-from-payer-blockdev" class="anchor-heading" aria-labelledby="2-informational---tokenbuyers-constructor-can-fetch-paymenttoken-from-payer-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Informational - <code class="language-plaintext highlighter-rouge">TokenBuyer</code>’s constructor can fetch <code class="language-plaintext highlighter-rouge">paymentToken</code> from <code class="language-plaintext highlighter-rouge">payer</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">TokenBuyer</code>’s constructor takes <code class="language-plaintext highlighter-rouge">paymentToken</code> as an argument. However, it can be fetched from <code class="language-plaintext highlighter-rouge">payer</code> which is another argument. This prevents deployment errors.</p>
+      <h4 id="technical-details-13">
+        
+        
+          <a href="#technical-details-13" class="anchor-heading" aria-labelledby="technical-details-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L153">TokenBuyer.sol#L153</a></p>
+      <h4 id="impact-13">
+        
+        
+          <a href="#impact-13" class="anchor-heading" aria-labelledby="impact-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational. If deployment is correct, this won’t be an issue.</p>
+      <h4 id="recommendation-13">
+        
+        
+          <a href="#recommendation-13" class="anchor-heading" aria-labelledby="recommendation-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+<p>Fetch <code class="language-plaintext highlighter-rouge">paymentToken</code> info from <code class="language-plaintext highlighter-rouge">payer</code> in constructor:</p>
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">paymentToken</span> <span class="o">=</span> <span class="n">payer</span><span class="p">.</span><span class="n">paymentToken</span><span class="p">();</span>
+</code></pre></div></div>
+      <h4 id="developer-response-13">
+        
+        
+          <a href="#developer-response-13" class="anchor-heading" aria-labelledby="developer-response-13"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/9f744fb92129ee7d1fa4319dd30a495fa32986a5">9f744fb</a>.</p>
+      <h3 id="3-informational---debtdeques-_begin-and-_end-can-be-uint128-blockdev">
+        
+        
+          <a href="#3-informational---debtdeques-_begin-and-_end-can-be-uint128-blockdev" class="anchor-heading" aria-labelledby="3-informational---debtdeques-_begin-and-_end-can-be-uint128-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3. Informational - <code class="language-plaintext highlighter-rouge">DebtDeque</code>’s <code class="language-plaintext highlighter-rouge">_begin</code> and <code class="language-plaintext highlighter-rouge">_end</code> can be <code class="language-plaintext highlighter-rouge">uint128</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p><code class="language-plaintext highlighter-rouge">DebtDeque</code>’s Natspec says:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Indices are signed integers because the queue can grow in any direction.
+</code></pre></div></div>
+<p>However, it isn’t possible to have negative indices if <code class="language-plaintext highlighter-rouge">_end</code> is initially <code class="language-plaintext highlighter-rouge">0</code>. <code class="language-plaintext highlighter-rouge">_begin</code> and <code class="language-plaintext highlighter-rouge">_end</code> are always incremented by <code class="language-plaintext highlighter-rouge">1</code> via <code class="language-plaintext highlighter-rouge">popFront()</code> and <code class="language-plaintext highlighter-rouge">pushBack()</code>, and the assumption is that this won’t overflow:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* Since the items are added one at a time we can safely
+* assume that these 128-bit indices will not overflow, and use unchecked arithmetic.
+</code></pre></div></div>
+      <h4 id="technical-details-14">
+        
+        
+          <a href="#technical-details-14" class="anchor-heading" aria-labelledby="technical-details-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/libs/DebtQueue.sol#L30-L44">DebtQueue.sol#L30-L44</a></p>
+      <h4 id="impact-14">
+        
+        
+          <a href="#impact-14" class="anchor-heading" aria-labelledby="impact-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational.</p>
+      <h4 id="recommendation-14">
+        
+        
+          <a href="#recommendation-14" class="anchor-heading" aria-labelledby="recommendation-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Use <code class="language-plaintext highlighter-rouge">uint128</code> for <code class="language-plaintext highlighter-rouge">_begin</code>, <code class="language-plaintext highlighter-rouge">_end</code>, and <code class="language-plaintext highlighter-rouge">_data</code> key.</p>
+      <h4 id="developer-response-14">
+        
+        
+          <a href="#developer-response-14" class="anchor-heading" aria-labelledby="developer-response-14"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged, won’t fix.</p>
+
+<p>Since we don’t gain much from the suggested change, we prefer to keep it close to the original OZ Queue code.</p>
+      <h3 id="4-informational---review-tokens-before-supporting-them-via-tokenbuyer-blockdev">
+        
+        
+          <a href="#4-informational---review-tokens-before-supporting-them-via-tokenbuyer-blockdev" class="anchor-heading" aria-labelledby="4-informational---review-tokens-before-supporting-them-via-tokenbuyer-blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4. Informational - Review tokens before supporting them via <code class="language-plaintext highlighter-rouge">TokenBuyer</code> (blockdev)
+        
+        
+      </h3>
+    
+
+<p>NounsDAO team has indicated that tokens like USDC or DAI are planned to be supported via this system. However, if more tokens are planned like ERC-777, or fee-on-transfer tokens, the team should review the implementation to make sure the system remains secure.</p>
+
+<p>This issue does not apply to payment tokens like USDC, DAI, WETH. However, functions like <code class="language-plaintext highlighter-rouge">sendOrRegisterDebt()</code> and <code class="language-plaintext highlighter-rouge">payBackDebt()</code> are open for reentrancy via <code class="language-plaintext highlighter-rouge">safeTransfer()</code> if other tokens are considered.</p>
+      <h4 id="technical-details-15">
+        
+        
+          <a href="#technical-details-15" class="anchor-heading" aria-labelledby="technical-details-15"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/">Repo</a></p>
+      <h4 id="impact-15">
+        
+        
+          <a href="#impact-15" class="anchor-heading" aria-labelledby="impact-15"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational. For stablecoins like USDC and DAI, this issue does not surface any security vulnerability.</p>
+      <h4 id="recommendation-15">
+        
+        
+          <a href="#recommendation-15" class="anchor-heading" aria-labelledby="recommendation-15"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Consider reviewing any new payment token being considered for reentrancy attacks and any fee. Also, note the issue “Fee-on-transfer token not supported”.</p>
+      <h4 id="developer-response-15">
+        
+        
+          <a href="#developer-response-15" class="anchor-heading" aria-labelledby="developer-response-15"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Acknowledged.</p>
+      <h3 id="5-informational---onlyadmin-is-not-used-nibblerexpress">
+        
+        
+          <a href="#5-informational---onlyadmin-is-not-used-nibblerexpress" class="anchor-heading" aria-labelledby="5-informational---onlyadmin-is-not-used-nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5. Informational - <code class="language-plaintext highlighter-rouge">onlyAdmin()</code> is not used (NibblerExpress)
+        
+        
+      </h3>
+    
+
+<p>The modifier <code class="language-plaintext highlighter-rouge">onlyAdmin()</code> is not used. The modifier <code class="language-plaintext highlighter-rouge">onlyAdminOrOwner()</code> is used for all functions the admin can call.</p>
+      <h4 id="technical-details-16">
+        
+        
+          <a href="#technical-details-16" class="anchor-heading" aria-labelledby="technical-details-16"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L120-L125">TokenBuyer.sol#L120-L125</a></p>
+      <h4 id="impact-16">
+        
+        
+          <a href="#impact-16" class="anchor-heading" aria-labelledby="impact-16"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational.</p>
+      <h4 id="recommendation-16">
+        
+        
+          <a href="#recommendation-16" class="anchor-heading" aria-labelledby="recommendation-16"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Delete the onlyAdmin() modifier and error.</p>
+      <h4 id="developer-response-16">
+        
+        
+          <a href="#developer-response-16" class="anchor-heading" aria-labelledby="developer-response-16"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/05839da981e485c153d9ea710eb8ef358d184fb6">05839da</a>.</p>
+      <h3 id="6-informational---consider-solidity-0816-or-higher-nibblerexpress">
+        
+        
+          <a href="#6-informational---consider-solidity-0816-or-higher-nibblerexpress" class="anchor-heading" aria-labelledby="6-informational---consider-solidity-0816-or-higher-nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6. Informational - Consider solidity 0.8.16 or higher (NibblerExpress)
+        
+        
+      </h3>
+    
+
+<p>Solidity 0.8.16 or 0.8.17 is currently recommended over 0.8.15.</p>
+      <h4 id="technical-details-17">
+        
+        
+          <a href="#technical-details-17" class="anchor-heading" aria-labelledby="technical-details-17"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p>Example: <a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/TokenBuyer.sol#L16">TokenBuyer.sol#L16</a></p>
+      <h4 id="impact-17">
+        
+        
+          <a href="#impact-17" class="anchor-heading" aria-labelledby="impact-17"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational. Vulnerabilities in 0.8.15 do not appear to be present in the code.</p>
+      <h4 id="recommendation-17">
+        
+        
+          <a href="#recommendation-17" class="anchor-heading" aria-labelledby="recommendation-17"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Use solidity 0.8.16 or higher.</p>
+      <h4 id="developer-response-17">
+        
+        
+          <a href="#developer-response-17" class="anchor-heading" aria-labelledby="developer-response-17"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>Fixed in commit <a href="https://github.com/nounsDAO/token-buyer/commit/09c7101ae3b76cf04babb4f629e5a635b7077b70">09c7101</a>.</p>
+      <h3 id="7-informational---consider-adding-events-for-creating-and-paying-back-the-debt-if-the-debt-is-paid-back-on-creation-invader-tak">
+        
+        
+          <a href="#7-informational---consider-adding-events-for-creating-and-paying-back-the-debt-if-the-debt-is-paid-back-on-creation-invader-tak" class="anchor-heading" aria-labelledby="7-informational---consider-adding-events-for-creating-and-paying-back-the-debt-if-the-debt-is-paid-back-on-creation-invader-tak"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7. Informational - Consider adding events for creating and paying back the debt if the debt is paid back on creation (invader-tak)
+        
+        
+      </h3>
+    
+
+<p>The function <code class="language-plaintext highlighter-rouge">sendOrRegisterDebt()</code> in the <code class="language-plaintext highlighter-rouge">Payer.sol</code> contract can under certain circumstances get and pay back a debt during its call - presumably, this is done to save the gas to register the debt and calling the payBackDebt function - This may cause complications for data collection, as no <code class="language-plaintext highlighter-rouge">RegisteredDebt</code> or <code class="language-plaintext highlighter-rouge">PaidBackDebt</code> events are emitted, especially when using services such as the Graph or Dune analytics.</p>
+      <h4 id="technical-details-18">
+        
+        
+          <a href="#technical-details-18" class="anchor-heading" aria-labelledby="technical-details-18"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Technical Details
+        
+        
+      </h4>
+    
+
+<p><a href="https://github.com/nounsDAO/token-buyer/blob/23d64ac7093f504ad4731bc4cf8d41b2c2943657/src/Payer.sol#L100">Payer.sol#L100</a></p>
+      <h4 id="impact-18">
+        
+        
+          <a href="#impact-18" class="anchor-heading" aria-labelledby="impact-18"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Impact
+        
+        
+      </h4>
+    
+
+<p>Informational. Streamline data collection for protocol.</p>
+      <h4 id="recommendation-18">
+        
+        
+          <a href="#recommendation-18" class="anchor-heading" aria-labelledby="recommendation-18"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Recommendation
+        
+        
+      </h4>
+    
+
+<p>Add a <code class="language-plaintext highlighter-rouge">RegisteredDebt</code> and <code class="language-plaintext highlighter-rouge">PaidBackDebt</code>, or a separate event for a registered debt that gets paid back during registration.</p>
+      <h4 id="developer-response-18">
+        
+        
+          <a href="#developer-response-18" class="anchor-heading" aria-labelledby="developer-response-18"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Developer Response
+        
+        
+      </h4>
+    
+
+<p>We are assuming we can use ERC20 transfer events to track flow of funds, and use the debt related events just for cases when funds are delayed which can be helpful for tracking things like the time it takes to pay back debt or how often we are in debt.</p>
+      <h2 id="final-remarks">
+        
+        
+          <a href="#final-remarks" class="anchor-heading" aria-labelledby="final-remarks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Final remarks
+        
+        
+      </h2>
+    
+      <h3 id="blockdev">
+        
+        
+          <a href="#blockdev" class="anchor-heading" aria-labelledby="blockdev"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> blockdev
+        
+        
+      </h3>
+    
+
+<p>Responsibilities are split in different contracts, and the code is well documented making it easy to understand.</p>
+      <h3 id="nibblerexpress">
+        
+        
+          <a href="#nibblerexpress" class="anchor-heading" aria-labelledby="nibblerexpress"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> NibblerExpress
+        
+        
+      </h3>
+    
+
+<p>The code allows any user to swap payment tokens for ETH, which has a high risk. Using pausable, nonreentrant, and Chainlink oracles mitigate much of the risk. Overall, the code is well organized and commented on.</p>
+      <h2 id="about-yacademy">
+        
+        
+          <a href="#about-yacademy" class="anchor-heading" aria-labelledby="about-yacademy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> About yAcademy
+        
+        
+      </h2>
+    
+
+<p><a href="https://yacademy.dev/">yAcademy</a> is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes <a href="https://yacademy.dev/fellowship-program/">a fellowship program</a>, a residents program, and <a href="https://yacademy.dev/guest-auditor-program/">a guest auditor program</a>. In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.</p>
+
+        
+
+        
+
+        
+        
+          <hr>
+          <footer>
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+
+            
+
+            
+              <div class="d-flex mt-2">
+                
+                
+              </div>
+            
+          </footer>
+        
+
+      </div>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+  <link rel="image_src" href="https://yaudit.dev/assets/images/logo.png" />
+</body>
+
+  <script>
+    var config = {}
+;
+    mermaid.initialize(config);
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  </script>
+
+</html>
+
