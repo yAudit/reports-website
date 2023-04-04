@@ -6,13 +6,13 @@ nav_order: 10
 image: assets/images/logo.png
 ---
 
-yAudit NounsDAO Token Buyer review
+yAudit NounsDAO Token Buyer Review
 ===
 {: .no_toc }
 
 **Review Resources:**
-[Code Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657),
-[Spec](https://github.com/nounsDAO/nouns-tech/tree/main/payment-in-stablecoins#readme)
+- [Code Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657),
+- [Spec](https://github.com/nounsDAO/nouns-tech/tree/main/payment-in-stablecoins#readme)
 
 **Auditors:**
  - NibblerExpress

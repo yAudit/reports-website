@@ -6,13 +6,13 @@ nav_order: 5
 image: assets/images/logo.png
 ---
 
-yAudit OpenMEV review
+yAudit OpenMEV Review
 ===
 {: .no_toc }
 
 **Review Resources:**
-[Wiki](https://github.com/manifoldfinance/OpenMevRouter/wiki)
-[Docs and whitepaper](https://github.com/manifoldfinance/OpenMevRouter/tree/main/docs)
+- [Wiki](https://github.com/manifoldfinance/OpenMevRouter/wiki)
+- [Docs and whitepaper](https://github.com/manifoldfinance/OpenMevRouter/tree/main/docs)
 
 **Auditors:**
  - Jackson

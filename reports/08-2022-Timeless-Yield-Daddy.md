@@ -6,7 +6,7 @@ nav_order: 10
 image: assets/images/logo.png
 ---
 
-yAudit Timeless Yield Daddy review
+yAudit Timeless Yield Daddy Review
 ===
 {: .no_toc }
 

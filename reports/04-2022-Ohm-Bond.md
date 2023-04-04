@@ -6,14 +6,14 @@ nav_order: 3
 image: assets/images/logo.png
 ---
 
-yAudit Olympus Bond review
+yAudit Olympus Bond Review
 ===
 {: .no_toc }
 
 **Review Resources:**
-[Support Doc](https://docs.google.com/document/d/1Q5IZV25D3Nrlu2D6IvLYqd5-ojL8vsATuzhseKJ0Vm0/edit)
-[Olympus bond pricing mechanics](https://blog.oighty.com/olympus-v2-bonds#heading-bond-pricing)
-[Olympus bond simulator](https://docs.google.com/spreadsheets/d/1fNjE7a7hK-lxSs3_ci-hqQzCEp4P2XrQlIUGY7SGekk/edit#gid=1577433292)
+- [Support Doc](https://docs.google.com/document/d/1Q5IZV25D3Nrlu2D6IvLYqd5-ojL8vsATuzhseKJ0Vm0/edit)
+- [Olympus bond pricing mechanics](https://blog.oighty.com/olympus-v2-bonds#heading-bond-pricing)
+- [Olympus bond simulator](https://docs.google.com/spreadsheets/d/1fNjE7a7hK-lxSs3_ci-hqQzCEp4P2XrQlIUGY7SGekk/edit#gid=1577433292)
 
 **Auditors:**
  - Engn33r

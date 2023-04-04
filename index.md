@@ -9,4 +9,4 @@ image: assets/images/logo.png
 
 # yAudit Reports
 
-The reports on this page are taken from our [repository of completed reviews](https://github.com/yAudit/audits).
+The reports on this page are taken from our [repository of completed reviews](https://github.com/yAudit/reports).
