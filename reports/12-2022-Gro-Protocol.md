@@ -6,7 +6,7 @@ nav_order: 14
 image: assets/images/logo.png
 ---
 
-yAcademy Gro Protocol Review
+yAudit Gro Protocol Review
 ===
 {: .no_toc }
 
@@ -14,7 +14,7 @@ yAcademy Gro Protocol Review
 
 - [Current Gro Protocol docs](https://docs.gro.xyz/gro-docs/)
 
-**Residents:**
+**Auditors:**
 
  - engn33r
  - usmannk
@@ -31,7 +31,7 @@ yAcademy Gro Protocol Review
 
 Gro Protocol is a stablecoin yield aggregator. The protocol uses a Junior Tranche and a Senior Tranche design to maximize yield in the Junior Tranche while providing asset protection in the Senior Tranche. The tranches will hold a basket of ERC4626 tokens, where the choice of tokens and weighting between them can be set by the creator of the vault. The vault invests the assets using a collection of strategies, which can allocated the assets into different protocols. Unlike some yield aggregators, the protocol does not require the strategies to remain "number go up", so if losses are incurred by the Junior Tranche, the losses are distributed across the shareholders during the time of withdrawal. There is a keeper-triggered stop loss feature to provide a safeguard in the event of unexpected events.
 
-The contracts of the Gro Protocol [Repo](https://github.com/groLabs/GSquared-foundry) were reviewed over 14 days. The code was reviewed by 2 residents between December 19, 2022 and January 1, 2023. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was [commit f1831bdb353d4a0b3a8937087e1663f73b75e905](https://github.com/groLabs/GSquared-foundry/tree/f1831bdb353d4a0b3a8937087e1663f73b75e905) for the Gro Protocol repo.
+The contracts of the Gro Protocol [Repo](https://github.com/groLabs/GSquared-foundry) were reviewed over 14 days. The code was reviewed by 2 auditors between December 19, 2022 and January 1, 2023. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was [commit f1831bdb353d4a0b3a8937087e1663f73b75e905](https://github.com/groLabs/GSquared-foundry/tree/f1831bdb353d4a0b3a8937087e1663f73b75e905) for the Gro Protocol repo.
 
 ## Scope
 
@@ -48,7 +48,7 @@ After the findings were presented to the Gro Protocol team, fixes were made and 
 
 This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Gro Protocol and users of the contracts agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Gro Protocol and users of the contracts agree to use the code at their own risk.
 
 
 Code Evaluation Matrix
@@ -1282,7 +1282,3 @@ Acknowledged, fixed in [#77](https://github.com/groLabs/GSquared/pull/77) and di
 ## Final remarks
 
 Overall, the protocol is well designed and properly transfers value between the different contracts in order to deliver the desired objectives. There are some unusual edge cases that need improved handling, but in general the main logic flows work as intended. The scope of this review covering the entire protocol was quite large, but good review coverage was still possible in the allotted time.
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/). In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.

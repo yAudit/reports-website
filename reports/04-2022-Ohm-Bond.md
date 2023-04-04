@@ -6,7 +6,7 @@ nav_order: 3
 image: assets/images/logo.png
 ---
 
-yAcademy Olympus Bond review
+yAudit Olympus Bond review
 ===
 {: .no_toc }
 
@@ -15,7 +15,7 @@ yAcademy Olympus Bond review
 [Olympus bond pricing mechanics](https://blog.oighty.com/olympus-v2-bonds#heading-bond-pricing)
 [Olympus bond simulator](https://docs.google.com/spreadsheets/d/1fNjE7a7hK-lxSs3_ci-hqQzCEp4P2XrQlIUGY7SGekk/edit#gid=1577433292)
 
-**Residents:**
+**Auditors:**
  - Engn33r
 
 ## Table of Contents
@@ -30,7 +30,7 @@ yAcademy Olympus Bond review
 
 The purpose of Olympus Bond is to provide a permissionless system for creating Olympus-style bond markets for any token pair. No maintenance or whitelisting will be necessary to create a new market for a base-quote token pair. The Olympus-style bonding mechanism provides numerous benefits to projects compared to standard token emissions. The Olympus Bond code includes several changes compared to the existing Olympus Pro bond system. The most notable difference is the permissionless nature of the Bond system and extensibility that will allow the contract architecture to adapt as necessary over time. Some of the core pricing mechanics of Olympus Bond are borrowed from existing Olympus contracts such as [BondDepository.sol](https://github.com/OlympusDAO/olympus-contracts/blob/d601323a8d6f957b9532e83b388678b4848ed4a8/contracts/BondDepository.sol).
 
-The main branch of the Olympus Bonds [Repo](https://github.com/OlympusDAO/bonds) was reviewed over 18 days, 3 of which were used to create an initial overview of the contract. The code review was performed between April 19 and May 7, 2022. The code was reviewed by 1 resident for a total of 43 man hours (Engn33r: 43 hours). The review was limited to one specific [commit](https://github.com/OlympusDAO/bonds/commit/1550298fe9618e861201787cd7fc2648566cf6af).
+The main branch of the Olympus Bonds [Repo](https://github.com/OlympusDAO/bonds) was reviewed over 18 days, 3 of which were used to create an initial overview of the contract. The code review was performed between April 19 and May 7, 2022. The code was reviewed by 1 auditor for a total of 43 man hours (Engn33r: 43 hours). The review was limited to one specific [commit](https://github.com/OlympusDAO/bonds/commit/1550298fe9618e861201787cd7fc2648566cf6af).
 
 ## Scope
 [Code Repo](https://github.com/OlympusDAO/bonds)
@@ -42,7 +42,7 @@ After the findings were presented to the Olympus Bond team, fixes were made and 
 
 The review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third party users that the code has been audited nor that the code is free from defects. By deploying or using the code, Olympus DAO and and users agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third party users that the code has been audited nor that the code is free from defects. By deploying or using the code, Olympus DAO and and users agree to use the code at their own risk.
 
 Code Evaluation Matrix
 ---
@@ -1070,10 +1070,6 @@ Consider storing all magic numbers in constants.
 ### engn33r
 
 The project architecture is well thought out and there is reasonably detailed documentation, even if the documentation isn't organized into a single place yet. The design even allows for recursive use, where an Olympus Bond token can be used in a new Bond market. There were a couple pieces of the system, namely the market callback function and the setIntervals function, that may add security problems in their current form, so removing these features would be preferred. The ability for duplicate markets may also warrant reconsideration due to the risks it could pose interacting with malicious designed markets. In comparison, AMMs only allow for one pool per token pair. Perhaps the most complex piece of the system is the calculation of bond price and the tuning calculations. The time-limited nature of this review meant that extensive simulation of edge cases to test the robustness of the pricing calculation implementation was not carried out, and the accuracy of the simulator compared to the solidity implementation was not verified. However, some minor details of the pricing mechanics do not seem ideal. These are complex parts of the system and ideally should receive more extensive documentation and modeling explaining why certain choices were made, under what market conditions they hold, and graphs demonstrating the relative stability of the resulting prices under a wide range of variables. Other lingering questions remain, such as conditions when the market duration is not divisible by the tuning interval values, resulting in a shorter final interval.
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent.  yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/).  In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.
 
 ## Appendix and FAQ
 

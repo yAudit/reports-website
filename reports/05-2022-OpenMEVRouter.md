@@ -6,7 +6,7 @@ nav_order: 5
 image: assets/images/logo.png
 ---
 
-yAcademy OpenMEV review
+yAudit OpenMEV review
 ===
 {: .no_toc }
 
@@ -14,7 +14,7 @@ yAcademy OpenMEV review
 [Wiki](https://github.com/manifoldfinance/OpenMevRouter/wiki)
 [Docs and whitepaper](https://github.com/manifoldfinance/OpenMevRouter/tree/main/docs)
 
-**Residents:**
+**Auditors:**
  - Jackson
  - engn33r
 
@@ -30,7 +30,7 @@ yAcademy OpenMEV review
 
 The purpose of OpenMEVRouter is to offer a drop-in replacement to a similar Uniswap/SushiSwap router. While enabling exchanges with UniSwap and SushiSwap, it also protects against direct MEV arbitrage (arb) between the two platforms by performing the arb within the DEX swap process. This leaves no arbitrage opportunities for MEV searches.
 
-The main branch of the OpenMEV [Repo](https://github.com/manifoldfinance/OpenMevRouter) was reviewed over 22 days, 4 of which were used to create an initial overview of the contract. The code review was performed between May 12 and June 3, 2022. The code was reviewed by 2 residents for a total of 59 man hours (engn33r: 34 hours, and Jackson 25 hours). The repository was under active development during the review, but the review was limited to [one specific commit](https://github.com/manifoldfinance/OpenMevRouter/commit/8648277c0a89d0091f959948682543bdcf0c280b).
+The main branch of the OpenMEV [Repo](https://github.com/manifoldfinance/OpenMevRouter) was reviewed over 22 days, 4 of which were used to create an initial overview of the contract. The code review was performed between May 12 and June 3, 2022. The code was reviewed by 2 auditors for a total of 59 man hours (engn33r: 34 hours, and Jackson 25 hours). The repository was under active development during the review, but the review was limited to [one specific commit](https://github.com/manifoldfinance/OpenMevRouter/commit/8648277c0a89d0091f959948682543bdcf0c280b).
 
 ## Scope
 [Code Repo](https://github.com/manifoldfinance/OpenMevRouter)
@@ -42,7 +42,7 @@ After the findings were presented to the OpenMEV team, fixes were made and inclu
 
 The review was a time-limited review to provide rapid feedback on potential vulnerabilities. The review was not a full audit. The review did not explore all potential attack vectors or areas of vulnerability and may not have identified all potential issues.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. Manifold and third parties should use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. Manifold and third parties should use the code at their own risk.
 
 Code Evaluation Matrix
 ---
@@ -1100,10 +1100,3 @@ The custom logic around the backrun to capture MEV and the corresponding whitepa
 ### Jackson
 
 This is one of those ideas that you think "why didn't I think of that?".  I'm excited for it to go into production and see what the effects will be for both users and holders of Sushi.  The number, type, and breadth of tests give me confidence in the correctness of the implementation.  My only concerns are around whether we missed something related to the intention of the implementation as most of the high and medium findings seem to suggest.
-
-
-## About yAcademy
-
-yAcademy is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent.  yAcademy includes a fellowship program and a residents program.  In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract).
-
-## Appendix and FAQ

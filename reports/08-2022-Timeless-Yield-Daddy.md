@@ -6,14 +6,14 @@ nav_order: 10
 image: assets/images/logo.png
 ---
 
-yAcademy Timeless Yield Daddy review
+yAudit Timeless Yield Daddy review
 ===
 {: .no_toc }
 
 **Review Resources:**
 None beyond the code repositories
 
-**Residents:**
+**Auditors:**
  - engn33r
  - Benjamin Samuels
 
@@ -29,7 +29,7 @@ None beyond the code repositories
 
 Yield Daddy provides ERC4626 wrappers for common tokens from yield-generating protocols. This includes tokens received from Aave, Compound, Curve, and other lending protocols that provide users with tokens that increase in value over time.
 
-The contracts of the [Yield Daddy repo](https://github.com/timeless-fi/yield-daddy), [xPYT repo](https://github.com/timeless-fi/xPYT), and [swapper repo](https://github.com/timeless-fi/swapper) were reviewed over 16 days, 2 of which were used to create an initial overview of the contract. The code review was performed between August 31 and September 16, 2022. The code was reviewed by 2 residents for a total of 60 review hours (engn33r 32 hours, Benjamin Samuels 28 hours). The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit 2c8f62681ab90325ede093ac9c9f94dbcc5f7e49 for the Yield Daddy repo, commit fabe9d7cb9700334b10a48ee5d081234eb98def9 for the xPYT repo, and commit 35db08558aa01e8473ada13c092e24857d01461b for the Swapper repo.
+The contracts of the [Yield Daddy repo](https://github.com/timeless-fi/yield-daddy), [xPYT repo](https://github.com/timeless-fi/xPYT), and [swapper repo](https://github.com/timeless-fi/swapper) were reviewed over 16 days, 2 of which were used to create an initial overview of the contract. The code review was performed between August 31 and September 16, 2022. The code was reviewed by 2 auditors for a total of 60 review hours (engn33r 32 hours, Benjamin Samuels 28 hours). The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit 2c8f62681ab90325ede093ac9c9f94dbcc5f7e49 for the Yield Daddy repo, commit fabe9d7cb9700334b10a48ee5d081234eb98def9 for the xPYT repo, and commit 35db08558aa01e8473ada13c092e24857d01461b for the Swapper repo.
 
 ## Scope
 
@@ -56,7 +56,7 @@ No other protocol ERC4626 wrappers are to be reviewed in Yield Daddy, such as th
 
 This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Yield Daddy and users of the contracts agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Yield Daddy and users of the contracts agree to use the code at their own risk.
 
 
 Code Evaluation Matrix
@@ -1376,7 +1376,3 @@ The in-code naming conventions for NYT, PYT, and xPYT made auditing the system m
 The Swapper repository exposes the most dynamic behavior, so some additional time was spent focusing on verifying its behavior. Several Echidna invariants were written to verify the CurveJuggler component of Swapper, the code for which is attached to this report. 
 
 While Yield Daddy's architecture is relatively complex, it is worth noting that some care was taken to decouple its components using ERC4626. This decoupling made auditing the ERC4626 contracts much simpler, and other parts of the codebase may benefit from a similar decoupling pass.  
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/). In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.

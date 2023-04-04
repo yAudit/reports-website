@@ -1,12 +1,12 @@
 ---
 layout: default
 title: 10-2022-NounsDAO-Token-Buyer
-description: NounsDAO Token Buyer yAcademy Report
+description: NounsDAO Token Buyer yAudit Report
 nav_order: 10
 image: assets/images/logo.png
 ---
 
-yAcademy NounsDAO Token Buyer review
+yAudit NounsDAO Token Buyer review
 ===
 {: .no_toc }
 
@@ -14,7 +14,7 @@ yAcademy NounsDAO Token Buyer review
 [Code Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657),
 [Spec](https://github.com/nounsDAO/nouns-tech/tree/main/payment-in-stablecoins#readme)
 
-**Residents:**
+**Auditors:**
  - NibblerExpress
  - blockdev
 
@@ -30,7 +30,7 @@ yAcademy NounsDAO Token Buyer review
 
 TokenBuyer's purpose is to allow the NounsDAO to pay the proposals with ERC20 tokens. Since trading a large portion of ETH incurs slippage and is susceptible to sandwich attacks, this protocol uses Chainlink oracle to fetch ETH prices and allow anyone to sell their tokens against ETH.
 
-The contracts of Token Buyer [Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657) were reviewed over 7 days, 1 day of which was used to create an initial overview of the contract. The code review was performed between October 11, 2022 and October 18, 2022. The code was reviewed by 2 residents for a total of 32 review hours (NibblerExpress 8 hours, blockdev 24 hours). The review was limited to the latest commit at the start of the review. This was commit `23d64ac7093f504ad4731bc4cf8d41b2c2943657` for the `token-buyer` repo.
+The contracts of Token Buyer [Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657) were reviewed over 7 days, 1 day of which was used to create an initial overview of the contract. The code review was performed between October 11, 2022 and October 18, 2022. The code was reviewed by 2 auditors for a total of 32 review hours (NibblerExpress 8 hours, blockdev 24 hours). The review was limited to the latest commit at the start of the review. This was commit `23d64ac7093f504ad4731bc4cf8d41b2c2943657` for the `token-buyer` repo.
 
 ## Scope
 
@@ -44,7 +44,7 @@ After the findings were presented to the NounsDAO team, fixes were made and incl
 
 This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, NounsDAO and users of the contracts agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, NounsDAO and users of the contracts agree to use the code at their own risk.
 
 
 Code Evaluation Matrix
@@ -589,7 +589,3 @@ Responsibilities are split in different contracts, and the code is well document
 ### NibblerExpress
 
 The code allows any user to swap payment tokens for ETH, which has a high risk. Using pausable, nonreentrant, and Chainlink oracles mitigate much of the risk. Overall, the code is well organized and commented on.
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/). In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.

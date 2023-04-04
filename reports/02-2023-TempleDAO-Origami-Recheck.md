@@ -1,12 +1,12 @@
 ---
 layout: default
 title: 02-2023-TempleDao-Origami-Recheck
-description: Temple DAO Origami Recheck yAcademy Report
+description: Temple DAO Origami Recheck yAudit Report
 nav_order: 18
 image: assets/images/logo.png
 ---
 
-yAcademy Temple DAO Origami Recheck Review
+yAudit Temple DAO Origami Recheck Review
 ===
 {: .no_toc }
 
@@ -14,7 +14,7 @@ yAcademy Temple DAO Origami Recheck Review
 
 - Some internal docs and visuals were provided
 
-**Residents:**
+**Auditors:**
 
  - pandadefi
  - spalen
@@ -31,11 +31,11 @@ yAcademy Temple DAO Origami Recheck Review
 
 The goal of Temple DAO's Origami product is to offer auto-compounded yield offerings on underlying strategies, maximising returns without sacrificing liquidity. The first strategy being offered is on [GLP and GMX](https://gmx.io/). Origami will be deployed on Arbitrum and Avalanche, the two chains where GMX is deployed, even though the current [Temple core contracts](https://docs.templedao.link/technical-reference/contracts) are deployed on Ethereum.
 
-The contracts of the Temple DAO Origami [Repo](https://github.com/TempleDAO/origami) were reviewed over 5 days. The code review was performed by 2 residents between February 21 and February 26, 2023. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit [5ddb424ca1cba8698a51fc21510c1891598a7f09](https://github.com/TempleDAO/origami/tree/5ddb424ca1cba8698a51fc21510c1891598a7f09/apps/protocol) for the Temple DAO repo.
+The contracts of the Temple DAO Origami [Repo](https://github.com/TempleDAO/origami) were reviewed over 5 days. The code review was performed by 2 auditors between February 21 and February 26, 2023. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit [5ddb424ca1cba8698a51fc21510c1891598a7f09](https://github.com/TempleDAO/origami/tree/5ddb424ca1cba8698a51fc21510c1891598a7f09/apps/protocol) for the Temple DAO repo.
 
 This was the second review of the Temple DAO Origami [Repo](https://github.com/TempleDAO/origami).
 
-Temple DAO fixed the issues from the first report so yAcademy did a review of these mitigations by comparing changes made from commit [a31d192ab54ca7d21f2dee30c630a6ec1843b646](https://github.com/TempleDAO/origami/tree/a31d192ab54ca7d21f2dee30c630a6ec1843b646/apps/protocol), which was the commit of the first review, to commit [5ddb424ca1cba8698a51fc21510c1891598a7f09](https://github.com/TempleDAO/origami/tree/5ddb424ca1cba8698a51fc21510c1891598a7f09/apps/protocol), which was the commit that included the mitigations.
+Temple DAO fixed the issues from the first report so yAudit did a review of these mitigations by comparing changes made from commit [a31d192ab54ca7d21f2dee30c630a6ec1843b646](https://github.com/TempleDAO/origami/tree/a31d192ab54ca7d21f2dee30c630a6ec1843b646/apps/protocol), which was the commit of the first review, to commit [5ddb424ca1cba8698a51fc21510c1891598a7f09](https://github.com/TempleDAO/origami/tree/5ddb424ca1cba8698a51fc21510c1891598a7f09/apps/protocol), which was the commit that included the mitigations.
 
 ## Scope
 
@@ -48,7 +48,7 @@ After the findings were presented to the Temple DAO team, fixes were made and in
 
 This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Temple DAO and users of the contracts agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Temple DAO and users of the contracts agree to use the code at their own risk.
 
 
 Code Evaluation Matrix
@@ -205,7 +205,3 @@ Add a GovernableBase contract that contains the common code and make Governable 
 ## Final remarks
 
 All the changes correctly address the issues in the prior report. Adding operators is limited to governance which is a good base for protocol decentralization. This is important because, with the current flow, operators have the ability to extract value from the protocol, as stated in the previous report. The code base is well prepared with all tests passing and maximum code coverage.
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/). In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.

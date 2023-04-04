@@ -1,12 +1,12 @@
 ---
 layout: default
 title: 02-2023-RageTrade
-description: Rage Trade Upgrade yAcademy Report
+description: Rage Trade Upgrade yAudit Report
 nav_order: 19
 image: assets/images/logo.png
 ---
 
-yAcademy Rage Trade Upgrade Review
+yAudit Rage Trade Upgrade Review
 ===
 {: .no_toc }
 
@@ -14,7 +14,7 @@ yAcademy Rage Trade Upgrade Review
 
 - [Rage Trade Docs](https://docs.rage.trade/4TdI-overview)
 
-**Residents:**
+**Auditors:**
 
  - engn33r
  - Invader-tak
@@ -31,15 +31,15 @@ yAcademy Rage Trade Upgrade Review
 
 Rage Trade provides two vaults, one risk-on and one risk-off, which allow users to deposit into and earn yield. The risk-off vault earns yield from lending USDC on Aave and a fraction of the risk-on vault rewards. The risk-on vault earns rewards by providing delta neutral liquidity to GMX, hedging the ETH and BTC exposure with short positions on Aave and Uniswap. The risk-on vault acts as a junior tranche and borrows from the risk-off vault (senior tranche) to gain leverage.
 
-The contracts of the Rage Trade [Repo](https://github.com/RageTrade/delta-neutral-gmx-vaults) were reviewed over 3 weeks. The code review was performed by 2 residents between February 15, 2023 and March 3, 2023. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit [2019b32085cc9df369b82e27520af437ef0ba914](https://github.com/RageTrade/delta-neutral-gmx-vaults/tree/2019b32085cc9df369b82e27520af437ef0ba914) for the Rage Trade repo. Additional fixes were added during the review so some findings are made referencing the new commit hash [793c48e86db99e75561f0619c3030f7f89f81f66](https://github.com/RageTrade/delta-neutral-gmx-vaults/tree/793c48e86db99e75561f0619c3030f7f89f81f66).
+The contracts of the Rage Trade [Repo](https://github.com/RageTrade/delta-neutral-gmx-vaults) were reviewed over 3 weeks. The code review was performed by 2 auditors between February 15, 2023 and March 3, 2023. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit [2019b32085cc9df369b82e27520af437ef0ba914](https://github.com/RageTrade/delta-neutral-gmx-vaults/tree/2019b32085cc9df369b82e27520af437ef0ba914) for the Rage Trade repo. Additional fixes were added during the review so some findings are made referencing the new commit hash [793c48e86db99e75561f0619c3030f7f89f81f66](https://github.com/RageTrade/delta-neutral-gmx-vaults/tree/793c48e86db99e75561f0619c3030f7f89f81f66).
 
 ## Scope
 
-The scope of the review consisted of all the contracts in the repo at the specific commit. The goal was the review the changes made since the previous yAcademy review. Most of the contract changes were made in [PR #71](https://github.com/RageTrade/delta-neutral-gmx-vaults/pull/71) and [PR #84](https://github.com/RageTrade/delta-neutral-gmx-vaults/pull/84). After the findings were presented to the Rage Trade team, fixes were made and included in several PRs.
+The scope of the review consisted of all the contracts in the repo at the specific commit. The goal was the review the changes made since the previous yAudit review. Most of the contract changes were made in [PR #71](https://github.com/RageTrade/delta-neutral-gmx-vaults/pull/71) and [PR #84](https://github.com/RageTrade/delta-neutral-gmx-vaults/pull/84). After the findings were presented to the Rage Trade team, fixes were made and included in several PRs.
 
 This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Rage Trade and users of the contracts agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Rage Trade and users of the contracts agree to use the code at their own risk.
 
 
 Code Evaluation Matrix
@@ -504,7 +504,3 @@ Fix typos.
 The mitigations reviewed during this audit demonstrated that the findings from the previous review were understood and fixed. Overall the design shows a lot of thought around key elements of the protocol, and the ability to upgrade contracts and change key parameters is useful for managing positions in a complex strategy.
 
 One item that was not thoroughly examined during testing but is crucial for the protocol is thorough testing of the upgrade process. A fork of mainnet should undergo the upgrade process and all the key values, such as totalAssets and other values, should be queried to validate they match the expected values, or are the values as the current mainnet deployment. The setup process to test the upgrade deployment against a mainnet fork was not easy to perform at the time the testing happened.
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/). In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.
