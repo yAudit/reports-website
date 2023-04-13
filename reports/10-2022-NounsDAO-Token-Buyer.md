@@ -30,7 +30,7 @@ yAudit NounsDAO Token Buyer Review
 
 TokenBuyer's purpose is to allow the NounsDAO to pay the proposals with ERC20 tokens. Since trading a large portion of ETH incurs slippage and is susceptible to sandwich attacks, this protocol uses Chainlink oracle to fetch ETH prices and allow anyone to sell their tokens against ETH.
 
-The contracts of Token Buyer [Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657) were reviewed over 7 days, 1 day of which was used to create an initial overview of the contract. The code review was performed between October 11, 2022 and October 18, 2022. The code was reviewed by 2 auditors for a total of 32 review hours (NibblerExpress 8 hours, blockdev 24 hours). The review was limited to the latest commit at the start of the review. This was commit `23d64ac7093f504ad4731bc4cf8d41b2c2943657` for the `token-buyer` repo.
+The contracts of Token Buyer [Repo](https://github.com/nounsDAO/token-buyer/tree/23d64ac7093f504ad4731bc4cf8d41b2c2943657) were reviewed over 7 days. The code review was performed by 2 auditors between October 11, 2022 and October 18, 2022. The review was limited to the latest commit at the start of the review. This was commit `23d64ac7093f504ad4731bc4cf8d41b2c2943657` for the `token-buyer` repo.
 
 ## Scope
 

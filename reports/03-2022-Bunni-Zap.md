@@ -1,12 +1,12 @@
 ---
 layout: default
 title: 03-2023-Bunni-Zap
-description: Bunni Zap yAcademy Report
+description: Bunni Zap yAudit Report
 nav_order: 20
 image: assets/images/logo.png
 ---
 
-yAcademy Bunni Zap Review
+yAudit Bunni Zap Review
 ===
 {: .no_toc }
 
@@ -14,7 +14,7 @@ yAcademy Bunni Zap Review
 
 - None beyond the code repositories
 
-**Residents:**
+**Auditors:**
 
 - Jackson
 - pandadefi
@@ -31,7 +31,7 @@ yAcademy Bunni Zap Review
 
 Bunni Zap provides zapping contracts for making multiple Bunni interactions in a single transaction.
 
-The contracts of the Bunni Zap [Repo](https://github.com/timeless-fi/bunni-zap) were reviewed over 10 days. The code review was performed by 2 residents between March 5, 2023 and March 15, 2023.  The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was [commit 4ab7c00f178ea16f5eaba0eca0884a644d99c02c](https://github.com/timeless-fi/bunni-zap/tree/4ab7c00f178ea16f5eaba0eca0884a644d99c02c) for the Bunni Zap repo.
+The contracts of the Bunni Zap [Repo](https://github.com/timeless-fi/bunni-zap) were reviewed over 10 days. The code review was performed by 2 auditors between March 5, 2023 and March 15, 2023.  The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was [commit 4ab7c00f178ea16f5eaba0eca0884a644d99c02c](https://github.com/timeless-fi/bunni-zap/tree/4ab7c00f178ea16f5eaba0eca0884a644d99c02c) for the Bunni Zap repo.
 
 ## Scope
 
@@ -45,7 +45,7 @@ After the findings were presented to the Bunni Zap team, fixes were made and inc
 
 This review is a code review to identify potential vulnerabilities in the code. The reviewers did not investigate security practices or operational security and assumed that privileged accounts could be trusted. The reviewers did not evaluate the security of the code relative to a standard or specification. The review may not have identified all potential attack vectors or areas of vulnerability.
 
-yAcademy and the residents make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAcademy and the residents do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Bunni Zap and users of the contracts agree to use the code at their own risk.
+yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Bunni Zap and users of the contracts agree to use the code at their own risk.
 
 Code Evaluation Matrix
 ---
@@ -188,7 +188,3 @@ Acknowledged, no change. We don’t really expect to index data from this contra
 Our primary concern is related to the assumption that the `BunniLpZapIn` contract will not hold any balances. An invariant test was written during the audit to ensure that this invariant is maintained and the intended use of this contract is that `zapIn()` is the last call in the multicall, which returns the token balances to the recipient. However, if this assumption is ever broken due to faulty configuration or input, the balances in the contract can easily be withdrawn by an attacker using the `useContractBalance` boolean, or nefarious input.
 
 Aside from this, the contract is relatively small and fairly straightforward due to the assumption that balances will not be held in the contract. For this reason, the contract is considered relatively safe, as is evident by the lack of high, critical, and medium findings.
-
-## About yAcademy
-
-[yAcademy](https://yacademy.dev/) is an ecosystem initiative started by Yearn Finance and its ecosystem partners to bootstrap sustainable and collaborative blockchain security reviews and to nurture aspiring security talent. yAcademy includes [a fellowship program](https://yacademy.dev/fellowship-program/), a residents program, and [a guest auditor program](https://yacademy.dev/guest-auditor-program/). In the fellowship program, fellows perform a series of periodic security reviews and presentations during the program. Residents are past fellows who continue to gain experience by performing security reviews of contracts submitted to yAcademy for review (such as this contract). Guest auditors are experts with a track record in the security space who temporarily assist with the review efforts.

@@ -30,7 +30,7 @@ yAudit OpenMEV Review
 
 The purpose of OpenMEVRouter is to offer a drop-in replacement to a similar Uniswap/SushiSwap router. While enabling exchanges with UniSwap and SushiSwap, it also protects against direct MEV arbitrage (arb) between the two platforms by performing the arb within the DEX swap process. This leaves no arbitrage opportunities for MEV searches.
 
-The main branch of the OpenMEV [Repo](https://github.com/manifoldfinance/OpenMevRouter) was reviewed over 22 days, 4 of which were used to create an initial overview of the contract. The code review was performed between May 12 and June 3, 2022. The code was reviewed by 2 auditors for a total of 59 man hours (engn33r: 34 hours, and Jackson 25 hours). The repository was under active development during the review, but the review was limited to [one specific commit](https://github.com/manifoldfinance/OpenMevRouter/commit/8648277c0a89d0091f959948682543bdcf0c280b).
+The main branch of the OpenMEV [Repo](https://github.com/manifoldfinance/OpenMevRouter) was reviewed over 22 days. The code review was performed by 2 auditors between May 12 and June 3, 2022. The repository was under active development during the review, but the review was limited to [one specific commit](https://github.com/manifoldfinance/OpenMevRouter/commit/8648277c0a89d0091f959948682543bdcf0c280b).
 
 ## Scope
 [Code Repo](https://github.com/manifoldfinance/OpenMevRouter)

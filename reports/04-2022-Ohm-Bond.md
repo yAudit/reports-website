@@ -30,7 +30,7 @@ yAudit Olympus Bond Review
 
 The purpose of Olympus Bond is to provide a permissionless system for creating Olympus-style bond markets for any token pair. No maintenance or whitelisting will be necessary to create a new market for a base-quote token pair. The Olympus-style bonding mechanism provides numerous benefits to projects compared to standard token emissions. The Olympus Bond code includes several changes compared to the existing Olympus Pro bond system. The most notable difference is the permissionless nature of the Bond system and extensibility that will allow the contract architecture to adapt as necessary over time. Some of the core pricing mechanics of Olympus Bond are borrowed from existing Olympus contracts such as [BondDepository.sol](https://github.com/OlympusDAO/olympus-contracts/blob/d601323a8d6f957b9532e83b388678b4848ed4a8/contracts/BondDepository.sol).
 
-The main branch of the Olympus Bonds [Repo](https://github.com/OlympusDAO/bonds) was reviewed over 18 days, 3 of which were used to create an initial overview of the contract. The code review was performed between April 19 and May 7, 2022. The code was reviewed by 1 auditor for a total of 43 man hours (Engn33r: 43 hours). The review was limited to one specific [commit](https://github.com/OlympusDAO/bonds/commit/1550298fe9618e861201787cd7fc2648566cf6af).
+The main branch of the Olympus Bonds [Repo](https://github.com/OlympusDAO/bonds) was reviewed over 18 days. The code review was performed by 1 auditor between April 19 and May 7, 2022. The review was limited to one specific [commit](https://github.com/OlympusDAO/bonds/commit/1550298fe9618e861201787cd7fc2648566cf6af).
 
 ## Scope
 [Code Repo](https://github.com/OlympusDAO/bonds)
