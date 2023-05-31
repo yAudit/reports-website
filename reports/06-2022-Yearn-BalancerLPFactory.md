@@ -71,7 +71,6 @@ Findings are broken down into sections by their respective impact:
 
 ---
 
-
 ## High Findings
 
 ### 1. High - Dependency on a single DEX for CRV price (blockdev, pashov)
@@ -140,12 +139,11 @@ Good catch.
 A [change has been implemented in the registry code](https://github.com/pandadefi/registry/blob/e2d739c4f5331505eeb9ed26e88fe00cc96b7aee/contracts/VaultRegistry.sol#L123) to return 0x0 instead of reverts.
 This allows the factory logic to be greatly simplified. An update has been pushed.
 
-
 ### 3. High - Strategy migrations fail to claim reward/extraReward tokens (Benjamin Samuels)
 
 When StrategyConvexFactoryClonable is migrated, the `prepareMigration(...)` function fails to claim & sell extra reward tokens (CRV, CVX, etc.).
 
-#### Impact
+#### Proof of concept
 
 There does not appear to be any mechanism to harvest or re-enable a strategy that has been migrated. This means that any unharvested rewards are effectively lost on migration. 
 
@@ -158,6 +156,10 @@ Given the following assumptions/observations, this finding may have a high impac
 
 If the magnitude/accuracy of the above assumptions are incorrect, then this finding may have medium or lower severity.
 
+#### Impact
+
+High.
+
 #### Recommendation
 
 Require harvests to occur before migrating strategies to new versions. It appears that normal harvests call into `prepareReturn(...)`, which claims & sells extra reward tokens. Whether a pre-migration harvest should be implemented in code or as an operational procedure is up to the team.
@@ -168,15 +170,17 @@ Good feedback. This was an intentional decision due to the fact that some reward
 
 As middleground, we have decided to transfer CRV and CVX tokens only. And will allow additional rewards tokens, if relevant, to be swept and transferred by governance.
 
-### 4. `_loss` on `liquidatePosition()` is never accounted in strategy & vault, which can result in funds lost/stuck (pashov, Jib)
+### 4. High - `_loss` on `liquidatePosition()` is never accounted in strategy & vault, which can result in funds lost/stuck (pashov, Jib)
 
-#### Proof of concept
 In `StrategyConvexFactoryClonable.sol` line 348 we have the following code `(uint256 freed, ) = liquidatePosition(toFree);` which ignores second return value, which is actually the `_loss` from liquidating a position. As a result the `_loss` return value from `prepareReturn()` that `BaseStrategy.sol` uses for accounting/reporting and healthcheck will be with a default value of 0 even though there was a loss.
 
+#### Proof of concept
 
-#### Impact
 In `BaseStrategy.sol`, in `harvest()` we have this code `debtOutstanding = vault.report(profit, loss, debtPayment);` which reports the loss to the vault, so if it reports a 0 loss when there is one then the whole accounting logic for the strategy will be incorrect which can lead to loss funds or stuck funds in strategy. Also the correctness of the healthcheck in the strategy will not be certain because of the following code in `BaseStrategy.sol` that uses `loss`: `require(HealthCheck(healthCheck).check(profit, loss, debtPayment, debtOutstanding, totalDebt), "!healthcheck");`
 
+#### Impact
+
+High.
 
 #### Recommendation
 Change `(uint256 freed, ) = liquidatePosition(toFree);` to `(uint256 freed, _loss) = liquidatePosition(toFree);` - this will directly set the `_loss` return value of `prepareReturn`
@@ -190,16 +194,17 @@ The code, as it stands, will both detect and properly account for any loss of fu
 
 What you point out here only covers the edge case of Aura not honoring a 1:1 redemption of LPs when calling `withdrawAndUnwrap`. While acknowledged, we think this is extremely unlikely edgecase and do not think adding complexity to the accounting is a worthy tradeoff. If any issues arise, strategies can be migrated to a fixed version.
 
-
-
-
-### 5. Dependence on Curve/Balancer governance (devtooligan, Jib)
+### 5. High - Dependence on Curve/Balancer governance (devtooligan, Jib)
 
 Currently, Yearn is wholly dependent on the Curve/Balancer governance approval process for pools that have gauges added to the gauge controller. It has been noted that this has worked quite well until now, with only 1 "ruggy" situation (USDM) having come up.
 
-#### Impact
+#### Proof of concept
 
 Things move quick in this space and "Curve wars" bribing adds additional volatility to the situation. With this new automated process for adding pools/strategies, the risk from dependence on external governance processes is amplified. In the event of [another governance attack](https://gov.curve.fi/t/the-curve-emergency-dao-has-killed-the-usdm-gauge/2307) or if a vulnerable token were to enter the system, then malicious actions could be completed more quickly now due to this new permissionless system dependent on approved gauges. 
+
+#### Impact
+
+High.
 
 #### Recommendation
 Review existing capabilities to shut down or pause parts of the protocol if a situation were to arise. If necessary, add new functionality to pause certain functionality of vaults and strategies for a given gauge for example preventing additional inflows to the pool.
@@ -211,7 +216,7 @@ I would submit that the vision here is for these factory compounder vaults to be
 
 Further, a user's decision to LP in a risky pool is not Yearn's concern. As Yearn LP vaults simply accept LP tokens and can do nothing to convert them back to user's desired token.
 
-### 6. Wrong parameter to cloneStrategyConvex function (datapunk)
+### 6. High - Wrong parameter to cloneStrategyConvex function (datapunk)
 
 #### Proof of concept
 The 3rd parameter in cloneStrategyConvex() is a `_rewards` address as defined in [BalancerGlobal.sol#L83](https://github.com/flashfish0x/BalancerLpFactory/blob/a877da985dc53031ecf0189aa03a1a4f458d6256/contracts/BalancerGlobal.sol#L83)
@@ -234,8 +239,8 @@ However, the same management address was passed in for both 2nd and 3rd paramete
 [BalancerGlobal.sol#L479](https://github.com/flashfish0x/BalancerLpFactory/blob/a877da985dc53031ecf0189aa03a1a4f458d6256/contracts/BalancerGlobal.sol#L479)
 
 #### Impact
-Rewards tokens will be incorrectly attributed to a management address intread of treasury address
 
+High. Rewards tokens will be incorrectly attributed to a management address intread of treasury address
 
 #### Recommendation
 Change it to
@@ -266,11 +271,11 @@ When StrategyConvexFactoryClonable is migrated, the `prepareMigration` function 
 
 The balance of want tokens is then transferred to the new strategy as unassigned debt, and the new strategy is assigned the same debtOutstanding as the old strategy.
 
-The first time the new strategy is harvested, it will realize the gain/loss of the old strategy's withdrawl. 
+The first time the new strategy is harvested, it will realize the gain/loss of the old strategy's withdrawal. 
 
-#### Impact
+#### Proof of concept
 
-The impact of this finding is dependent on Yearn's strategy managment practices & downstream tooling, so consider this impact analysis "best effort".
+The impact of this finding is dependent on Yearn's strategy management practices & downstream tooling, so consider this impact analysis "best effort".
 
 If the old strategy has not been harvested in a long time, there may be a relatively large amount of unreported gains/losses that have yet to be realized by the old strategy. 
 
@@ -280,6 +285,10 @@ This may cause data accuracy problems when analyzing the APR performance for the
 3. 10 minutes later, the new strategy is harvested.
 
 In the above scenario, a week's worth of gains/losses will be realized by the new strategy, and since the new strategy was deployed 10 minutes prior, off-chain tooling/instrumentation might draw inaccurate conclusions about the performance of the new strategy.
+
+#### Impact
+
+Medium.
 
 #### Recommendation
 
@@ -291,8 +300,7 @@ If this is implemented as an operational requirement for migration (rather than 
 This is a known issue in all strategy migrations. Typically a harvest + migration can be done in same multisig transaction to resolve it - but depends on governance remembering to do so in the proper sequence.
 We consider this minimal impact and will choose to take no action here.
 
-
-### 2. Convex's extraRewards array is unbounded (pashov)
+### 2. Medium - Convex's extraRewards array is unbounded (pashov)
 
 #### Proof of concept
 StrategyConvexFactoryClonable#_updateRewards has the following for loop:
@@ -312,7 +320,7 @@ StrategyConvexFactoryClonable#_updateRewards has the following for loop:
 This basically loops over Convex's extra rewards. The problem is that adding extra rewards is not bounded in Convex [link](https://github.com/convex-eth/platform/blob/5f935d9a8e35b62443e45b68b99c1b907435bc68/contracts/contracts/BaseRewardPool.sol#L105-L115). This means that if there are too many extra rewards this function will run out of gas/go over the block gas limit and result in a DoS of core strategy functionality (updating rewards). 
 
 #### Impact
-When attack is executed (there are too many extra rewards added in Convex) the strategy can lose its option to call `updateRewards`.
+Medium. When attack is executed (there are too many extra rewards added in Convex) the strategy can lose its option to call `updateRewards`.
 
 #### Recommendation
 Add an `offset` param to `updateRewards`, which you can use to offset the array's index that you use to call `rewardsContract.extraRewards()` with. Such an offset is implemented [here](https://github.com/code-423n4/2022-05-sturdy/blob/78f51a7a74ebe8adfd055bdbaedfddc05632566f/smart-contracts/YieldManager.sol#L118)
@@ -322,16 +330,17 @@ Marking this as low priority. We have `turnOffRewards` and `sweep` which allows 
 
 ## Low Findings
 
-
-
 ### 1. Low - _loss incorrectly assumed even if rewards can be sold to cover loss (Jib)
 
 When the strategy calls `liquidatePosition` on L564 it unwraps enough funds to cover the `_amountNeeded`. If the amount liquidated is not large enough to cover the `_amountNeeded` then on L571 a `_loss` is recorded with `_amountNeeded.sub(_liquidatedAmount)`. However, there may still be rewards that could be sold to cover the remaining amount, meaning the strategy has incorrectly suggested it has taken a loss.
 
+#### Proof of concept
+
+In `BaseStrategy.sol`, in `withdraw()` the `_loss` will be returned to the vault. The vault will then report this loss, suggesting the price per share is lower, despite the fact that the strategy could have even been in a profit if rewards were sold.
 
 #### Impact
 
-In `BaseStrategy.sol`, in `withdraw()` the `_loss` will be returned to the vault. The vault will then report this loss, suggesting the price per share is lower, despite the fact that the strategy could have even been in a profit if rewards were sold.
+Low.
 
 #### Recommendation
 
@@ -463,7 +472,7 @@ Replace >0 with !=0 when comparing unsigned integer variables to save gas.
 #### Developer Response
 Ignored as low.
 
-### 6. Storage variable `numVaults` in BalancerGlobal is not needed (pashov)
+### 6. Gas - Storage variable `numVaults` in BalancerGlobal is not needed (pashov)
 
 #### Proof of concept
 The variable is set only once in `numVaults = deployedVaults.length;`. There is no need to use a separate storage slot for this value, you can just add a getter method for `deployedVaults.length` instead
@@ -474,7 +483,7 @@ Add a getter method for `deployedVaults.length` and remove `numVaults` storage v
 #### Developer Response
 Great. Fix has been taken.
 
-### 7. recalculation not needed (datapunk)
+### 7. Gas - recalculation not needed (datapunk)
 
 #### Proof of concept
 As marked in the the snippet below, there is no need to recalculate `_profit.add(_debtPayment)` and `_profit`
@@ -498,7 +507,7 @@ In [L#345](https://github.com/flashfish0x/BalancerLpFactory/blob/a877da985dc5303
 #### Recommendation
 use `toFree` in place of `_profit.add(_debtPayment)` and remove `else { ... }`
 
-### 8. remove `tradesEnabled` (datapunk)
+### 8. Gas - remove `tradesEnabled` (datapunk)
 
 #### Proof of concept
 `tradesEnabled` appeared twice in 
@@ -511,7 +520,7 @@ Remove `tradesEnabled`
 #### Developer Response
 It has been removed, thanks.
 
-### 9. Iterating through `rewardsTokens` in `_setUpTradeFactory` and `_removeTradeFactoryPermissions` (verypoor)
+### 9. Gas - Iterating through `rewardsTokens` in `_setUpTradeFactory` and `_removeTradeFactoryPermissions` (verypoor)
 
 #### Proof of concept
 If `rewardsTokens` is expected to be more than 1 on average ([StrategyConvexFactoryClonable.sol#L291](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/StrategyConvexFactoryClonable.sol#L291) and [StrategyConvexFactoryClonable.sol#L662](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/StrategyConvexFactoryClonable.sol#L662)), and the function always iterate through all reward tokens, it would save gas to copy the `rewardsTokens` to a memory variable. Consequent access of the `rewardsTokens` and its length would only need to load from memory. Since the rewardTokens is unbounded in RewardContract, this can save more gas when there are a lot of reward tokens.
@@ -519,7 +528,7 @@ If `rewardsTokens` is expected to be more than 1 on average ([StrategyConvexFact
 #### Recommendation
 Copy `rewardsTokens` to memory: `address[] memory _rewardsTokens = rewardsTokens;`
 
-### 10. Redundant external call when using `staticcall` (verypoor)
+### 10. Gas - Redundant external call when using `staticcall` (verypoor)
 
 #### Proof of concept
 [BalancerGlobal.sol#L370](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/BalancerGlobal.sol#L370) did not make use of the returned data from low level `staticcall`, instead, the function makes one extra call to `registry.latestVault(lptoken);` in the success case.
@@ -531,7 +540,7 @@ Alternatively, the function can make use of the returned data from `staticcall` 
 
 ## Informational Findings
 
-### 1. Upgrade Pragma (devtooligan)
+### 1. Informational - Upgrade Pragma (devtooligan)
 
 The pragma used in these contracts is 0.6.12. There have been significant changes made to Solidity since which include new safety features, bug fixes, and optimizations. 
 
@@ -577,7 +586,7 @@ If there is no need to index this activity off-chain, then this finding can be i
 
 #### Developer Response
 
-### 3. ERC20.safeApprove is deprecated (pashov)
+### 3. Informational - ERC20.safeApprove is deprecated (pashov)
 
 #### Proof of concept
 StrategyConvexFactoryClonable has several occurrences of the `safeApprove` method calls. This method has been [deprecated](https://github.com/OpenZeppelin/openzeppelin-contracts/pull/2268/files) by OpenZeppelin and its usage is discouraged. 
@@ -592,7 +601,7 @@ In this particular use case it is perfectly fine to use the normal `approve` met
 Fixed
 
 
-### 4. Informational- incorrect comment (Jib)
+### 4. Informational - incorrect comment (Jib)
 
 #### Proof of concept
 L505 comment on turnOffRewards() says it will set the allowance on the router to 0. This doesnt happen in turnOffRewards 
@@ -606,10 +615,10 @@ Fix the comment to remove the zero allowance set comment or add in the allowance
 #### Developer Response
 Comment removed.
 
-### 5. Informational- hardcoded addresses (verypoor)
+### 5. Informational - hardcoded addresses (verypoor)
 
 #### Proof of concept
-Hard coded addresses in mulitple places: [StrategyConvexFactoryClonable.sol](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/StrategyConvexFactoryClonable.sol#L128-L133) and [BalancerGlobal.sol](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/BalancerGlobal.sol#L183).
+Hard coded addresses in multiple places: [StrategyConvexFactoryClonable.sol](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/StrategyConvexFactoryClonable.sol#L128-L133) and [BalancerGlobal.sol](https://github.com/flashfish0x/BalancerLpFactory/blob/f6883c45c8113c9afb0ca27e842cf7375acff137/contracts/BalancerGlobal.sol#L183).
 
 #### Impact
 When deploying on different chains, and the addresses are not changed accordingly, it can lead to unexpected contract behavior, and in some cases, misconfigured ownership.
