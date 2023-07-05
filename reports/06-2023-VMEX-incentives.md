@@ -2,12 +2,13 @@
 layout: default
 title: 06-2023-VMEX-incentives
 description: VMEX Incentives yAudit Report
-nav_order: 24
+nav_order: 26
 image: assets/images/logo.png
 ---
 
 
-# yAudit VMEX Incentives Review <!-- omit in toc -->
+# yAudit VMEX Incentives Review
+{: .no_toc }
 
 **Review Resources:**
 
@@ -18,67 +19,11 @@ A pull request of the feature, and two notion documents explaining the use case 
  - Jackson
  - HHK
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents
+{: .no_toc }
 
-- [Review Summary](#review-summary)
-- [Scope](#scope)
-- [Code Evaluation Matrix](#code-evaluation-matrix)
-- [Findings Explanation](#findings-explanation)
-- [Critical Findings](#critical-findings)
-- [High Findings](#high-findings)
-  - [1. High - `accruedPerToken` Will always be 0 as soon as `totalSupply` \> `received`](#1-high---accruedpertoken-will-always-be-0-as-soon-as-totalsupply--received)
-    - [Technical Details](#technical-details)
-    - [Impact](#impact)
-    - [Recommendation](#recommendation)
-    - [Developer Response](#developer-response)
-  - [2. High - `_checkNoLiquidity()` doesn't check for staked tokens](#2-high---_checknoliquidity-doesnt-check-for-staked-tokens)
-    - [Technical Details](#technical-details-1)
-    - [Impact](#impact-1)
-    - [Recommendation](#recommendation-1)
-    - [Developer Response](#developer-response-1)
-- [Medium Findings](#medium-findings)
-  - [1. Medium - `aToken.getStakedAmount()` return the total of all aTokens with the same underlying token instead of current aToken](#1-medium---atokengetstakedamount-return-the-total-of-all-atokens-with-the-same-underlying-token-instead-of-current-atoken)
-    - [Technical Details](#technical-details-2)
-    - [Impact](#impact-2)
-    - [Recommendation](#recommendation-2)
-    - [Developer Response](#developer-response-2)
-- [Low Findings](#low-findings)
-  - [1. Low - Missing security checks on adding stakingReward for an aToken](#1-low---missing-security-checks-on-adding-stakingreward-for-an-atoken)
-    - [Technical Details](#technical-details-3)
-    - [Impact](#impact-3)
-    - [Recommendation](#recommendation-3)
-    - [Developer Response](#developer-response-3)
-  - [2. Low - Approving `type(uint).max` is not recommended](#2-low---approving-typeuintmax-is-not-recommended)
-    - [Technical Details](#technical-details-4)
-    - [Impact](#impact-4)
-    - [Recommendation](#recommendation-4)
-    - [Developer Response](#developer-response-4)
-  - [3. Low - No check if previous liquidity when adding a stakingReward](#3-low---no-check-if-previous-liquidity-when-adding-a-stakingreward)
-    - [Technical Details](#technical-details-5)
-    - [Impact](#impact-5)
-    - [Recommendation](#recommendation-5)
-    - [Developer Response](#developer-response-5)
-- [Gas Savings Findings](#gas-savings-findings)
-  - [1. Gas - redundant `stakingExists()` checks](#1-gas---redundant-stakingexists-checks)
-    - [Technical Details](#technical-details-6)
-    - [Impact](#impact-6)
-    - [Recommendation](#recommendation-6)
-    - [Developer Response](#developer-response-6)
-- [Informational Findings](#informational-findings)
-  - [1. Informational - Can't add a stakingReward for an aToken that already has liquidity](#1-informational---cant-add-a-stakingreward-for-an-atoken-that-already-has-liquidity)
-    - [Technical Details](#technical-details-7)
-    - [Impact](#impact-7)
-    - [Recommendation](#recommendation-7)
-    - [Developer Response](#developer-response-7)
-  - [2. Informational - Can't remove or update a stakingReward](#2-informational---cant-remove-or-update-a-stakingreward)
-    - [Technical Details](#technical-details-8)
-    - [Impact](#impact-8)
-    - [Recommendation](#recommendation-8)
-    - [Developer Response](#developer-response-8)
-    - [Yaudit Response](#yaudit-response)
-    - [Developer Response](#developer-response-9)
-- [Final remarks](#final-remarks)
-
+1. TOC
+{:toc}
 
 ## Review Summary
 
