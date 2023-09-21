@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 08-2023-TempleDAO-Lending
+title: 08-2023-TempleDAO-Lending-Recheck
 description: TempleDAO Lending yAudit Report
 nav_order: 32
 image: assets/images/logo.png
