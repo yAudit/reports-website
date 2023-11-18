@@ -52,12 +52,10 @@
   code,
   figure,
   a,
-  p,
   tr {
     page-break-inside: avoid;
   }
 
-  h3,
   h4,
   h5,
   h6,
@@ -65,20 +63,19 @@
   a {
     orphans: 3;
     widows: 3;
+  }
+
+  h4,
+  h5,
+  h6 {
     page-break-inside: avoid;
     page-break-after: avoid;
   }
 
-  h3 + p,
   h4 + p,
   h5 + p,
   h6 + p {
     page-break-inside: avoid;
     page-break-after: avoid;
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-    word-wrap: break-word;
   }
 }
