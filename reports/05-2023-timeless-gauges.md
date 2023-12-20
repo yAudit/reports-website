@@ -7,6 +7,7 @@ image: assets/images/logo.png
 ---
 
 # yAudit Timeless Finance Gauge Review <!-- omit in toc -->
+{: .no_toc }
 
 **Review Resources:**
 
@@ -17,89 +18,11 @@ Codebase from three different repositories.
 - pandadefi
 - prady
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents
+{: .no_toc }
 
-- [Review Summary](#review-summary)
-- [Scope](#scope)
-- [Code Evaluation Matrix](#code-evaluation-matrix)
-- [Findings Explanation](#findings-explanation)
-- [Critical Findings](#critical-findings)
-- [High Findings](#high-findings)
-	- [1. High - VeBeacon contract vulnerable to denial of service (DoS) attack](#1-high---vebeacon-contract-vulnerable-to-denial-of-service-dos-attack)
-		- [Technical Details](#technical-details)
-		- [Impact](#impact)
-		- [Recommendation](#recommendation)
-		- [Developer Response](#developer-response)
-- [Medium Findings](#medium-findings)
-	- [1. Medium - Potential denial of service vulnerability in bridger contracts](#1-medium---potential-denial-of-service-vulnerability-in-bridger-contracts)
-		- [Technical Details](#technical-details-1)
-		- [Impact](#impact-1)
-		- [Recommendation](#recommendation-1)
-		- [Developer Response](#developer-response-1)
-	- [2. Medium - Child gauge vulnerability: uncontrolled reward addition by managers](#2-medium---child-gauge-vulnerability-uncontrolled-reward-addition-by-managers)
-		- [Technical Details](#technical-details-2)
-		- [Impact](#impact-2)
-		- [Recommendation](#recommendation-2)
-		- [Developer Response](#developer-response-2)
-	- [3. Medium - unkillGauge should checkpoint funds distribution to prevent distributing for the time it was killed](#3-medium---unkillgauge-should-checkpoint-funds-distribution-to-prevent-distributing-for-the-time-it-was-killed)
-		- [Technical Details](#technical-details-3)
-		- [Impact](#impact-3)
-		- [Recommendation](#recommendation-3)
-		- [Developer Response](#developer-response-3)
-	- [4. Medium - Potential user exploitation of boost adjustment mechanism](#4-medium---potential-user-exploitation-of-boost-adjustment-mechanism)
-		- [Technical Details](#technical-details-4)
-		- [Impact](#impact-4)
-		- [Recommendation](#recommendation-4)
-		- [Developer Response](#developer-response-4)
-- [Low Findings](#low-findings)
-	- [1. Low - Rewards can be locked in Gauges](#1-low---rewards-can-be-locked-in-gauges)
-		- [Technical Details](#technical-details-5)
-		- [Impact](#impact-5)
-		- [Recommendation](#recommendation-5)
-		- [Developer Response](#developer-response-5)
-	- [2. Low - Add missing input validation on constructor/initializer/setters](#2-low---add-missing-input-validation-on-constructorinitializersetters)
-		- [Technical Details](#technical-details-6)
-		- [Impact](#impact-6)
-		- [Recommendation](#recommendation-6)
-		- [Developer Response](#developer-response-6)
-	- [3. Low - Potential user manipulation of Uniswap deposit to claim rewards within range](#3-low---potential-user-manipulation-of-uniswap-deposit-to-claim-rewards-within-range)
-		- [Technical Details](#technical-details-7)
-		- [Impact](#impact-7)
-		- [Recommendation](#recommendation-7)
-		- [Developer Response](#developer-response-7)
-- [Gas Findings](#gas-findings)
-	- [1. Gas - votingEscrow.epoch() can't be zero if a user created a lock](#1-gas---votingescrowepoch-cant-be-zero-if-a-user-created-a-lock)
-		- [Technical Details](#technical-details-8)
-		- [Impact](#impact-8)
-		- [Recommendation](#recommendation-8)
-		- [Developer response](#developer-response-8)
-	- [2. Gas - Consolidating Gauge State Setters for Gas Optimization](#2-gas---consolidating-gauge-state-setters-for-gas-optimization)
-		- [Technical Details](#technical-details-9)
-		- [Impact](#impact-9)
-		- [Recommendation](#recommendation-9)
-		- [Developer response](#developer-response-9)
-- [Informational Findings](#informational-findings)
-	- [1. Informational - Potential transaction order discrepancy and impact on total supply calculation in sidechain](#1-informational---potential-transaction-order-discrepancy-and-impact-on-total-supply-calculation-in-sidechain)
-		- [Technical Details](#technical-details-10)
-		- [Impact](#impact-10)
-		- [Recommendation](#recommendation-10)
-		- [Developer response](#developer-response-10)
-	- [2. Informational - Optimizing bytecode size by removing unused constant variable](#2-informational---optimizing-bytecode-size-by-removing-unused-constant-variable)
-		- [Technical Details](#technical-details-11)
-		- [Impact](#impact-11)
-		- [Recommendation](#recommendation-11)
-		- [Developer response](#developer-response-11)
-	- [3. Informational - Missing events for critical operations](#3-informational---missing-events-for-critical-operations)
-		- [Technical Details](#technical-details-12)
-		- [Impact](#impact-12)
-		- [Recommendation](#recommendation-12)
-		- [Developer response](#developer-response-12)
-	- [4. Informational - Leveraging new syntax in Vyper 0.3.4 for default return value](#4-informational---leveraging-new-syntax-in-vyper-034-for-default-return-value)
-		- [Technical Details](#technical-details-13)
-		- [Impact](#impact-13)
-		- [Recommendation](#recommendation-13)
-		- [Developer response](#developer-response-13)
-- [Final remarks](#final-remarks)
+1. TOC
+{:toc}
 
 ## Review Summary
 
