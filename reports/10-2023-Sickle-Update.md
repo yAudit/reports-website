@@ -2,7 +2,7 @@
 layout: default
 title: 10-2023-Sickle-Update
 description: Sickle Update yAudit Report
-nav_order: 38
+nav_order: 41
 image: assets/images/logo.png
 ---
 
@@ -255,8 +255,8 @@ All strategies have 2 entry points, one that is supposed to be called by the use
 But many of the strategies functionalities can be used by directly calling the callback entry point, a user could then deploy its own version of the sickle contract and use the strategies by directly `delegatecall()` to them.
 
 In its own sickle version of the contract, the user could bypass fees using multiple ways:
-- by changing the `registry` address to one that would return 0 as fee. 
-- By changing the `collector` address to itself to just receive the fees directly. 
+- by changing the `registry` address to one that would return 0 as fee.
+- By changing the `collector` address to itself to just receive the fees directly.
 - By changing the `strategy` parameter to something that is not saved in the official `registry` which would result in 0 as a fee.
 
 Here is a POC using the first and second bypass options (it can be copied and pasted in [AerodromeStrategy.t.sol](https://github.com/vfat-tools/sickle-contracts/blob/8e0e9d5fcb328857182eb948fa682f81d1474913/test/strategies/AerodromeStrategy.t.sol):

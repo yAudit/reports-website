@@ -2,7 +2,7 @@
 layout: default
 title: 01-2024-Peapods
 description: Peapods yAudit Report
-nav_order: 40
+nav_order: 46
 image: assets/images/logo.png
 ---
 
@@ -321,7 +321,7 @@ The implementation of V3Locker.sol contains a function that can be used to exten
 43:   }
 ```
 
-Since the codebase uses Solidity 0.7, this function can be used to overflow the `lockedTime` variable and reset the timelock to zero, allowing to arbitrarily withdraw the Uniswap position. 
+Since the codebase uses Solidity 0.7, this function can be used to overflow the `lockedTime` variable and reset the timelock to zero, allowing to arbitrarily withdraw the Uniswap position.
 
 For example, if `lockedTime = X`, then calling `addTime(type(uint256).max - X)` will set `lockedTime = 0`.
 
@@ -352,7 +352,7 @@ The [`addLiquidityV2()`](https://github.com/peapodsfinance/contracts/blob/8bcb1c
 269:       _pairedLPTokens
 270:     );
 271:     IERC20(PAIRED_LP_TOKEN).safeIncreaseAllowance(V2_ROUTER, _pairedLPTokens);
-272: 
+272:
 273:     IUniswapV2Router02(V2_ROUTER).addLiquidity(
 274:       address(this),
 275:       PAIRED_LP_TOKEN,
@@ -617,7 +617,7 @@ Collected fees in the pod are processed in [`_processPreSwapFeesAndSwap()`](http
 164:       }
 ```
 
-When this happens, the price per share will be increased: index tokens are burned, but assets in the index stay the same. This creates a sudden spike in the index shares that can be potentially sandwiched. A bad actor can enter the index before processing the fees and immediately withdraw, with null exposure to the underlying assets in the pod. 
+When this happens, the price per share will be increased: index tokens are burned, but assets in the index stay the same. This creates a sudden spike in the index shares that can be potentially sandwiched. A bad actor can enter the index before processing the fees and immediately withdraw, with null exposure to the underlying assets in the pod.
 
 #### Impact
 
@@ -629,7 +629,7 @@ The attack can be further mitigated by introducing some concept of permanency in
 
 #### Developer Response
 
-Resolved in https://github.com/peapodsfinance/contracts/commit/0cd797f2dcf22d7c04324f9762d59139ec896826 by processing burn fees immediately and not all at once upon feeSwap conditions passing. 
+Resolved in https://github.com/peapodsfinance/contracts/commit/0cd797f2dcf22d7c04324f9762d59139ec896826 by processing burn fees immediately and not all at once upon feeSwap conditions passing.
 
 ### 3. Medium - Lack of slippage during fee and reward processing
 
@@ -855,9 +855,9 @@ Resolved in https://github.com/peapodsfinance/contracts/pull/23/commits/33171304
 
 ### 7. Medium - Pod can be DOS, when v3 pool `PAIRED_LP_TOKEN -> rewardsToken` doesn't exist
 
-One of the main goal of uni v3 pool between `PAIRED_LP_TOKEN -> rewardsToken` is to provide liquidity to convert excess PAIRED_LP_TOKEN to rewards tokens when 
+One of the main goal of uni v3 pool between `PAIRED_LP_TOKEN -> rewardsToken` is to provide liquidity to convert excess PAIRED_LP_TOKEN to rewards tokens when
 - someone make a sell `indexToken -> PAIRED_LP_TOKEN`
--  when someone stakes v2 pool token. 
+-  when someone stakes v2 pool token.
 
 #### Technical Details
 During deployment of pod, user gets to choose the `PAIRED_LP_TOKEN` (while the protocol preferred token is DAI) that means for a pod consisting of ETH indexes (WETH, STETH, RETH), it can be possible to create a ETH based token as a `PAIRED_LP_TOKEN`. But if the pool between `PAIRED_LP_TOKEN` and `rewardsToken` doesn't exist then `TokenRewards.depositFromPairedLpToken()` will always revert due to condition.
@@ -914,7 +914,7 @@ uint160 _rewardsSqrtPriceX96 = V3_TWAP_UTILS.sqrtPriceX96FromPoolAndInterval(_po
 ```
 
 2. Selling indexToken on v2 pool will revert.
-   
+
 ```solidity
     function test_sell_v2_with_no_v3_pool() public {
         // seed tokens
@@ -959,7 +959,7 @@ uint160 _rewardsSqrtPriceX96 = V3_TWAP_UTILS.sqrtPriceX96FromPoolAndInterval(_po
 
 #### Impact
 
-Medium. In absence of uni v3 pool, it will become harder to sell indexToken on v2 open-market as `depositFromPairedLpToken()` will always revert, and staking will also be DOS. 
+Medium. In absence of uni v3 pool, it will become harder to sell indexToken on v2 open-market as `depositFromPairedLpToken()` will always revert, and staking will also be DOS.
 
 #### Recommendation
 
@@ -1048,7 +1048,7 @@ The above condition totally depends on `balanceOf(V2_POOL) > 0`. If the pool has
 
 ```solidity
 function _processPreSwapFeesAndSwap() internal {
-  ... 
+  ...
   if (_bal >= _min && balanceOf(V2_POOL) > 0) {
     ...
   }
@@ -1059,12 +1059,12 @@ Medium. Right now the function checks if there's enough liquidity before doing a
 
 #### Recommendation
 
-1. Do burn and fee cut, and only swap if `balanceOf(V2_POOL) > 0`. 
+1. Do burn and fee cut, and only swap if `balanceOf(V2_POOL) > 0`.
 ```diff
   function _processPreSwapFeesAndSwap() internal {
     uint256 _bal = balanceOf(address(this));
-    uint256 _min = totalSupply() / 10000; 
-    
+    uint256 _min = totalSupply() / 10000;
+
 -  if (_bal >= _min && balanceOf(V2_POOL) > 0) {
 +  if (_bal >= _min) {
       _swapping = true;
@@ -1088,7 +1088,7 @@ Medium. Right now the function checks if there's enough liquidity before doing a
   }
 ```
 
-2. Second would be to migrate the whole swapping logic to rewards contract, and remove it from Index contracts. 
+2. Second would be to migrate the whole swapping logic to rewards contract, and remove it from Index contracts.
 ```solidity
   function _processPreSwapFeesAndSwap() internal {
     uint256 _bal = balanceOf(address(this));
@@ -1110,10 +1110,10 @@ Medium. Right now the function checks if there's enough liquidity before doing a
        super._transfer(address(this), partner, _partnerAmt);
       }
      super._transfer(address(this), _rewards, _totalAmt - _burnAmt - _partnerAmt);
-     
-    if (IERC20((address(this)).balanceOf(_rewards) > 0) 
+
+    if (IERC20((address(this)).balanceOf(_rewards) > 0)
       ITokenRewards(_rewards).depositFromPairedLpToken(0, 0); // migrate the swap into the reward contract, inside `depositFromPairedLpToken`.
-    
+
       _swapping = false;
     }
   }
@@ -1158,7 +1158,7 @@ Both [`addLiquidityV2()`](https://github.com/peapodsfinance/contracts/blob/8bcb1
 
 In the implementation of these functions, the underlying Uniswap calls to add liquidity and remove liquidity are being hardcoded with a deadline argument of `block.timestamp`.
 
-This effectively nullifies the effect of having such check, since the router will end up [checking that `block.timestamp >= block.timestamp`](https://github.com/Uniswap/v2-periphery/blob/0335e8f7e1bd1e8d8329fd300aea2ef2f36dd19f/contracts/UniswapV2Router02.sol#L18-L22), a condition that is always true. 
+This effectively nullifies the effect of having such check, since the router will end up [checking that `block.timestamp >= block.timestamp`](https://github.com/Uniswap/v2-periphery/blob/0335e8f7e1bd1e8d8329fd300aea2ef2f36dd19f/contracts/UniswapV2Router02.sol#L18-L22), a condition that is always true.
 
 Failure to provide a proper deadline value enables pending transactions to be maliciously executed at a later point. Transactions that provide an insufficient amount of gas such that they are not mined within a reasonable amount of time, can be picked by malicious actors or MEV bots and executed later in detriment of the submitter.
 
@@ -1209,7 +1209,7 @@ The implementation of [`receive()`](https://github.com/peapodsfinance/contracts/
 370:     require(address(this).balance > 0, 'NOETH');
 371:     _rescueETH(address(this).balance);
 372:   }
-373: 
+373:
 374:   function _rescueETH(uint256 _amount) internal {
 375:     if (_amount == 0) {
 376:       return;
@@ -1219,7 +1219,7 @@ The implementation of [`receive()`](https://github.com/peapodsfinance/contracts/
 380:     }('');
 381:     require(_sent, 'SENT');
 382:   }
-383: 
+383:
 384:   receive() external payable {
 385:     _rescueETH(msg.value);
 386:   }
@@ -1303,7 +1303,7 @@ Protocol fees are obtained by first fetching the router, and then querying the a
 
 #### Technical Details
 
-The [ProtocolFeeRouter.sol](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/ProtocolFeeRouter.sol#L8) contract delegates the actual fee values to the [ProtocolFees.sol](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/ProtocolFees.sol#L7) contract. 
+The [ProtocolFeeRouter.sol](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/ProtocolFeeRouter.sol#L8) contract delegates the actual fee values to the [ProtocolFees.sol](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/ProtocolFees.sol#L7) contract.
 
 This creates an unnecessary indirection that adds gas costs. Changing the indirection in the router would be equivalent to just changing the fee values at the ProtocolFees.sol contract.
 
@@ -1349,7 +1349,7 @@ There are several functions which turn off the fee limitations, either by turnin
 
 #### Technical Details
 
-In functions: 
+In functions:
 - [_processPreSwapFeesAndSwap()](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/DecentralizedIndex.sol#L167)
 - [addLiquidityV2()](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/DecentralizedIndex.sol#L263)
 - [addLiquidityV2()](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/DecentralizedIndex.sol#L286)
@@ -1389,7 +1389,7 @@ There is an unused memory parameter in `IndexUtils.bond()`.
       }
 ```
 
-- Similarly, [_balsBefore](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/IndexUtils.sol#L42) variable serves no purpose in function execution. 
+- Similarly, [_balsBefore](https://github.com/peapodsfinance/contracts/blob/8bcb1c1da08017564f3f7e7bd7c54b130027607f/contracts/IndexUtils.sol#L42) variable serves no purpose in function execution.
 
 #### Impact
 
@@ -1397,7 +1397,7 @@ Gas savings.
 
 #### Recommendation
 
-Remove the variables that are not used in execution logic. 
+Remove the variables that are not used in execution logic.
 
 #### Developer Response
 
@@ -1502,11 +1502,11 @@ Resolved in https://github.com/peapodsfinance/contracts/pull/23/commits/862bf773
 
 ### 3. Informational - WeightedIndex should check for token duplication
 
-Creating a pod with `2 same tokens` will make the pod unusable. 
+Creating a pod with `2 same tokens` will make the pod unusable.
 
 #### Technical Details
 
-When deploying a pod, the deployer can decide what tokens the pod will hold. Adding two similar tokens will make it non-serviceable. 
+When deploying a pod, the deployer can decide what tokens the pod will hold. Adding two similar tokens will make it non-serviceable.
 
 ```solidity
     function setUp() public {
@@ -1579,7 +1579,7 @@ Informational.
 
 #### Recommendation
 
-Add check in constructor to ensure that no two tokens can be the same in a pod. 
+Add check in constructor to ensure that no two tokens can be the same in a pod.
 
 ```diff
     for (uint256 _i; _i < _tokens.length; _i++) {

@@ -2,7 +2,7 @@
 layout: default
 title: 12-2023-Euler-EVC
 description: Euler EVC yAudit Report
-nav_order: 39
+nav_order: 42
 image: assets/images/logo.png
 ---
 
@@ -109,7 +109,7 @@ The following proof of concept was included at the end of `test_SetOperator_Perm
         //Reset otherOperator to remove permissions
         vm.prank(alice);
         evc.setAccountOperator(alice, otherOperator, false);
-        
+
         //Operator adds permissions for otherOperator
         data = abi.encodeWithSelector(IEVC.setAccountOperator.selector, alice, otherOperator, true);
         signature = signerECDSA.signPermit(operator, 0, 2, block.timestamp, 0, data);
@@ -224,7 +224,7 @@ Error (9553): Invalid type for argument in function call. Invalid implicit conve
    --> src/EthereumVaultConnector.sol:519:78:
     |
 519 |             callWithContextInternal(recipient, recipient, type(uint256).max, "");
-    |     
+    |
 ```
 
 **Auditors' response:** Agree with the developer response, this gas optimization was tested in a sandbox environment where the variable didn't have to be `calldata`. The [`recoverRemainingETH()`](https://github.com/euler-xyz/ethereum-vault-connector/blob/962722a69a275c424adaa89e595ca60107376b68/src/EthereumVaultConnector.sol#L503) has been removed in the second version audited and thus doesn't require optimization anymore.
@@ -289,7 +289,7 @@ Documents for vault best practices should note the issue.
 
 #### Developer Response
 
-Current documentation states that the account and vault status checks MUST be required by the vaults whenever an operation may potentially affect account solvency or, respectively, the vault state. This implies that even if the checks were cleared in the middle of a set of bundled operations, any operation that comes after and potentially affects account solvency or vault state, MUST require relevant checks. 
+Current documentation states that the account and vault status checks MUST be required by the vaults whenever an operation may potentially affect account solvency or, respectively, the vault state. This implies that even if the checks were cleared in the middle of a set of bundled operations, any operation that comes after and potentially affects account solvency or vault state, MUST require relevant checks.
 
 Improved documentation - [PR#64](https://github.com/euler-xyz/ethereum-vault-connector/pull/64).
 
@@ -435,7 +435,7 @@ Given that addressing this issue comprehensively would increase complexity, and 
 
 ## Final remarks
 
-The quality of the code, extensive testing and clear documentation makes this codebase of very high quality, a lot of work and thoughts have been put into it by the Euler team. 
+The quality of the code, extensive testing and clear documentation makes this codebase of very high quality, a lot of work and thoughts have been put into it by the Euler team.
 
 No major security issues where found during this audit, but it's important to note that the EVC is far from easy to integrate with and external teams that would want to write vaults compatible with it will need to be aware of all its flows. To help with that the [vaults specs documentation](https://github.com/euler-xyz/ethereum-vault-connector/blob/962722a69a275c424adaa89e595ca60107376b68/docs/specs.md#vault-specification) and the [FAQ](https://github.com/euler-xyz/ethereum-vault-connector/blob/962722a69a275c424adaa89e595ca60107376b68/docs/faq.md) have been put together by the Euler team, some informational findings from this report also provide additional edge case that should be considered by integrators.
 Nonetheless, the auditors are confident that it will bring interesting architecture and features to the current DeFi landscape.
