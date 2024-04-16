@@ -6,7 +6,7 @@ nav_order: 42
 image: assets/images/logo.png
 ---
 
-# yAudit Euler EVC Review
+# yAudit Euler EVC Review <!-- omit in toc -->
 {: .no_toc }
 
 **Review Resources:**
@@ -19,7 +19,7 @@ image: assets/images/logo.png
  - HHK
  - NibblerExpress
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 {: .no_toc }
 
 1. TOC

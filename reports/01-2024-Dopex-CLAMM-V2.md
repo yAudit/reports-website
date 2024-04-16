@@ -7,6 +7,7 @@ image: assets/images/logo.png
 ---
 
 # yAudit Dopex CLAMM V2 Review <!-- omit in toc -->
+{: .no_toc }
 
 **Review Resources:**
 
@@ -18,117 +19,10 @@ image: assets/images/logo.png
 - HHK
 
 ## Table of Contents <!-- omit in toc -->
+{: .no_toc }
 
-- [Review Summary](#review-summary)
-- [Scope](#scope)
-- [Code Evaluation Matrix](#code-evaluation-matrix)
-- [Findings Explanation](#findings-explanation)
-- [Critical Findings](#critical-findings)
-- [High Findings](#high-findings)
-  - [1. High - Re-entrancy in `mintOption()` and missing check in `withdrawReserveLiquidity()` allows minting risk-free options and DOS liquidity](#1-high---re-entrancy-in-mintoption-and-missing-check-in-withdrawreserveliquidity-allows-minting-risk-free-options-and-dos-liquidity)
-    - [Technical Details](#technical-details)
-    - [Impact](#impact)
-    - [Recommendation](#recommendation)
-    - [Developer Response](#developer-response)
-  - [2. High - Inability to select which position to settle can lead to DOS of ability to settle options](#2-high---inability-to-select-which-position-to-settle-can-lead-to-dos-of-ability-to-settle-options)
-    - [Technical Details](#technical-details-1)
-    - [Impact](#impact-1)
-    - [Recommendation](#recommendation-1)
-    - [Developer Response](#developer-response-1)
-- [Low Findings](#low-findings)
-  - [1. Low - Unnecessary division that can result in precision loss in `_getPremiumAmount()`](#1-low---unnecessary-division-that-can-result-in-precision-loss-in-_getpremiumamount)
-    - [Technical Details](#technical-details-2)
-    - [Impact](#impact-2)
-    - [Recommendation](#recommendation-2)
-    - [Developer Response](#developer-response-2)
-  - [2. Low - No limits on the amount of position to mint an option from in `mintOption()`](#2-low---no-limits-on-the-amount-of-position-to-mint-an-option-from-in-mintoption)
-    - [Technical Details](#technical-details-3)
-    - [Impact](#impact-3)
-    - [Recommendation](#recommendation-3)
-    - [Developer Response](#developer-response-3)
-  - [3. Low - `_convertToAssets()` can return 1 extra WEI of liquidity and lead to underflow](#3-low---_converttoassets-can-return-1-extra-wei-of-liquidity-and-lead-to-underflow)
-    - [Technical Details](#technical-details-4)
-    - [Impact](#impact-4)
-    - [Recommendation](#recommendation-4)
-    - [Developer Response](#developer-response-4)
-- [Gas Saving Findings](#gas-saving-findings)
-  - [1. Gas - Unused imports](#1-gas---unused-imports)
-    - [Technical Details](#technical-details-5)
-    - [Impact](#impact-5)
-    - [Recommendation](#recommendation-5)
-    - [Developer Response](#developer-response-5)
-  - [2. Gas - Cache the `ownerOf()` in `exerciseOption()` and `positionSplitter()`](#2-gas---cache-the-ownerof-in-exerciseoption-and-positionsplitter)
-    - [Technical Details](#technical-details-6)
-    - [Impact](#impact-6)
-    - [Recommendation](#recommendation-6)
-    - [Developer Response](#developer-response-6)
-  - [3. Gas - Cache `opTick` in `exerciseOption()` and `settleOption()`](#3-gas---cache-optick-in-exerciseoption-and-settleoption)
-    - [Technical Details](#technical-details-7)
-    - [Impact](#impact-7)
-    - [Recommendation](#recommendation-7)
-    - [Developer Response](#developer-response-7)
-  - [4. Gas - `tokenId` is computed multiple times in `mintPosition()` and `burnPosition()`](#4-gas---tokenid-is-computed-multiple-times-in-mintposition-and-burnposition)
-    - [Technical Details](#technical-details-8)
-    - [Impact](#impact-8)
-    - [Recommendation](#recommendation-8)
-    - [Developer Response](#developer-response-8)
-  - [5. Gas - `getAmountsForLiquidity()` is called multiple times in `donateToPosition()` and `mintPosition()`](#5-gas---getamountsforliquidity-is-called-multiple-times-in-donatetoposition-and-mintposition)
-    - [Technical Details](#technical-details-9)
-    - [Impact](#impact-9)
-    - [Recommendation](#recommendation-9)
-    - [Developer Response](#developer-response-9)
-  - [6. Gas - Cache `tki` throughout the `UniswapV3SingleTickLiquidityHandlerV2` contract](#6-gas---cache-tki-throughout-the-uniswapv3singletickliquidityhandlerv2-contract)
-    - [Technical Details](#technical-details-10)
-    - [Impact](#impact-10)
-    - [Recommendation](#recommendation-10)
-    - [Developer Response](#developer-response-10)
-  - [7. Gas - Hardcode `FEE_PERCENT_PRECISION * 100` in fee strategy contract](#7-gas---hardcode-fee_percent_precision--100-in-fee-strategy-contract)
-    - [Technical Details](#technical-details-11)
-    - [Impact](#impact-11)
-    - [Recommendation](#recommendation-11)
-    - [Developer Response](#developer-response-11)
-- [Informational Findings](#informational-findings)
-  - [1. Informational - `BoundedTTLHook_0day`'s `onPositionUse` can be `pure`](#1-informational---boundedttlhook_0days-onpositionuse-can-be-pure)
-    - [Technical Details](#technical-details-12)
-    - [Impact](#impact-12)
-    - [Recommendation](#recommendation-12)
-    - [Developer Response](#developer-response-12)
-  - [2. Informational - Incorrect `abi.decode()` parameter in `BoundedTTLHook_0day`'s `onPositionUse()`](#2-informational---incorrect-abidecode-parameter-in-boundedttlhook_0days-onpositionuse)
-    - [Technical Details](#technical-details-13)
-    - [Impact](#impact-13)
-    - [Recommendation](#recommendation-13)
-    - [Developer Response](#developer-response-13)
-  - [3. Informational - Incorrect function parameter name in `IERC6906`'s `setOperator()`](#3-informational---incorrect-function-parameter-name-in-ierc6906s-setoperator)
-    - [Technical Details](#technical-details-14)
-    - [Impact](#impact-14)
-    - [Recommendation](#recommendation-14)
-    - [Developer Response](#developer-response-14)
-  - [4. Informational - Allow minimum `tokensOwed` to be configurable in `UniswapV3SingleTickLiquidityHandlerV2`](#4-informational---allow-minimum-tokensowed-to-be-configurable-in-uniswapv3singletickliquidityhandlerv2)
-    - [Technical Details](#technical-details-15)
-    - [Impact](#impact-15)
-    - [Recommendation](#recommendation-15)
-    - [Developer Response](#developer-response-15)
-  - [5. Informational - Missing events in `reserveLiquidity()` and `withdrawReserveLiquidity()`](#5-informational---missing-events-in-reserveliquidity-and-withdrawreserveliquidity)
-    - [Technical Details](#technical-details-16)
-    - [Impact](#impact-16)
-    - [Recommendation](#recommendation-16)
-    - [Developer Response](#developer-response-16)
-  - [6. Informational - Code repetition in `burnPositionHandler()` and `reserveLiquidity()`](#6-informational---code-repetition-in-burnpositionhandler-and-reserveliquidity)
-    - [Technical Details](#technical-details-17)
-    - [Impact](#impact-17)
-    - [Recommendation](#recommendation-17)
-    - [Developer Response](#developer-response-17)
-  - [7. Informational - Code repetition in `tokensToPullForMint()`, `tokensToPullForUnUse()`, and `tokensToPullForDonate()`](#7-informational---code-repetition-in-tokenstopullformint-tokenstopullforunuse-and-tokenstopullfordonate)
-    - [Technical Details](#technical-details-18)
-    - [Impact](#impact-18)
-    - [Recommendation](#recommendation-18)
-    - [Developer Response](#developer-response-18)
-  - [8. Informational - `uniswapV3MintCallback()` will not work on some layer 2s like ZKSync Era](#8-informational---uniswapv3mintcallback-will-not-work-on-some-layer-2s-like-zksync-era)
-    - [Technical Details](#technical-details-19)
-    - [Impact](#impact-19)
-    - [Recommendation](#recommendation-19)
-    - [Developer Response](#developer-response-19)
-- [Final remarks](#final-remarks)
+1. TOC
+{:toc}
 
 ## Review Summary
 
@@ -250,7 +144,7 @@ The `hook` will impact the calculated `tokenId`, this is needed so that if you s
 
 The `UniswapV3SingleTickLiquidityHandlerV2` is usually not called directly, only the whitelisted `positionManager` and `optionMarket` can call it directly, these two contracts have a re-entrancy check. There is an exception, the functions [`reserveLiquidity()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L503) and [`withdrawReserveLiquidity()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L610) can be called directly on the `UniswapV3SingleTickLiquidityHandlerV2` contract.
 
-When we mint an option calling the [`mintOption()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/DopexV2OptionMarketV2.sol#L220) function, it calls the function [`usePositionHandler()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L671) from the `UniswapV3SingleTickLiquidityHandlerV2` contract for each liquidity position we want to borrow from to create back our option. 
+When we mint an option calling the [`mintOption()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/DopexV2OptionMarketV2.sol#L220) function, it calls the function [`usePositionHandler()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L671) from the `UniswapV3SingleTickLiquidityHandlerV2` contract for each liquidity position we want to borrow from to create back our option.
 
 During this sub call, we check that there is enough liquidity available and then the `hook` specified by the liquidity provider is called. This is where an issue can arise, the `hook` can potentially execute a re-entrancy by calling [`reserveLiquidity()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L503) or [`withdrawReserveLiquidity()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L610) as they are not protected from re-entrancy.
 
@@ -413,7 +307,7 @@ function testBuyCallOptionAndWithdrawCollateral() public {
     }
 ```
 
-Additionally, because the liquidity used when minting the option is liquidity from other users, we could make the malicious `hook` revert on [`onPositionUnUse()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L746) which would not let the Dopex team settle the option, resulting in the liquidity of other users not added back thus would revert when they try to withdraw. 
+Additionally, because the liquidity used when minting the option is liquidity from other users, we could make the malicious `hook` revert on [`onPositionUnUse()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L746) which would not let the Dopex team settle the option, resulting in the liquidity of other users not added back thus would revert when they try to withdraw.
 
 Dopex team would have to call the [`emergencyWithdraw()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L1245) to reimburse them.
 
@@ -454,7 +348,7 @@ During this subcall, the `hook` specified for the liquidity position is called t
 Knowing this we can create an attack scenario that will lock user's positions:
 - An attacker adds a very small amount of liquidity using a malicious hook that reverts on [`onPositionUnUse()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/handlers/UniswapV3SingleTickLiquidityHandlerV2.sol#L772).
 - Then like a trader, the attacker mints an option using multiple liquidity positions, mostly legit positions, and includes his malicious one.
-- The option expires, and Dopex tries to settle it but during the loop, the call reverts when trying to reinstate the liquidity of the attacker. 
+- The option expires, and Dopex tries to settle it but during the loop, the call reverts when trying to reinstate the liquidity of the attacker.
 
 This results in the whole option's liquidity being locked and not only the attacker's. It comes at a cost for the attacker, but it can be fairly small if the option uses a very short `ttl` like 20 minutes or less.
 
@@ -464,7 +358,7 @@ Here is a POC that can be copied and pasted in DopexV2OptionMarketV2.t.sol:
 ```solidity
 contract MaliciousHookRevertOnUnuse {
     function onPositionUse(bytes calldata _data) external {
-        
+
     }
 
     function onPositionUnUse(bytes calldata _data) external {revert("maliciousHook");}
@@ -1037,7 +931,7 @@ Fix - https://github.com/dopex-io/dopex-v2-clamm/pull/20/commits/cac789074ef540e
 
 #### Technical Details
 
-The [`uniswapV3MintCallback()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/uniswap-v3/LiquidityManager.sol#L43) function in the liquidity manager verifies that the caller is a legit Uniswapv3 pool by calling [`verifyCallback()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/uniswap-v3/LiquidityManager.sol#L177). To do this, it tries to recompute the `create2` address of the pool. 
+The [`uniswapV3MintCallback()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/uniswap-v3/LiquidityManager.sol#L43) function in the liquidity manager verifies that the caller is a legit Uniswapv3 pool by calling [`verifyCallback()`](https://github.com/dopex-io/dopex-v2-clamm/blob/cb11bee1fa96da657f69a02f7e205138e567b0df/src/uniswap-v3/LiquidityManager.sol#L177). To do this, it tries to recompute the `create2` address of the pool.
 
 Some layer 2s like ZKSync Era compute the `create2` address differently than Ethereum mainnet. This will result in a different address and thus pools not being able to make a callback into the liquidity manager when adding liquidity.
 
