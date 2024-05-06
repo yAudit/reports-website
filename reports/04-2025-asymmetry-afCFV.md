@@ -173,8 +173,7 @@ image: assets/images/logo.png
 
 Asymmetry provides a vault built on top of Convex staker and ClevCVX contracts. The vault allows users to deposit CVX and earn more yield by depositing funds to CLever and Convex. The CVX gets locked for a higher yield, meaning they must wait some time before withdrawing CVX. The protocol handles this by using withdraw queues in the strategy contract.
 
-![flows](flows.png)
-
+![flows](../../assets/images/asymmetry-afCVX/flows.png)
 The contracts of the Asymmetry [Repo](https://github.com/asymmetryfinance/) were reviewed over four days. Two auditors performed the code review between April 22nd and April 25th, 2024. The repository was under active development during the review, but the review was limited to the latest commit at the start. This was commit [57cb6d5162a526bce6b34209a13c0bcfd36f86cb](https://github.com/asymmetryfinance/afCVX/tree/57cb6d5162a526bce6b34209a13c0bcfd36f86cb) for the asymmetry repo.
 
 ## Scope
