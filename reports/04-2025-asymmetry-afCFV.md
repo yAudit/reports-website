@@ -20,7 +20,6 @@ image: assets/images/logo.png
 ## Table of Contents <!-- omit in toc -->
 {: .no_toc }
 
-1. TOC
 - [Review Summary](#review-summary)
 - [Scope](#scope)
 - [Code Evaluation Matrix](#code-evaluation-matrix)
