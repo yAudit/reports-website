@@ -7,6 +7,7 @@ image: assets/images/logo.png
 ---
 
 # yAudit Rysk vault Review <!-- omit in toc -->
+{: .no_toc }
 
 **Review Resources:**
 

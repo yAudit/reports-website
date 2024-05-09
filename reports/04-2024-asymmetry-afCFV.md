@@ -1,12 +1,13 @@
 ---
 layout: default
-title: 04-2024-asymmetry-afCVX
+title: 04-2024-Asymmetry-afCVX
 description: Rysk MM vaults Report
 nav_order: 50
 image: assets/images/logo.png
 ---
 
-# yAudit asymmetry Review <!-- omit in toc -->
+# yAudit Asymmetry Review <!-- omit in toc -->
+{: .no_toc }
 
 **Review Resources:**
 
