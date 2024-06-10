@@ -81,6 +81,23 @@ Findings are broken down into sections by their respective impact:
   - Findings including recommendations and best practices.
 
 ---
+
+## Critical Findings
+
+None.
+
+## High Findings
+
+None.
+
+## Medium Findings
+
+None.
+
+## Low Findings
+
+None.
+
 ## Gas Saving Findings
 
 ### 1. Gas - Use unsafe math
