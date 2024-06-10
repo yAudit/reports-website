@@ -82,7 +82,6 @@ Findings are broken down into sections by their respective impact:
 
 ---
 ## Gas Saving Findings
-## Gas Saving Findings
 
 ### 1. Gas - Use unsafe math
 
