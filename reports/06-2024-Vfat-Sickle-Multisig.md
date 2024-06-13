@@ -8,6 +8,7 @@ image: assets/images/logo.png
 
 
 # yAudit Sickle Review <!-- omit in toc -->
+{: .no_toc }
 
 **Review Resources:**
 
@@ -284,7 +285,7 @@ Gas savings.
 
 #### Recommendation
 
-Remove the redundant check: 
+Remove the redundant check:
 
 ```diff
      modifier callbackSafetyCheck(bytes memory params) {
