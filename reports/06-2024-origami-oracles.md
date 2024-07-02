@@ -2,7 +2,7 @@
 layout: default
 title: 06-2024-Origami-oracle
 description: Origami oracle yAudit report
-nav_order: 61
+nav_order: 62
 image: assets/images/logo.png
 ---
 
