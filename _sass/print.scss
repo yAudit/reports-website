@@ -78,4 +78,9 @@
     page-break-inside: avoid;
     page-break-after: avoid;
   }
+
+  // prevent rendering horizontal scrollbars in tables
+  table, .table-wrapper {
+    overflow-x: hidden;
+  }
 }
