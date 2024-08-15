@@ -31,7 +31,7 @@ yAudit Heroglyphs Review
 
 Heroglyphs provides a system of rewards that incentivizes users to become solo validators instead of joining Liquid Staking pools. This reward system is based on Graffiti, a small piece of arbitrary data validators can include in the proposed blocks' header. To fit more data into Graffiti, validators can create new or purchase existing Tickers, which encode Ethereum addresses into short custom names. The initial use case of Heroglyphs is to provide an innovative system to mine and distribute tokens, for which the protocol provides token templates that use LayerZero to enable cross-chain transactions.
 
-![Heroglyphs Architecture](./README/heroglyphs-architecture.png)
+![Heroglyphs Architecture](../../assets/images/heroglyphs/heroglyphs-architecture.png)
 
 The contracts of the Heroglyphs [Repo](https://github.com/HeroglyphEVM/heroglyph) were reviewed over 10 days. The code review was performed by 2 auditors between April 29 and May 10, 2024. The repository was under active development during the review, but the review was limited to the latest commit at the start of the review. This was commit [7d1f83c821b72568c52d3a9737c5905f61c9cae3](https://github.com/HeroglyphEVM/heroglyph/commit/7d1f83c821b72568c52d3a9737c5905f61c9cae3) for the heroglyph repo.
 
