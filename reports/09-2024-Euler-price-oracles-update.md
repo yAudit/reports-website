@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 08-2024-Goldilocks
-description: Goldilocks yAudit report
+title: 09-2024-Euler-Price-Oracles-Update
+description: Euler Price Oracles Update yAudit report
 nav_order: 65
 image: assets/images/logo.png
 ---
