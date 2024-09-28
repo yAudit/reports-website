@@ -2,7 +2,7 @@
 layout: default
 title: 09-2024-Euler-PendleOracle
 description: Euler PendleOracle yAudit report
-nav_order: 67
+nav_order: 70
 image: assets/images/logo.png
 ---
 
