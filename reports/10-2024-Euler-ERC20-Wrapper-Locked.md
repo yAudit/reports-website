@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 10-2024-Euler-ERC20-Wrapper-Locked
-description: 1Euler ERC20 Wrapper Locked yAudit report
+description: Euler ERC20 Wrapper Locked yAudit report
 nav_order: 69
 image: assets/images/logo.png
 ---
