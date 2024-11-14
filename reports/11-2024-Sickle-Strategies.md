@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 11-2024-Sickle-Strategies.md
+title: 11-2024-Sickle-Strategies
 description: Sickle Strategies yAudit Report
 nav_order: 72
 image: assets/images/logo.png
