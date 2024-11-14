@@ -22,16 +22,12 @@ The repository was not under active development during the review, and the revie
 In addition, commit [14cd3781a4e2aa3552e9d8a6d0230af57610409c](https://github.com/vfat-io/sickle-contracts/commit/14cd3781a4e2aa3552e9d8a6d0230af57610409c) was added to the review's scope. This commit reduced code complexity in FarmStrategy and NftFarmStrategy by streamlining deposit and withdrawal flows and moving reusable modifiers to transferLib.
 
 All these changes are reflected in commit [899e7aaff58320f01f4aa5a9f906d0e41599a085](https://github.com/vfat-io/sickle-public/commit/899e7aaff58320f01f4aa5a9f906d0e41599a085) of Sickle's public repo.
-  
-<div style="page-break-after: always;"></div>
 
 ## Table of Contents <!-- omit in toc -->
 {: .no_toc }
 
 1. TOC
 {:toc}
-
-<div style="page-break-after: always;"></div>
 
 ## Scope
 
@@ -63,8 +59,6 @@ This review is a code review to identify potential vulnerabilities in the code. 
 
 yAudit and the auditors make no warranties regarding the security of the code and do not warrant that the code is free from defects. yAudit and the auditors do not represent nor imply to third parties that the code has been audited nor that the code is free from defects. By deploying or using the code, Sickle and users of the contracts agree to use the code at their own risk.
 
-<div style="page-break-after: always;"></div>
-
 ## Code Evaluation Matrix
 
 | Category                 | Mark    | Description |
@@ -88,8 +82,6 @@ These are findings that range from attacks that may cause loss of funds, impact 
 Findings that can improve the gas efficiency of the contracts.
 **Informational**
 Findings including recommendations and best practices.
-
-<div style="page-break-after: always;"></div>
 
 ## Low Findings
 
@@ -161,8 +153,6 @@ Validate the `rewardConfig` argument of the [setPositionSettings](https://github
 
 Acknowledged - Fixed in [#282](https://github.com/vfat-io/sickle-contracts/pull/282)
 
-<div style="page-break-after: always;"></div>
-
 ### 2. Low - FarmStrategy functions lack enforcement of sweep tokens
 
 The FarmStrategy functions do not check if the `sweepTokens` array argument is empty. 
@@ -195,8 +185,6 @@ Add the missing modifier to the functions above.
 
 #### Developer Response
 Acknowledged - Fixed in [#290](https://github.com/vfat-io/sickle-contracts/pull/290)
-
-<div style="page-break-after: always;"></div>
 
 ## Gas Saving Findings
 
@@ -358,8 +346,6 @@ If legacy strategies do not impact the project, removing one of the approvals wo
 
 Acknowledged - Won't fix. The double reset is necessary if the user's Sickle has leftover previous USDT allowance. Much earlier versions of the strategies (used by the same Sickles) did not set it to zero, so if we changed this now some old users might not be able to use USDT.
 
-<div style="page-break-after: always;"></div>
-
 ## Informational Findings
 
 ### 1. Informational - Missing events in PositionSettingsRegistry
@@ -418,8 +404,6 @@ Use constants for readability and maintainability.
 #### Developer Response
 
 Acknowledged - Fixed in [#286](https://github.com/vfat-io/sickle-contracts/pull/286)
-
-<div style="page-break-after: always;"></div>
 
 ## Final Remarks
 
