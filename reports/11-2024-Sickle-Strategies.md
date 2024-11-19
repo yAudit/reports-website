@@ -17,6 +17,7 @@ image: assets/images/logo.png
 
 - Invader-tak
 - Devtooligan
+- Jackson
 
 ## Review Summary
 
@@ -24,12 +25,14 @@ image: assets/images/logo.png
 
 This review of Sickle protocol focused on the introduction of several new strategies to be used by the Sickles, including FarmStrategy, NftFarmStrategy, and MultiFarmStrategy, with supporting contracts and automation. 
 
-The contracts of the [Sickle Protocol repo](https://github.com/vfat-io/sickle-contracts/tree/96262fdfa694775b97a4e9407168df5b34a00429) were reviewed over 15 days. Two auditors performed the code review between September 23rd, 2024, and October 11th, 2024.
+The contracts of the [Sickle Protocol repo](https://github.com/vfat-io/sickle-contracts/tree/96262fdfa694775b97a4e9407168df5b34a00429) were reviewed over 15 days and 2 days. Two auditors performed the code review between September 23rd, 2024, and October 11th, 2024 and a third performed a code review between November 16, 2024 and November 17, 2024.
 The repository was not under active development during the review, and the review was limited to the latest commit [96262fdfa694775b97a4e9407168df5b34a00429](https://github.com/vfat-io/sickle-contracts/tree/96262fdfa694775b97a4e9407168df5b34a00429) for the Sickle repo.
 
 In addition, commit [14cd3781a4e2aa3552e9d8a6d0230af57610409c](https://github.com/vfat-io/sickle-contracts/commit/14cd3781a4e2aa3552e9d8a6d0230af57610409c) was added to the review's scope. This commit reduced code complexity in FarmStrategy and NftFarmStrategy by streamlining deposit and withdrawal flows and moving reusable modifiers to transferLib.
 
-All these changes are reflected in commit [899e7aaff58320f01f4aa5a9f906d0e41599a085](https://github.com/vfat-io/sickle-public/commit/899e7aaff58320f01f4aa5a9f906d0e41599a085) of Sickle's public repo.
+Finally, commit [330de5f40cde032194d1502f6b539bb419f30184](https://github.com/vfat-io/sickle-contracts/commit/330de5f40cde032194d1502f6b539bb419f30184) was added to the review's scope. This commit and the one before it increased the flexibility of the NftFarmStrategy and removed some functionality in some of the related connectors.
+
+All these changes are reflected in commit [330de5f40cde032194d1502f6b539bb419f30184](https://github.com/vfat-io/sickle-public/commit/330de5f40cde032194d1502f6b539bb419f30184) of Sickle's public repo.
 
 ## Table of Contents <!-- omit in toc -->
 {: .no_toc }
