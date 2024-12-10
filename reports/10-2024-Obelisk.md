@@ -5,7 +5,8 @@ description: Obelisk yAudit report
 nav_order: 71
 image: assets/images/logo.png
 ---
-# yAudit Obelisk Obelisk Review <!-- omit in toc -->
+
+# yAudit Obelisk Review <!-- omit in toc -->
 {: .no_toc }
 
 **Review Resources:**
@@ -69,17 +70,17 @@ yAudit and the auditors make no warranties regarding the security of the code an
 
 ## Code Evaluation Matrix
 
-| Category                 | Mark    | Description |
-| ------------------------ | ------- | ----------- |
+| Category                 | Mark    | Description                                                                                                                                           |
+| ------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Access Control           | Average | While most access controls are implemented properly, there are some issues, like any user being able to forfeit another user's rewards in ObeliskNFT. |
-| Mathematics              | Good    | Most mathematical operations appear correct, and issues have been found in the calculation of the shares. |
-| Complexity               | Good    | The codebase is generally well-structured and not overly complex. |
-| Libraries                | Average | Some external libraries are used appropriately, but there are opportunities for better integration, like using Cowswap for swaps. |
-| Decentralization         | Good    | The protocol appears to be designed with decentralization in mind, with appropriate use of governance and distributed systems. |
-| Code stability           | Low     | Several critical and high severity issues were found, indicating the code is not yet stable for production use. |
-| Documentation            | Low     | The code has very little to no documentation. |
-| Monitoring               | Average | Some events are emitted for key actions, but there's room for improvement in comprehensive logging and monitoring. |
-| Testing and verification | Low     | The audit noted a lack of comprehensive testing, particularly for edge cases and potential attack vectors. |
+| Mathematics              | Good    | Most mathematical operations appear correct, and issues have been found in the calculation of the shares.                                             |
+| Complexity               | Good    | The codebase is generally well-structured and not overly complex.                                                                                     |
+| Libraries                | Average | Some external libraries are used appropriately, but there are opportunities for better integration, like using Cowswap for swaps.                     |
+| Decentralization         | Good    | The protocol appears to be designed with decentralization in mind, with appropriate use of governance and distributed systems.                        |
+| Code stability           | Low     | Several critical and high severity issues were found, indicating the code is not yet stable for production use.                                       |
+| Documentation            | Low     | The code has very little to no documentation.                                                                                                         |
+| Monitoring               | Average | Some events are emitted for key actions, but there's room for improvement in comprehensive logging and monitoring.                                    |
+| Testing and verification | Low     | The audit noted a lack of comprehensive testing, particularly for edge cases and potential attack vectors.                                            |
 
 ## Findings Explanation
 
@@ -546,7 +547,7 @@ Resolved: [0cc1f855896915ffc12fbccd152c123727fdd956](https://github.com/Heroglyp
 
 In the `ChaiMoneyVault` contract, the `_beforeWithdrawal` and `claim` functions currently calculate the interest gained using a full withdrawal method. This approach is gas-inefficient and can be significantly optimized.
 
-## Technical Details
+#### Technical Details
 
 The [`_beforeWithdrawal`](https://github.com/HeroglyphEVM/Obelisk/blob/74ca9c65a1d93d2b0fbd0c15225ea500a0291353/src/services/liquidity/ChainMoney.sol#L22-L22) and [`claim`](https://github.com/HeroglyphEVM/Obelisk/blob/74ca9c65a1d93d2b0fbd0c15225ea500a0291353/src/services/liquidity/ChainMoney.sol#L40-L40) functions in the `ChaiMoneyVault` contract are currently assessing interest gains by performing a full withdrawal of Chai tokens. This method is unnecessarily gas-intensive and can be replaced more efficiently.
 
@@ -558,11 +559,11 @@ A more gas-efficient solution involves reading the `chi` value from the [`pot`](
 
 By utilizing this relationship, we can calculate the current Dai value of Chai tokens without performing any token transfers. This approach allows for accurate interest calculation with significantly reduced gas costs.
 
-## Impact
+#### Impact
 
 Gas savings.
 
-## Recommendation
+#### Recommendation
 
 1. Add the Pot contract as an immutable state variable and read the `chi` value directly from it.
 2. Update the `_beforeWithdrawal` and `claim` functions to use the `chi` value for interest calculations without performing full withdrawals.
@@ -573,7 +574,7 @@ Use this function to calculate interest in `_beforeWithdrawal` and `claim`, and 
 
 The contract will achieve significant gas savings and improved overall efficiency by implementing these changes.
 
-## Developer Response
+#### Developer Response
 
 Resolved: [82077bd29e0386c78e1550a956c6bdb3501a0a9e](https://github.com/HeroglyphEVM/Obelisk/pull/19/commits/82077bd29e0386c78e1550a956c6bdb3501a0a9e) & [d72ac03b03c84f3c894fa2990f640d1359fb8054](https://github.com/HeroglyphEVM/Obelisk/pull/19/commits/d72ac03b03c84f3c894fa2990f640d1359fb8054) & [d0f492cd9cc03e837f092d9e2625492d768405c8](https://github.com/HeroglyphEVM/Obelisk/pull/19/commits/d0f492cd9cc03e837f092d9e2625492d768405c8)
 
