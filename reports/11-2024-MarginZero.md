@@ -19,7 +19,6 @@ image: assets/images/logo.png
 - Panda
 
 ## Table of Contents <!-- omit in toc -->
-
 {: .no_toc }
 
 1. TOC
